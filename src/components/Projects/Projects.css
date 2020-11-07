@@ -1,0 +1,45 @@
+.project-card{
+    padding: 20px;
+    border-radius: 30px;
+    margin :20px -40px 20px 10px;
+    box-shadow: 2px 2px 7px 0px silver;
+    z-index: -1;
+}
+
+.college-image{
+    padding: 5px ;
+    width : 90px ;
+    background-color : white ;
+    margin-right: 10px;
+    border-radius : 50%
+}
+
+.collegeName{
+    color: black;
+    display: inline;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.requirements{
+    line-height: 12px;
+    margin-left: 20px;
+    margin-top : 10px;
+    font-size: 18px;
+    color: gray;
+}
+.content{
+    word-wrap: break-word;
+    white-space:pre-wrap;
+}
+
+.cards{
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.bookmark{
+    width: 50px;
+    position: relative;
+    top : -12.5px;
+}

@@ -1,0 +1,18 @@
+.navItem{
+    width: 24px;
+    background-color: transparent;
+    margin-right:15px;
+    margin-left:25px; 
+}
+
+.navItem :hover{
+    width: 28px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+}

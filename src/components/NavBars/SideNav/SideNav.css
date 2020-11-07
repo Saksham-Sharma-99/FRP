@@ -1,0 +1,55 @@
+.sidenav{
+    position: sticky;
+    left: 0;
+    z-index: 0;
+}
+.sideNavLink{
+    border-bottom: 0px inset silver;
+    padding:0px;
+     
+    font-family: 'Roboto' ;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 18px;
+    line-height: 22px;
+    text-decoration: none;
+    /* identical to box height */
+    color: #000000;
+    }
+    
+    .sideNavLink1{
+        width:100%;
+        margin:0px;
+        height:100%;
+        padding:13px;
+        text-decoration: none !important;
+        background-color:white;
+        color:black;
+        }
+    
+    /*.box{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #0A84B9;
+    border-radius: 1px;
+     }
+     */
+    
+    .sideNavLink{
+        width:100%;
+        margin:4px;
+        height:100%;
+        padding:13px;
+        text-decoration: none !important;
+        background-color:white;
+        color:black;
+    }
+    
+    .sideNavLink :hover{
+        background-color:  rgba(11, 131, 218, 0.1);
+        font-size: 20px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
