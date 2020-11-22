@@ -21,7 +21,7 @@ return (
         <div class="navbar-header">
             <img src={logo} style={{width: '60px', backgroundColor: 'transparent',marginRight:'15px', marginLeft:'25px' , borderRadius : "50%"}}> 
             </img>
-           <Link to = '/projects'><a class="navbar-header navbar-brand" style={{fontSize:'30px',fontWeight:"bolder", fontFamily:'Tw !important' , color:"white"}} href = "/"> Foreign Research Portal</a></Link>
+           <Link to = '/'><a class="navbar-header navbar-brand" style={{fontSize:'30px',fontWeight:"bolder", fontFamily:'Tw !important' , color:"white"}} href = "/"> Foreign Research Portal</a></Link>
          </div>
 
       

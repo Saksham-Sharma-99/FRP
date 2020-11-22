@@ -24,7 +24,7 @@ function Home(props){
                             <AuthRoute
                                 authenticated={props.isLoggedIn}
                                 redirectTo='/auth'
-                                path='/projects'
+                                path='/'
                                 component={Projects}/>
                             <AuthRoute
                                 authenticated={props.isLoggedIn}
