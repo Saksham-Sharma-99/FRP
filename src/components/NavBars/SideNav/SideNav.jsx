@@ -6,7 +6,7 @@ import "./SideNav.css"
 
 
 
-function SideNav(){
+function SideNavStuff(){
     return (
         <div className="container-fluid sidnav"   align="left"><br/>
         
@@ -32,6 +32,19 @@ function SideNav(){
         </div>
 
     );
+}
+
+function SideNav(props){
+   return( <div className="col-sm-2" style={{
+        borderbottom: '0px inset silver',
+        padding: '0px',
+        margin: '0px',
+        height: '90.5vh',
+        boxShadow: '2px 2px 7px 0px silver',
+        position : "fixed",
+        zIndex: "0"}}>
+          <SideNavStuff/>
+    </div>)
 }
 
 export default SideNav;

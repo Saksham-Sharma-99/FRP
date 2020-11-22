@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import {logo,notif,chat,profile} from "./assets";
 import "./Header.css"
 
@@ -20,7 +21,7 @@ return (
         <div class="navbar-header">
             <img src={logo} style={{width: '60px', backgroundColor: 'transparent',marginRight:'15px', marginLeft:'25px' , borderRadius : "50%"}}> 
             </img>
-            <a class="navbar-header navbar-brand" style={{fontSize:'30px',fontWeight:"bolder", fontFamily:'Tw !important' , color:"white"}} href = "/"> Foreign Research Portal</a>
+           <Link to = '/projects'><a class="navbar-header navbar-brand" style={{fontSize:'30px',fontWeight:"bolder", fontFamily:'Tw !important' , color:"white"}} href = "/"> Foreign Research Portal</a></Link>
          </div>
 
       
