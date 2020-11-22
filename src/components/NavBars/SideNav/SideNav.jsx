@@ -11,7 +11,7 @@ function SideNavStuff(){
         <div className="container-fluid sidnav"   align="left"><br/>
         
             <div className="row sideNavLink">
-                <Link to="/" id="projects"  align="left" style={{paddingLeft:'17%'}} className="col-sm-12"><span><img style={{width:'10px'}} src={blueBox}></img></span> &nbsp; Projects</Link>
+                <Link to="/projects" id="projects"  align="left" style={{paddingLeft:'17%'}} className="col-sm-12"><span><img style={{width:'10px'}} src={blueBox}></img></span> &nbsp; Projects</Link>
             </div>
             <div className="row sideNavLink" align="center">
                 <Link to="/bookmarks" align="left" style={{paddingLeft:'17%'}} id="bookmarks" className="col-sm-12"><span><img style={{width:'10px'}} src={blueBox}></img></span> &nbsp; Bookmarks</Link>

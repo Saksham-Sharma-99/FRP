@@ -11,7 +11,7 @@ function Home(props){
     return (
         <div className="row" align="center" style={{width: '100%'}}>
                
-            <SideNav show = {true}/>
+            <SideNav show = {props.showSideNav}/>
 
             <div className="col-sm-10" 
             style={{margin: '0px',
@@ -24,7 +24,7 @@ function Home(props){
                             <AuthRoute
                                 authenticated={props.isLoggedIn}
                                 redirectTo='/auth'
-                                path='/'
+                                path='/projects'
                                 component={Projects}/>
                             <AuthRoute
                                 authenticated={props.isLoggedIn}
