@@ -35,6 +35,7 @@ function SideNavStuff(){
 }
 
 function SideNav(props){
+    if (props.show){
    return( <div className="col-sm-2" style={{
         borderbottom: '0px inset silver',
         padding: '0px',
@@ -44,7 +45,10 @@ function SideNav(props){
         position : "fixed",
         zIndex: "0"}}>
           <SideNavStuff/>
-    </div>)
+    </div>)}
+    else{
+        return null
+    }
 }
 
 export default SideNav;
