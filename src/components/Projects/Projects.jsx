@@ -30,13 +30,13 @@ function Details(props){
                     <div className="col-sm">
                         <div className="row"> 
                        
-                            <div className = "col-10">
+                            <div className = "col">
                                 <p className="requirements">Cg Required : {props.cg}</p> 
                                 <p className="requirements">Branch      : {props.branch}</p>
                                 <p className="requirements">Deadline    : {props.deadline}</p>
                             </div>
                             <Link to = "#"onClick = {()=>setLightMode(!bookmarked)} >
-                                <div className="col-2 bookmark" >
+                                <div className="col bookmark" >
                                     <img  className= "bookmark" 
                                     src={bookmarked ? bmkt : bmkf} />  
                                 </div>

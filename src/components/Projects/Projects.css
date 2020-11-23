@@ -27,6 +27,7 @@
     margin-top : 10px;
     font-size: 18px;
     color: gray;
+    line-height: 1.3rem;
 }
 .content{
     word-wrap: break-word;

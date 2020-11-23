@@ -17,11 +17,15 @@
 
 }
 .dropdown-menu {
-    background-color: #f1f6f9;
+    border: 5px #f1f6f9;
     height: 400px;
     overflow-y: scroll;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
+  }
+
+  .dropdown-toggle::after{
+      content: none;
   }
   .dropdown-menu :hover{
       background-color:lightblue;

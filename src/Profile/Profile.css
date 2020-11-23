@@ -1,0 +1,17 @@
+.profile-image{
+    height: 150px;
+    width: 150px;
+    
+    border-radius: 50%;
+}
+
+.student-details{
+    margin: 8px;
+    
+}
+
+.others{
+    color: gray;
+    font-size: 18px;
+    margin: 5px;
+}
