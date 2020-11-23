@@ -17,11 +17,12 @@
 
 }
 .dropdown-menu {
-    border: 5px #f1f6f9;
+    border: 0.1px solid;
     height: 400px;
     overflow-y: scroll;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
+    box-shadow: 10px 10px 20px rgb(146, 145, 145);
   }
 
   .dropdown-toggle::after{
