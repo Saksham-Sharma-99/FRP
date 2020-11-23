@@ -1,6 +1,17 @@
 import React from "react"
 import {profileImage} from "./assets"
+import ReactDOM from "react-dom"
 import "./Profile.css"
+import App from "../App"
+
+
+window.onbeforeunload = (e) => {
+    // I'm about to refresh! do something...
+    ReactDOM.render(
+        <App showSideNav ={true}/>,
+      document.getElementById('root')
+    );
+    };
 
 
 function PersonalDetails(props){
