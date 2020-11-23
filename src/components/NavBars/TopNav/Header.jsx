@@ -2,8 +2,10 @@ import React,{useState} from "react";
 import ReactDOM from 'react-dom'
 import {Link} from "react-router-dom";
 import {logo,notif,chat,profile} from "./assets";
+import {Dropdown} from "react-bootstrap"
 import App from "../../../App"
 import "./Header.css"
+import Notifications from './Notifications.js'
 
 
 function NavItem(props){
@@ -55,12 +57,25 @@ return (
           </li></Link>
 
           <li class = "nav-item "> 
-            <a class="nav-link" href="#" >
-              <img  className = "navItem" src ={notif} />
-            </a>
+          <Dropdown >
+            <Dropdown.Toggle variant="success" id="dropdown-basic" style={{
+              backgroundColor : "transparent",
+              border : '0'
+            }} >
+            <img  className = "navItem" src ={notif} />
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu style = {{zIndex : "1" }}>
+              {Notifications.map(notifData => 
+              <Dropdown.Item href={notifData.action}>
+                {notifData.notif.substr(0,40)}...
+              </Dropdown.Item>)}
+            </Dropdown.Menu>
+          </Dropdown>
+            
           </li>
 
-          <Link to='/profile'><li class = "nav-item "> 
+          <Link to='/profile' onClick = {HideNav}><li class = "nav-item "> 
             <a class="nav-link" href="#" >
               <img  className = "navItem" src ={profile} />
             </a>

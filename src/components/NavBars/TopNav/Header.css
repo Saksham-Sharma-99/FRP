@@ -16,3 +16,13 @@
     z-index: 1;
 
 }
+.dropdown-menu {
+    background-color: #f1f6f9;
+    height: 400px;
+    overflow-y: scroll;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+  .dropdown-menu :hover{
+      background-color:lightblue;
+  }

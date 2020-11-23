@@ -1,13 +1,15 @@
 import React from "react"
+import ReactDOM from "react-dom"
 import {AuthRoute} from 'react-router-auth';
 import {HashRouter, Switch} from 'react-router-dom';
 
 import SideNav from "./components/NavBars/SideNav/SideNav";
 import Results from './components/Results/Results';
-import Projects from "./components/Projects/Projects.jsx";
+import Projects,{Bookmarks} from "./components/Projects/Projects.jsx";
 
 
 function Home(props){
+    if (props.showSideNav){
     return (
         <div className="row" align="center" style={{width: '100%'}}>
                
@@ -30,7 +32,7 @@ function Home(props){
                                 authenticated={props.isLoggedIn}
                                 redirectTo='/auth'
                                 path='/bookmarks'
-                                component={Projects}/>
+                                component={Bookmarks}/>
                             <AuthRoute
                                 authenticated={props.isLoggedIn}
                                 redirectTo='/auth'
@@ -41,7 +43,10 @@ function Home(props){
             </div>
 
         </div>
-    )
+    )}
+    else{
+        return null
+    }
 }
 
 export default Home;
