@@ -1,6 +1,6 @@
 import React from "react"
 import "./Resume.css"
-import resume from "./Resume"
+import {resume} from "./ResumeData"
 
 
 function Details1(props){
@@ -119,4 +119,4 @@ function Resume(){
     )
 }
 
-export default Resume
+export default Resume;

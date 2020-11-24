@@ -84,4 +84,4 @@ var resume = [
         ]}
 ]
 
-export default resume
+export {resume}
