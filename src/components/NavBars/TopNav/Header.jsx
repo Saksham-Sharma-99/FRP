@@ -74,12 +74,14 @@ return (
           </Dropdown>
             
           </li>
-
-          <Link to='/profile' onClick = {HideNav}><li class = "nav-item "> 
+          
+          <Link to='/profile' onClick = {HideNav}>
+          <li class = "nav-item "> 
             <a class="nav-link" href="#" >
               <img  className = "navItem" src ={profile} />
             </a>
-          </li></Link>
+          </li>
+          </Link>
 
       </ul>
       

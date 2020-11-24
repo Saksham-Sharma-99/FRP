@@ -1,18 +1,13 @@
 import React from "react"
 import {profileImage} from "./assets"
-import ReactDOM from "react-dom"
+import {AuthRoute} from 'react-router-auth';
+import {HashRouter, Switch} from 'react-router-dom';
 import "./Profile.css"
-import App from "../App"
+import SideNav from "./components/SideNav/SideNav"
 
-
-window.onbeforeunload = (e) => {
-    // I'm about to refresh! do something...
-    ReactDOM.render(
-        <App showSideNav ={true}/>,
-      document.getElementById('root')
-    );
-    };
-
+import {Bookmarks} from "../components/Projects/Projects.jsx";
+import Resume from "./components/Resume/Resume"
+import Documents from "./components/Documents/Documents"
 
 function PersonalDetails(props){
     return(
@@ -61,9 +56,41 @@ function Profile(){
 
             </div>
 
-            <hr></hr>
+            <hr style ={{width : "99%" ,zIndex:"-1"}}/>
 
             <div className = "row">
+                <SideNav show={true}/>  
+
+                <div className="col-sm-10" 
+                    style={{margin: '0px',
+                    padding: '0px',
+                    // position: "relative" ,
+                    // left : "0%", 
+                    // zIndex: "1",
+                    msOverflowStyle : "none",
+                    height:"63.5vh",
+                    overflowY : "scroll"
+                    }} align="left">
+                    <HashRouter>
+                        <Switch>
+                            <AuthRoute
+                                authenticated={true}
+                                redirectTo='/auth'
+                                path='/profile/resume'
+                                component={Resume}/>
+                            <AuthRoute
+                                authenticated={true}
+                                redirectTo='/auth'
+                                path='/profile/documents'
+                                component={Documents}/>
+                            <AuthRoute
+                                authenticated={true}
+                                redirectTo='/auth'
+                                path='/profile/bookmarks'
+                                component={Bookmarks}/>
+                        </Switch>
+                    </HashRouter>  
+                 </div>
 
             </div>
 

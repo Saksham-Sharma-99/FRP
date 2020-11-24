@@ -1,0 +1,19 @@
+.resume-details{
+    line-height: 1.2rem;
+}
+
+.heading{
+    margin: 20px 0 20px 0;
+}
+
+.resume-hr{
+    border-style: dotted;
+    border-width: 0.5rem;
+    width: 10%;
+    border-bottom: 0;
+    border-right: 0;
+    border-left: 0;
+    color: ghostwhite;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}

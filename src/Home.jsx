@@ -18,9 +18,13 @@ function Home(props){
             <div className="col-sm-10" 
             style={{margin: '0px',
                     padding: '0px',
-                    position: "relative" ,
-                    left : "17%", 
-                    zIndex: "-1"}} align="left">
+                    // position: "relative" ,
+                    // left : "0%", 
+                    // zIndex: "1",
+                    msOverflowStyle : "none",
+                    height:"90.5vh",
+                    overflowY : "scroll"
+                    }} align="left">
                     <HashRouter>
                         <Switch>
                             <AuthRoute

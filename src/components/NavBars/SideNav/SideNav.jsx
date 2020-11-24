@@ -42,7 +42,7 @@ function SideNav(props){
         margin: '0px',
         height: '90.5vh',
         boxShadow: '2px 2px 7px 0px silver',
-        position : "fixed",
+        // position : "fixed",
         zIndex: "0"}}>
           <SideNavStuff/>
     </div>)}
