@@ -36,7 +36,7 @@ function SideNavStuff(){
 
 function SideNav(props){
     if (props.show){
-   return( <div className="col-sm-2" style={{
+   return( <div className="col-2" style={{
         borderbottom: '0px inset silver',
         padding: '0px',
         margin: '0px',

@@ -15,7 +15,7 @@ function Home(props){
                
             <SideNav show = {props.showSideNav}/>
 
-            <div className="col-sm-10" 
+            <div className="col-10" 
             style={{margin: '0px',
                     padding: '0px',
                     // position: "relative" ,

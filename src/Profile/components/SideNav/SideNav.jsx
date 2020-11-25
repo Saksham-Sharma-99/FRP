@@ -38,7 +38,7 @@ function SideNav(props){
         position : "relative",
         top :"-2vh",
         left:"-8vh",
-        zIndex: "1"}}>
+        zIndex: "0"}}>
           <SideNavStuff/>
     </div>)}
     else{

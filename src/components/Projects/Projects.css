@@ -8,7 +8,8 @@
 
 .college-image{
     padding: 5px ;
-    width : 90px ;
+    width : 110px ;
+    height :110px;
     background-color : white ;
     margin-right: 10px;
     border-radius : 50%
@@ -17,7 +18,7 @@
 .collegeName{
     color: black;
     display: inline;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
 }
 
