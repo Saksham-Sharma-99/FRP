@@ -8,15 +8,49 @@ import {results,resultCategories} from "./resultsData"
 
 function Category(props){
     return (
-        <div className ="row result-category">                   
-            <p> {props.category}</p>
+        <div className ="row result-category" > 
+            <div className = "col-2">
+                <p> {props.c1}</p>
+            </div>  
+            <div className = "col-2">
+                <p> {props.c2}</p>
+            </div>  
+            <div className = "col-2">
+                <p> {props.c3}</p>
+            </div>  
+            <div className = "col-2">
+                <p> {props.c4}</p>
+            </div>  
+            <div className = "col-2">
+                <p> {props.c5}</p>
+            </div>  
+            <div className = "col-2">
+                <p> {props.c6}</p>
+            </div>                  
          </div>
     )
 }
 function CategoryData(props){
     return (
         <div className ="row result-content">
-            <p> {props.data}</p>
+            <div className = "col">
+                <p> {props.c1}</p>
+            </div>  
+            <div className = "col">
+                <p> {props.c2}</p>
+            </div>  
+            <div className = "col">
+                <p> {props.c3}</p>
+            </div>  
+            <div className = "col">
+                <p> {props.c4}</p>
+            </div>  
+            <div className = "col">
+                <p> {props.c5}</p>
+            </div>  
+            <div className = "col">
+                <p> {props.c6}</p>
+            </div> 
         </div>
     )
 }
@@ -24,7 +58,7 @@ function CategoryData(props){
 // function Content (props){
 //     return (
 //         <div className = "col-sm">
-//                         {resultCategories.map(data => <Category category = {props.category}/>)}
+//                         {resultCategories.map((d)=>d.map(data => <Category category = {props.category}/>)}
 //                         {results.map(data => <CategoryData  data = {props.data}/>)}
 //                     </div>
 //     )
@@ -35,39 +69,17 @@ function Results(){
     return (
         <div className = "container-fluid">
             <div className = "container">
-                <div className="row">
+                <Category c1={resultCategories.map((d)=>d.college)} 
+                    c2={resultCategories.map((d)=>d.projectCategory)}
+                    c3={resultCategories.map((d)=>d.appliedOn)}  
+                    c4={resultCategories.map((d)=>d.status)}
+                    c5={resultCategories.map((d)=>d.numOfApplicants)} 
+                    c6={resultCategories.map((d)=>d.application)}
+                />
 
-                    <div className = "col-sm">
-                        {resultCategories.map(data => <Category category = {data.college}/>)}
-                        {results.map(data => <CategoryData  data = {data.college}/>)}   
-                    </div>
-
-                    <div className = "col-sm">
-                        {resultCategories.map(data => <Category category = {data.projectCategory}/>)}
-                        {results.map(data => <CategoryData  data = {data.projectCategory}/>)}
-                    </div>
-
-                    <div className = "col-sm">
-                        {resultCategories.map(data => <Category category = {data.appliedOn}/>)}
-                        {results.map(data => <CategoryData  data = {data.appliedOn}/>)}
-                    </div>
-
-                    <div className = "col-sm">
-                        {resultCategories.map(data => <Category category = {data.status}/>)}
-                        {results.map(data => <CategoryData  data = {data.status}/>)}
-                    </div>
-
-                    <div className = "col-sm">
-                        {resultCategories.map(data => <Category category = {data.numOfApplicants}/>)}
-                        {results.map(data => <CategoryData  data = {data.numOfApplicants}/>)}
-                    </div>
-
-                    <div className = "col-sm">
-                        {resultCategories.map(data => <Category category = {data.application}/>)}
-                        {results.map(data => <CategoryData  data = {data.application}/>)}
-                    </div>
-
-                </div>
+                {results.map((r)=>
+                <CategoryData c1={r.college} c2={r.projectCategory} c3={r.appliedOn} 
+                c4={r.status} c5={r.numOfApplicants} c6 = {r.application}/>)}
             </div>
         </div>
     )

@@ -34,6 +34,7 @@ function SideNav(props){
         padding: '0px',
         margin: '0px',
         height: '64.5vh',
+        width: "250px",
         boxShadow: '2px 2px 7px 0px silver',
         position : "relative",
         top :"-2vh",

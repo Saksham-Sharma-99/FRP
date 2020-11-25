@@ -53,7 +53,7 @@ return (
     <Nav>
 
 
-      <NavDropdown title={<div className="pull-right">
+      <NavDropdown title={<div className="pull-right" >
         <img className="thumbnail-image navItem pull-right" src={notif}/>
       </div>} id="collasible-nav-dropdown" >
         {Notifications.map(notifData => 

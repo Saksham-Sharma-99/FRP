@@ -10,15 +10,17 @@ import Projects,{Bookmarks} from "./components/Projects/Projects.jsx";
 
 function Home(props){
     if (props.showSideNav){
+        var pt = visualViewport.width>991 ? "80px" : "0px"
     return (
         <div className="row" align="center" style={{width: '100%'}}>
                
             <SideNav show = {props.showSideNav}/>
 
-            <div className="col-10" 
+            <div className="col-lg-10" 
             style={{margin: '0px',
-                    padding: '0px',
-                    // position: "relative" ,
+                    paddingBottom: "50px",
+                    position: "relative" ,
+                    // top:"8vh",
                     // left : "0%", 
                     // zIndex: "1",
                     msOverflowStyle : "none",

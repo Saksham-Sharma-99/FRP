@@ -11,7 +11,7 @@ import Documents from "./components/Documents/Documents"
 
 function PersonalDetails(props){
     return(
-        <div className = "col-sm">
+        <div className = "col-lg">
 
             <div className="row"> 
                 <div className = "col-lg-6" >
@@ -30,9 +30,9 @@ function PersonalDetails(props){
 
 function AcademicDetails(props){
     return(
-        <div className="col-md">
+        <div className="col-lg">
             <div className="row"> 
-                <div className = "col-sm">
+                <div className = "col-lg">
                     <p className="others" style={{marginTop:"20px"}}>Branch : {props.br}</p>
                     <p className="others" >Current CGPA : {props.cg}</p>
                     <p className="others">Semester : {props.sem}</p>
