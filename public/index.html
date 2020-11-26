@@ -24,8 +24,10 @@
     -->
   </body>
   <script>
-    
-    if (performance.navigation.type == performance.navigation.TYPE_RELOAD) 
-    { window.location.replace('#projects');}   
+    var firstarival = true
+    if (performance.navigation.type == performance.navigation.TYPE_RELOAD || firstarival) 
+    { window.location.replace('#projects');
+    firstarival = false
+  }   
   </script>
 </html>

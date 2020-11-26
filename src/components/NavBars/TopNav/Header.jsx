@@ -77,26 +77,44 @@ return (
         <RiUserFill className="chatIcon" />
       </div>} id="collasible-nav-dropdown" >
 
-        <NavDropdown.Item >
-            <Link to='/profile/resume' onClick = {HideNav}>
+        <NavDropdown.Item href="#profile/resume" onClick={HideNav} >
               <div className = "container-fluid">
-              <div className ="col-2">
-              <img  className = "navItem" src ={profileImage} style={{height:"35px",width:"35px"}}/>
+              <div className ="col-1">
+              <img  className = "navItem" src ={profileImage} 
+              style={{height:"55px",width:"55px",borderRadius:"50%",
+              backgroundColor:"lightgray" , position:"relative" , right:"40px"}}/>
               </div>
-              <div className="col-10">
-              <h4 style={{marginTop:"10px"}}>Student Name</h4>
+              <div className="col-8">
+              <div className="row">
+              <h5 style={{marginTop:"10px"}}>Student Name</h5>
+              </div>
+              <div className="row">
+              <h6 style={{marginTop:"10px"}}>Student</h6>
               </div>
               </div>
-            </Link> 
+              </div>
         </NavDropdown.Item>
+
           <hr style={{margin:"0"}}/>
 
-        <NavDropdown.Item href="/logout">
-          <h5 style={{textAlign:"left"}}>Logout</h5>
+        <NavDropdown.Item href="#projects" onClick={ShowNav}>
+          <h6 style={{textAlign:"center"}}>Home</h6>
+        </NavDropdown.Item>
+
+        <NavDropdown.Item href="#">
+          <h6 style={{textAlign:"center"}}>Edit Resume</h6>
+        </NavDropdown.Item>
+
+        <NavDropdown.Item href="#profile/documents" onClick={HideNav}>
+          <h6 style={{textAlign:"center"}}>Manage Documents</h6>
         </NavDropdown.Item>
         
         <NavDropdown.Item href="https://ir.iitr.ac.in/IR_Cell_ContactUs/">
-          <p style={{textAlign:"left"}}>Contact Us</p>
+          <h6 style={{textAlign:"center"}}>Contact Us</h6>
+        </NavDropdown.Item>
+
+        <NavDropdown.Item href="#logout">
+          <h6 style={{textAlign:"center"}}>Logout</h6>
         </NavDropdown.Item>
 
       </NavDropdown>
