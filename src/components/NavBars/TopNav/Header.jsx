@@ -7,7 +7,7 @@ import {Navbar,Dropdown,Nav,NavDropdown} from "react-bootstrap"
 import App from "../../../App"
 import "./Header.css"
 import Notifications from './Notifications.js'
-import {BsFillChatSquareFill} from "react-icons/bs"
+import {MdMessage} from "react-icons/md"
 import {FaBell} from "react-icons/fa"
 import {RiUserFill,RiMessageFill} from "react-icons/ri"
 
@@ -59,7 +59,7 @@ return (
 
 
       <NavDropdown title={<div className="pull-right" >
-      <FaBell style={{fill:"white", height:"30px" ,width:"30px" ,border:"1px solid",borderRadius:"50%" ,padding:"3px"}} />
+      <FaBell className="chatIcon"   />
       </div>} id="collasible-nav-dropdown" >
         {Notifications.map(notifData => 
               <NavDropdown.Item href={notifData.action}>
@@ -69,12 +69,12 @@ return (
 
       <Nav.Link>
         <Link to='/chats' onClick = {HideNav}>
-          <BsFillChatSquareFill style={{fill:"white", height:"30px" ,width:"30px" ,border:"1px solid",borderRadius:"50%" ,padding:"3px"}}/>
+          <MdMessage className="chatIcon" />
         </Link>
       </Nav.Link>
 
       <NavDropdown title={<div className="pull-left">
-        <RiUserFill style={{fill:"white", height:"30px" ,width:"30px" ,border:"1px solid",borderRadius:"50%" ,padding:"3px"}}/>
+        <RiUserFill className="chatIcon" />
       </div>} id="collasible-nav-dropdown" >
 
         <NavDropdown.Item >

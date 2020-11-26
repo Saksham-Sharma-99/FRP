@@ -2,6 +2,11 @@ import React from "react"
 import {Link} from "react-router-dom";
 import blueBox from "./assets/blueBox.png";
 import "./SideNav.css"
+import {AiFillBook} from "react-icons/ai"
+import {GoBookmark} from "react-icons/go"
+import {HiDocumentDuplicate} from "react-icons/hi"
+import {RiArticleFill} from "react-icons/ri"
+import {GiTeamIdea} from "react-icons/gi"
 
 
 
@@ -11,13 +16,13 @@ function SideNavStuff(){
         <div className="container-fluid sidnav"   align="left"><br/>
         
             <div className="row sideNavLink">
-                <Link to="/projects" id="projects"  align="left" style={{paddingLeft:'17%'}} className="col-sm-12"><span><img style={{width:'10px'}} src={blueBox}></img></span> &nbsp; Projects</Link>
+                <Link to="/projects" id="projects"  align="left" style={{paddingLeft:'17%'}} className="col-sm-12"><span><AiFillBook  size="30px"/></span> &nbsp; Projects</Link>
             </div>
             <div className="row sideNavLink" align="center">
-                <Link to="/bookmarks" align="left" style={{paddingLeft:'17%'}} id="bookmarks" className="col-sm-12"><span><img style={{width:'10px'}} src={blueBox}></img></span> &nbsp; Bookmarks</Link>
+                <Link to="/bookmarks" align="left" style={{paddingLeft:'17%'}} id="bookmarks" className="col-sm-12"><span><GoBookmark size="30px"/></span> &nbsp; Bookmarks</Link>
             </div>
             <div className="row sideNavLink" align="center">
-                <Link to="/results" align="left" style={{paddingLeft:'17%'}} id="results" className="col-sm-12"><span><img style={{width:'10px'}} src={blueBox}></img></span> &nbsp; Results</Link>
+                <Link to="/results" align="left" style={{paddingLeft:'17%'}} id="results" className="col-sm-12"><span><HiDocumentDuplicate size="30px"/></span> &nbsp; Results</Link>
             </div>
             <hr/>
             <div className="row sideNavLink" align="center">
@@ -40,27 +45,25 @@ function BottomNavStuff(){
         
             <div className="col-2">
                 <Link to="/projects" id="projects"  align="center" style={{paddingLeft:'17%'}} >
-                    <img style={{width:'10px'}} src={blueBox}></img> <br/> <p>Projects</p>
+                <AiFillBook  size="30px"/> <br/> <p>Projects</p>
                 </Link>
             </div>
             <div className="col-2" align="center">
                 <Link to="/bookmarks" align="center" style={{paddingLeft:'17%'}} id="bookmarks" >
-                    <img style={{width:'10px'}} src={blueBox}></img>  <br/><p>Bookmarks</p>
+                <GoBookmark size="30px"/>  <br/><p>Bookmarks</p>
                 </Link>
             </div>
             <div className="col-2" align="center">
                 <Link to="/results" align="center" style={{paddingLeft:'17%'}} id="results" >
-                    <img style={{width:'10px'}} src={blueBox}></img>  <br/><p>Results</p>
+                <HiDocumentDuplicate size="30px"/>  <br/><p>Results</p>
                 </Link>
             </div>
             <hr/>
             <div className="col-2" align="center">
-                <img style={{width:'10px'}} src={blueBox}></img>  <br/>
-                <a href="https://medium.com/@ircell/" target="iriitr" id="experience" className="sideNavLink1">Experience</a>
+                <a href="https://medium.com/@ircell/" target="iriitr" id="experience" className="sideNavLink1"><RiArticleFill size="30px"/></a>
             </div>
             <div className="col-2" align="center">
-                <img style={{width:'10px'}} src={blueBox}></img>  <br/>
-                <a href="https://ir.iitr.ac.in/IR_Cell_ContactUs/" target="ircteam" id="team" className="sideNavLink1">Team</a>
+                <a href="https://ir.iitr.ac.in/IR_Cell_ContactUs/" target="ircteam" id="team" className="sideNavLink1"><GiTeamIdea size="30px"/></a>
             </div>
 
         </div>

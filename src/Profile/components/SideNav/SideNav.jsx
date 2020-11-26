@@ -1,6 +1,9 @@
 import React from "react"
 import {Link} from "react-router-dom";
 import blueBox from "../../../components/NavBars/SideNav/assets/blueBox.png";
+import {GoBookmark} from "react-icons/go"
+import {HiDocumentReport} from "react-icons/hi"
+import {IoIosDocument} from "react-icons/io"
 import "./SideNav.css"
 
 
@@ -11,14 +14,14 @@ function SideNavStuff(){
         <div className="container-fluid sidnav"   align="left"><br/>
         
             <div className="row sideNavLink2">
-                <Link to="/profile/resume" id="resume"  align="left" style={{paddingLeft:'17%'}} className="col-sm-12"><span><img style={{width:'10px'}} src={blueBox}></img></span> &nbsp; Resume</Link>
+                <Link to="/profile/resume" id="resume"  align="left" style={{paddingLeft:'10%'}} className="col-sm-12"><span><HiDocumentReport size="20px"/> </span> &nbsp; <b style={{fontSize:"18px"}}>Resume</b></Link>
             </div>
             <div className="row sideNavLink2" align="center">
-                <Link to="/profile/documents" align="left" style={{paddingLeft:'17%'}} id="documents" className="col-sm-12"><span><img style={{width:'10px'}} src={blueBox}></img></span> &nbsp; Documents</Link>
+                <Link to="/profile/documents" align="left" style={{paddingLeft:'10%'}} id="documents" className="col-sm-12"><span><IoIosDocument size="20px"/></span> &nbsp; <b style={{fontSize:"18px"}}>Documents</b></Link>
             </div>
             <hr/>
             <div className="row sideNavLink2" align="center">
-            <Link to="/profile/bookmarks" align="left" style={{paddingLeft:'17%' , color:"black"}} id="bookmarks" className="col-sm-12">Bookmarks</Link>
+            <Link to="/profile/bookmarks" align="left" style={{paddingLeft:'10%' , color:"black"}} id="bookmarks" className="col-sm-12">Bookmarks</Link>
             </div>
             <hr />
 
@@ -33,19 +36,19 @@ function MidNavStuff(){
         
             <div className="col-2">
             <Link to="/profile/resume" id="resume"  align="center" style={{paddingLeft:'17%'}} >
-                    <img style={{width:'10px'}} src={blueBox}></img> <br/> <p>Resume</p>
+                    <HiDocumentReport size="30px"/> <br/> <p>Resume</p>
                 </Link>
             </div>
             <div className="col-2" align="center">
             <Link to="/profile/documents" id="documents"  align="center" style={{paddingLeft:'17%'}} >
-                    <img style={{width:'10px'}} src={blueBox}></img> <br/> <p>Documents</p>
+                    <IoIosDocument size="30px"/> <br/> <p>Documents</p>
                 </Link>
             </div>
             <hr/>
             <div className="col-2" align="center">
                 <Link to="/profile/bookmarks" align="left" style={{paddingLeft:'17%' , color:"black"}} 
                 id="bookmarks" className="col-sm-12">
-                <img style={{width:'10px'}} src={blueBox}></img> <br/> <p>Bookmarks</p></Link>
+                <GoBookmark size="30px"/> <br/></Link>
             </div>
         </div>
     );

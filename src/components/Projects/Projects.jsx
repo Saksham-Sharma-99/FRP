@@ -6,6 +6,7 @@ import {bmkf,bmkt} from "./assets"
 import {Link} from "react-router-dom"
 import {HashRouter, Switch} from 'react-router-dom';
 import {AuthRoute} from 'react-router-auth';
+import {BsFillBookmarkFill} from "react-icons/bs"
 
 
 function Details(props){
@@ -41,8 +42,8 @@ function Details(props){
                         </div>
                         <Link to = "#"onClick = {()=>setLightMode(!bookmarked)} >
                             <div className="col bookmark" >
-                                <img  className= "bookmark" 
-                                src={bookmarked ? bmkt : bmkf} />  
+                                <BsFillBookmarkFill className="bookmarkIcon"color={bookmarked ? "red":"lightgray"}
+                                />  
                             </div>
                         </Link>
 

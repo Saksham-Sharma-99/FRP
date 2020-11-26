@@ -48,7 +48,7 @@
     
     .sideNavLink :hover{
         background-color:  rgba(11, 131, 218, 0.1);
-        font-size: 20px;
+        font-size: 1.15rem;
         text-decoration: none;
         cursor: pointer;
     }
