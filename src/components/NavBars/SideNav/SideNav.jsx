@@ -82,7 +82,6 @@ function SideNav(props){
         zIndex: "0"}}>
           <SideNavStuff/>
     </div>)}else{
-        var width = String(visualViewport.width+2)
         return (
             <div className="col-lg-2" style={{
                 borderbottom: '0px inset silver',
@@ -92,7 +91,6 @@ function SideNav(props){
                 height: '60px',
                 bottom:"0px",
                 right:"0px",
-                width:{width},
                 boxShadow: '2px 5px 5px 7px silver',
                 // borderTop:"solid",
                 // border:"0.1px solid",

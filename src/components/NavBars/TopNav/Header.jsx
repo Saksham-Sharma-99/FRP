@@ -44,7 +44,9 @@ return (
   <Navbar.Brand href="#">
     <img src={logo} style={{width: '60px', backgroundColor: 'transparent',marginRight:'15px',
     marginLeft:'25px' , borderRadius : "50%"}}/> 
-    <Link to = '/projects' onClick = {ShowNav}><a class="navbar-header navbar-brand" style={{fontSize:'30px',fontWeight:"bolder", fontFamily:'Tw !important' , color:"white"}} href = "/"> Foreign Research Portal</a></Link>
+    <Link to = '/projects' onClick = {ShowNav}><a class="navbar-header navbar-brand" style={{fontSize:'30px',
+    fontWeight:"bolder", fontFamily:'Tw !important' , color:"white"}} href = "/"> Foreign Research Portal</a>
+    </Link>
   </Navbar.Brand>
 
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
