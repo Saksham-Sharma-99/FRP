@@ -27,7 +27,7 @@
     box-shadow: 5px 20px 40px rgba(146, 145, 145, 0.678);
     position: relative;
     right: 100px;
-    left: -280px;
+    left: -290px;
     border-style: none;
     padding-bottom: 0;
     background-color: rgba(255, 255, 255, 0);
@@ -36,7 +36,7 @@
       content: "";
       position: absolute;
       top:-11px;
-      right:12px;
+      right:26px;
       border: 10px solid;
       border-color: transparent transparent white transparent;
   }
@@ -51,3 +51,5 @@
   .dropdown-menu :hover{
       background-color:lightblue;
   }
+
+ 

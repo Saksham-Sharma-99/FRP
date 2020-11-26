@@ -1,12 +1,15 @@
 import React,{useState} from "react";
 import ReactDOM from 'react-dom'
 import {Link} from "react-router-dom";
-import {logo,notif,chat,profile} from "./assets";
+import {logo} from "./assets";
 import {profileImage} from "../../../Profile/assets"
 import {Navbar,Dropdown,Nav,NavDropdown} from "react-bootstrap"
 import App from "../../../App"
 import "./Header.css"
 import Notifications from './Notifications.js'
+import {BsFillChatSquareFill} from "react-icons/bs"
+import {FaBell} from "react-icons/fa"
+import {RiUserFill,RiMessageFill} from "react-icons/ri"
 
 
 function NavItem(props){
@@ -56,7 +59,7 @@ return (
 
 
       <NavDropdown title={<div className="pull-right" >
-        <img className="thumbnail-image navItem pull-right" src={notif}/>
+      <FaBell style={{fill:"white", height:"30px" ,width:"30px" ,border:"1px solid",borderRadius:"50%" ,padding:"3px"}} />
       </div>} id="collasible-nav-dropdown" >
         {Notifications.map(notifData => 
               <NavDropdown.Item href={notifData.action}>
@@ -66,12 +69,12 @@ return (
 
       <Nav.Link>
         <Link to='/chats' onClick = {HideNav}>
-          <img  className = "navItem" src ={chat} />
+          <BsFillChatSquareFill style={{fill:"white", height:"30px" ,width:"30px" ,border:"1px solid",borderRadius:"50%" ,padding:"3px"}}/>
         </Link>
       </Nav.Link>
 
       <NavDropdown title={<div className="pull-left">
-        <img className="thumbnail-image navItem" src={profile}/>
+        <RiUserFill style={{fill:"white", height:"30px" ,width:"30px" ,border:"1px solid",borderRadius:"50%" ,padding:"3px"}}/>
       </div>} id="collasible-nav-dropdown" >
 
         <NavDropdown.Item >

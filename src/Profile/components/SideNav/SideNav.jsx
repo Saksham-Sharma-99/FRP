@@ -54,7 +54,7 @@ function MidNavStuff(){
 
 function SideNav(props){
     if (props.show){
-        if(visualViewport.height>991){
+        if(visualViewport.width>991){
    return( <div className="col-lg-2" style={{
         borderbottom: '0px inset silver',
         padding: '0px',
