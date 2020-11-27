@@ -34,6 +34,7 @@ function NotificationTab(){
   return(
     <NavDropdown title={<div className="pull-left" >
       <FaBell className="chatIcon"   />
+      {visualViewport.width<991 ? <b className="iconTitle">Notifications</b>:null}
       </div>} id="collasible-nav-dropdown" >
         {Notifications.slice(0,5).map(notifData => 
               <NavDropdown.Item >
@@ -69,6 +70,7 @@ function ChatsTab() {
   <Nav.Link>
   <Link to='/chats' onClick = {HideNav}>
     <MdMessage className="chatIcon" />
+    {visualViewport.width<991 ? <b className="iconTitle">Chats</b>:null}
   </Link>
 </Nav.Link>
   );
@@ -78,6 +80,7 @@ function ProfileTab(){
   return(
     <NavDropdown title={<div className="pull-left">
         <RiUserFill className="chatIcon" />
+        {visualViewport.width<991 ? <b className="iconTitle">Settings</b>:null}
       </div>} id="collasible-nav-dropdown" >
 
         <NavDropdown.Item>
