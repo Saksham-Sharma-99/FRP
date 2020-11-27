@@ -33,6 +33,7 @@
 .content{
     word-wrap: break-word;
     white-space:pre-wrap;
+    font-weight: 100;
 }
 
 .cards{
@@ -81,4 +82,22 @@
 }
 .projectBTNLink2:hover{
     background-color: rgba(255, 255, 255, 0.9);
+}
+
+.hr1{
+    border-style: solid;
+    border-width: 0.2rem;
+    width: 100%;
+    border-bottom: 0;
+    border-right: 0;
+    border-left: 0;
+    color: ghostwhite;
+}
+.hr2{
+    border-style: solid;
+    border-width: 0.1rem;
+    border-bottom: 0;
+    border-right: 0;
+    border-left: 0;
+    color: ghostwhite;
 }

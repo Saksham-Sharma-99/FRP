@@ -16,12 +16,12 @@ function Buttons(){
 
             <div className = "col projectBTNLink1 btn" style={{margin:"0"}}>
                 <RiUserShared2Line style={{height:"25px",width:"30px",marginRight:"20px"}}/>
-                <h5 style={{display:"inline-block"}}>Refer</h5>
+                <b style={{display:"inline-block",fontWeight:"bold"}}>Refer</b>
             </div>
 
             <div className = "col projectBTNLink2 btn">
                 <ImCompass style={{height:"25px",width:"30px",marginRight:"20px"}}/>
-                <h5 style={{display:"inline-block"}}>Apply</h5>
+                <b style={{display:"inline-block"}}>Apply</b>
             </div>
 
 
@@ -76,14 +76,14 @@ function Details(props){
                 
         </div> 
 
-        <hr sytle={{size:"5px"}}/>
+        <hr className="hr1"/>
 
         <b className = "content"> {content}</b>
         <Link  onClick={()=>{
             if (seeml == "... See more"){setView("\n See less");setContent(props.content)}
             else if(seeml == "\n See less"){setView("... See more");setContent(props.content.substr(0,500))}}}>{seeml}</Link>
 
-        <hr style={{marginTop:"5px",width:"65%",position:"relative",top:"26px"}}/>
+        <hr className="hr2" style={{marginTop:"5px",width:"65%",position:"relative",top:"26px"}}/>
 
         <Buttons />
      </div>
