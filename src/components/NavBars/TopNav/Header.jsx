@@ -17,19 +17,6 @@ import {IoIosDocument} from "react-icons/io"
 import {GiTeamIdea} from "react-icons/gi"
 import {BiLogOut} from "react-icons/bi"
 
-
-function NavItem(props){
-  return (<Link to='/chats'><li class = "nav-item "> 
-            <a class="nav-link" href="#" >
-              <img  className = "navItem" src ={props.img} />
-            </a>
-          </li></Link>);
-}
-
-
-function Header(){
-// const [show , hidNav] = useState(true)
-
 function HideNav(){
   ReactDOM.render(
     <App showSideNav ={false}/>,
@@ -43,28 +30,9 @@ function ShowNav(){
 );
 }
 
-
-return (
-<Navbar collapseOnSelect expand="lg" bg="custom" variant="dark" 
-  style={{margin:'0px', backgroundColor:'#0B83DA',border:'0px', paddingTop:'12px',paddingBottom:'12px'
-  ,borderRadius : "0%"}}>
-
-
-  <Navbar.Brand href="#">
-    <img src={logo} style={{width: '60px', backgroundColor: 'transparent',marginRight:'15px',
-    marginLeft:'25px' , borderRadius : "50%"}}/> 
-    <Link to = '/projects' onClick = {ShowNav}><a class="navbar-header navbar-brand" style={{fontSize:'30px',
-    fontWeight:"bolder", fontFamily:'Tw !important' , color:"white"}} href = "/"> Foreign Research Portal</a>
-    </Link>
-  </Navbar.Brand>
-
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-  <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="mr-auto"></Nav>
-    <Nav>
-
-
-      <NavDropdown title={<div className="pull-right" >
+function NotificationTab(){
+  return(
+    <NavDropdown title={<div className="pull-right" >
       <FaBell className="chatIcon"   />
       </div>} id="collasible-nav-dropdown" >
         {Notifications.map(notifData => 
@@ -72,14 +40,21 @@ return (
                 {notifData.notif.substr(0,40)}...
               </NavDropdown.Item>)}
       </NavDropdown>
+  )
+}
+function ChatsTab() {
+  return (
+  <Nav.Link>
+  <Link to='/chats' onClick = {HideNav}>
+    <MdMessage className="chatIcon" />
+  </Link>
+</Nav.Link>
+  );
+}
 
-      <Nav.Link>
-        <Link to='/chats' onClick = {HideNav}>
-          <MdMessage className="chatIcon" />
-        </Link>
-      </Nav.Link>
-
-      <NavDropdown title={<div className="pull-left">
+function ProfileTab(){
+  return(
+    <NavDropdown title={<div className="pull-left">
         <RiUserFill className="chatIcon" />
       </div>} id="collasible-nav-dropdown" >
 
@@ -139,9 +114,43 @@ return (
         </NavDropdown.Item>
 
       </NavDropdown>
+  )
+}
 
+function NavItems(){
+  return (
+    <Nav>
+      <NotificationTab />
 
+      <ChatsTab />
+
+      <ProfileTab />
     </Nav>
+  );
+}
+
+
+function Header(props){
+// const [show , hidNav] = useState(true)
+return (
+<Navbar collapseOnSelect expand="lg" bg="custom" variant="dark" 
+  style={{margin:'0px', backgroundColor:'#0B83DA',border:'0px', paddingTop:'12px',paddingBottom:'12px'
+  ,borderRadius : "0%"}}>
+
+
+  <Navbar.Brand href="#">
+    <img src={logo} style={{width: '60px', backgroundColor: 'transparent',marginRight:'15px',
+    marginLeft:'25px' , borderRadius : "50%"}}/> 
+    <Link to = '/projects' onClick = {ShowNav}><a class="navbar-header navbar-brand" style={{fontSize:'30px',
+    fontWeight:"bolder", fontFamily:'Tw !important' , color:"white"}} href = "/"> Foreign Research Portal</a>
+    </Link>
+  </Navbar.Brand>
+
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="mr-auto"></Nav>
+
+    {props.showItems?<NavItems />:null}
   </Navbar.Collapse>
 
 

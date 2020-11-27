@@ -20,7 +20,7 @@ function App(props){
     }
     return(
         <HashRouter>
-            <Header />
+            <Header showItems={isLoggedIn} />
 
             <Home isLoggedIn = {isLoggedIn} showSideNav = {showSideNav}/>
             <Switch>
