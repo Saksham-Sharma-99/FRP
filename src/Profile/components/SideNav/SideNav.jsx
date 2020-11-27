@@ -2,7 +2,7 @@ import React from "react"
 import {Link} from "react-router-dom";
 import blueBox from "../../../components/NavBars/SideNav/assets/blueBox.png";
 import {GoBookmark} from "react-icons/go"
-import {HiDocumentReport} from "react-icons/hi"
+import {GiIdCard} from "react-icons/gi"
 import {IoIosDocument} from "react-icons/io"
 import "./SideNav.css"
 
@@ -14,7 +14,7 @@ function SideNavStuff(){
         <div className="container-fluid sidnav"   align="left"><br/>
         
             <div className="row sideNavLink2">
-                <Link to="/profile/resume" id="resume"  align="left" style={{paddingLeft:'10%'}} className="col-sm-12"><span><HiDocumentReport size="20px"/> </span> &nbsp; <b style={{fontSize:"18px"}}>Resume</b></Link>
+                <Link to="/profile/resume" id="resume"  align="left" style={{paddingLeft:'10%'}} className="col-sm-12"><span><GiIdCard size="20px"/> </span> &nbsp; <b style={{fontSize:"18px"}}>Resume</b></Link>
             </div>
             <div className="row sideNavLink2" align="center">
                 <Link to="/profile/documents" align="left" style={{paddingLeft:'10%'}} id="documents" className="col-sm-12"><span><IoIosDocument size="20px"/></span> &nbsp; <b style={{fontSize:"18px"}}>Documents</b></Link>
@@ -36,7 +36,7 @@ function MidNavStuff(){
         
             <div className="col-2">
             <Link to="/profile/resume" id="resume"  align="center" style={{paddingLeft:'17%'}} >
-                    <HiDocumentReport size="30px"/> <br/> <p>Resume</p>
+                    <GiIdCard size="30px"/> <br/> <p>Resume</p>
                 </Link>
             </div>
             <div className="col-2" align="center">

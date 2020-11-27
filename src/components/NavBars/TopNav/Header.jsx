@@ -7,9 +7,15 @@ import {Navbar,Dropdown,Nav,NavDropdown} from "react-bootstrap"
 import App from "../../../App"
 import "./Header.css"
 import Notifications from './Notifications.js'
+
 import {MdMessage} from "react-icons/md"
 import {FaBell} from "react-icons/fa"
 import {RiUserFill,RiMessageFill} from "react-icons/ri"
+import {TiHomeOutline} from "react-icons/ti"
+import {GiIdCard} from "react-icons/gi"
+import {IoIosDocument} from "react-icons/io"
+import {GiTeamIdea} from "react-icons/gi"
+import {BiLogOut} from "react-icons/bi"
 
 
 function NavItem(props){
@@ -98,23 +104,38 @@ return (
           <hr style={{margin:"0"}}/>
 
         <NavDropdown.Item href="#projects" onClick={ShowNav}>
-          <h6 style={{textAlign:"center"}}>Home</h6>
+        <div className="row" style={{alignSelf:"center"}}>
+          <TiHomeOutline style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
+          <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Home</h6>
+          </div>
         </NavDropdown.Item>
 
         <NavDropdown.Item href="#">
-          <h6 style={{textAlign:"center"}}>Edit Resume</h6>
+          <div className="row" style={{alignSelf:"center"}}>
+          <GiIdCard style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
+          <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Edit Resume</h6>
+          </div>
         </NavDropdown.Item>
 
         <NavDropdown.Item href="#profile/documents" onClick={HideNav}>
-          <h6 style={{textAlign:"center"}}>Manage Documents</h6>
+        <div className="row" style={{alignSelf:"center"}}>
+          <IoIosDocument style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
+          <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Manage Documents</h6>
+          </div>
         </NavDropdown.Item>
         
         <NavDropdown.Item href="https://ir.iitr.ac.in/IR_Cell_ContactUs/">
-          <h6 style={{textAlign:"center"}}>Contact Us</h6>
+        <div className="row" style={{alignSelf:"center"}}>
+          <GiTeamIdea style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
+          <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Contact Us</h6>
+          </div>
         </NavDropdown.Item>
 
         <NavDropdown.Item href="#logout">
-          <h6 style={{textAlign:"center"}}>Logout</h6>
+        <div className="row" style={{alignSelf:"center"}}>
+          <BiLogOut style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
+          <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Logout</h6>
+          </div>
         </NavDropdown.Item>
 
       </NavDropdown>

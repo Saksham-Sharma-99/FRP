@@ -7,15 +7,37 @@ import {Link} from "react-router-dom"
 import {HashRouter, Switch} from 'react-router-dom';
 import {AuthRoute} from 'react-router-auth';
 import {BsFillBookmarkFill} from "react-icons/bs"
+import {RiUserShared2Line} from "react-icons/ri"
+import {ImCompass} from "react-icons/im"
 
+function Buttons(){
+    return(
+        <div className="row" style={{textAlign:"center"}}>
+
+            <div className = "col projectBTNLink1 btn" style={{margin:"0"}}>
+                <RiUserShared2Line style={{height:"25px",width:"30px",marginRight:"20px"}}/>
+                <h5 style={{display:"inline-block"}}>Refer</h5>
+            </div>
+
+            <div className = "col projectBTNLink2 btn">
+                <ImCompass style={{height:"25px",width:"30px",marginRight:"20px"}}/>
+                <h5 style={{display:"inline-block"}}>Apply</h5>
+            </div>
+
+
+        </div>
+    )
+}
 
 function Details(props){
 
     const [bookmarked, setLightMode ] = React.useState(props.bmk)
-
+    const [content , setContent] = React.useState(props.content.substr(0,500))
+    const [seeml , setView] = React.useState(props.content.length>500? "... See more":"")
    return(  
     <div className = "container-fluid project-card" style = {{backgroundColor : "#f1f6f9" }}> 
         <div className="container">
+
             <div className="row">
                 <div className="col-sm-8">
                     <div className = "row">
@@ -53,8 +75,17 @@ function Details(props){
             </div>
                 
         </div> 
-        <hr></hr>
-             <b className = "content"> {props.content.substr(0,600)}...<Link to={"/projects/"+props.id}>See more</Link></b>
+
+        <hr sytle={{size:"5px"}}/>
+
+        <b className = "content"> {content}</b>
+        <Link  onClick={()=>{
+            if (seeml == "... See more"){setView("\n See less");setContent(props.content)}
+            else if(seeml == "\n See less"){setView("... See more");setContent(props.content.substr(0,500))}}}>{seeml}</Link>
+
+        <hr style={{marginTop:"5px",width:"65%",position:"relative",top:"26px"}}/>
+
+        <Buttons />
      </div>
    );
 }
@@ -85,6 +116,8 @@ function Bookmarks (){
         </div>
          )
 }
+
+
 
 export default Projects
 export {Bookmarks}

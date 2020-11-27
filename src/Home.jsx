@@ -3,12 +3,15 @@ import ReactDOM from "react-dom"
 import {AuthRoute} from 'react-router-auth';
 import {HashRouter, Switch} from 'react-router-dom';
 
+import {projects} from "./components/Projects/projects"
+
 import SideNav from "./components/NavBars/SideNav/SideNav";
 import Results from './components/Results/Results';
 import Projects,{Bookmarks} from "./components/Projects/Projects.jsx";
 
 
 function Home(props){
+    // projects.map((p)=>console.log(p.id))
     if (props.showSideNav){
         var pt = visualViewport.width>991 ? "80px" : "0px"
     return (

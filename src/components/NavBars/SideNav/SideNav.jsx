@@ -4,7 +4,7 @@ import blueBox from "./assets/blueBox.png";
 import "./SideNav.css"
 import {AiFillBook} from "react-icons/ai"
 import {GoBookmark} from "react-icons/go"
-import {HiDocumentDuplicate} from "react-icons/hi"
+import {ImStatsDots} from "react-icons/im"
 import {RiArticleFill} from "react-icons/ri"
 import {GiTeamIdea} from "react-icons/gi"
 
@@ -19,10 +19,10 @@ function SideNavStuff(){
                 <Link to="/projects" id="projects"  align="left" style={{paddingLeft:'17%'}} className="col-sm-12"><span><AiFillBook  size="30px"/></span> &nbsp; Projects</Link>
             </div>
             <div className="row sideNavLink" align="center">
-                <Link to="/bookmarks" align="left" style={{paddingLeft:'17%'}} id="bookmarks" className="col-sm-12"><span><GoBookmark size="30px"/></span> &nbsp; Bookmarks</Link>
+                <Link to="/bookmarks" align="left" style={{paddingLeft:'16%'}} id="bookmarks" className="col-sm-12"><span><GoBookmark size="30px"/></span> &nbsp; Bookmarks</Link>
             </div>
             <div className="row sideNavLink" align="center">
-                <Link to="/results" align="left" style={{paddingLeft:'17%'}} id="results" className="col-sm-12"><span><HiDocumentDuplicate size="30px"/></span> &nbsp; Results</Link>
+                <Link to="/results" align="left" style={{paddingLeft:'19%'}} id="results" className="col-sm-12"><span><ImStatsDots size="26px"/></span> &nbsp; Results</Link>
             </div>
             <hr/>
             <div className="row sideNavLink" align="center">
@@ -44,18 +44,18 @@ function BottomNavStuff(){
         <div className="row"   align="center">
         
             <div className="col-2">
-                <Link to="/projects" id="projects"  align="center" style={{paddingLeft:'17%'}} >
+                <Link to="/projects" id="projects"  align="center" style={{paddingLeft:'4%'}} >
                 <AiFillBook  size="30px"/> <br/> <p>Projects</p>
                 </Link>
             </div>
             <div className="col-2" align="center">
-                <Link to="/bookmarks" align="center" style={{paddingLeft:'17%'}} id="bookmarks" >
+                <Link to="/bookmarks" align="center" style={{paddingLeft:'4%'}} id="bookmarks" >
                 <GoBookmark size="30px"/>  <br/><p>Bookmarks</p>
                 </Link>
             </div>
             <div className="col-2" align="center">
-                <Link to="/results" align="center" style={{paddingLeft:'17%'}} id="results" >
-                <HiDocumentDuplicate size="30px"/>  <br/><p>Results</p>
+                <Link to="/results" align="center" style={{paddingLeft:'3%'}} id="results" >
+                <ImStatsDots size="30px"/>  <br/><p>Results</p>
                 </Link>
             </div>
             <hr/>
