@@ -70,3 +70,10 @@
     padding:8px;
 }
  
+.menuLink{
+    color: black;
+}
+.menuLink:hover{
+    text-decoration: none;
+    color: whitesmoke;
+}

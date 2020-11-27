@@ -32,13 +32,35 @@ function ShowNav(){
 
 function NotificationTab(){
   return(
-    <NavDropdown title={<div className="pull-right" >
+    <NavDropdown title={<div className="pull-left" >
       <FaBell className="chatIcon"   />
       </div>} id="collasible-nav-dropdown" >
-        {Notifications.map(notifData => 
-              <NavDropdown.Item href={notifData.action}>
-                {notifData.notif.substr(0,40)}...
+        {Notifications.slice(0,5).map(notifData => 
+              <NavDropdown.Item >
+              <Link to={notifData.action} className="menuLink">
+                <div className="container-fluid">
+                    <div className="row">
+                      <div className="col-1">
+                        <b>{notifData.title}</b>
+                      </div>
+                      <div className="col-1">
+                        <p style={{fontSize:"12px",position:"relative",left:"200px",top:"2px"}}>{notifData.date}</p>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col content" style={{textAlign:"left",position:"relative",bottom:"8px"}}>
+                       {notifData.notif.substr(0,40)}...
+                      </div>
+                    </div>
+                </div>
+                </Link>
               </NavDropdown.Item>)}
+        <hr style={{margin:"0"}}/>
+        <NavDropdown.Item >
+          <Link to="/notifications" className="menuLink">
+          <h6>See More</h6>
+          </Link>
+        </NavDropdown.Item>
       </NavDropdown>
   )
 }
@@ -58,7 +80,8 @@ function ProfileTab(){
         <RiUserFill className="chatIcon" />
       </div>} id="collasible-nav-dropdown" >
 
-        <NavDropdown.Item href="#profile/resume" onClick={HideNav} >
+        <NavDropdown.Item>
+          <Link className="menuLink" to="/profile/resume" onClick={HideNav}>
               <div className = "container-fluid">
               <div className ="col-1">
               <img  className = "navItem" src ={profileImage} 
@@ -74,43 +97,54 @@ function ProfileTab(){
               </div>
               </div>
               </div>
+              </Link>
         </NavDropdown.Item>
 
           <hr style={{margin:"0"}}/>
 
-        <NavDropdown.Item href="#projects" onClick={ShowNav}>
+        <NavDropdown.Item >
+        <Link className="menuLink" to="/projects" onClick={ShowNav}>
         <div className="row" style={{alignSelf:"center"}}>
           <TiHomeOutline style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Home</h6>
           </div>
+          </Link>
         </NavDropdown.Item>
 
-        <NavDropdown.Item href="#">
+        <NavDropdown.Item>
+        <Link className="menuLink" to="">
           <div className="row" style={{alignSelf:"center"}}>
           <GiIdCard style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Edit Resume</h6>
           </div>
+          </Link>
         </NavDropdown.Item>
 
-        <NavDropdown.Item href="#profile/documents" onClick={HideNav}>
+        <NavDropdown.Item>
+        <Link className="menuLink" to="/profile/documents" onClick={HideNav}>
         <div className="row" style={{alignSelf:"center"}}>
           <IoIosDocument style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Manage Documents</h6>
           </div>
+          </Link>
         </NavDropdown.Item>
         
-        <NavDropdown.Item href="https://ir.iitr.ac.in/IR_Cell_ContactUs/">
+        <NavDropdown.Item >
+        <Link className="menuLink" to="https://ir.iitr.ac.in/IR_Cell_ContactUs/" >
         <div className="row" style={{alignSelf:"center"}}>
           <GiTeamIdea style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Contact Us</h6>
           </div>
+          </Link>
         </NavDropdown.Item>
 
-        <NavDropdown.Item href="#logout">
+        <NavDropdown.Item>
+        <Link className="menuLink" to="/logout" onClick={HideNav}>
         <div className="row" style={{alignSelf:"center"}}>
           <BiLogOut style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Logout</h6>
           </div>
+          </Link>
         </NavDropdown.Item>
 
       </NavDropdown>
