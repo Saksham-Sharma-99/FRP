@@ -9,7 +9,7 @@ import Chats from './Chat/Chats'
 import Profile from "./Profile/Profile"
 import Auth from './components/Auth/Auth'
 
-var isLoggedIn = false;
+var isLoggedIn = true;
 var showSideNav = true;
 
 function App(props){
