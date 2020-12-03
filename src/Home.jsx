@@ -8,11 +8,12 @@ import {projects} from "./components/Projects/projects"
 import SideNav from "./components/NavBars/SideNav/SideNav";
 import Results from './components/Results/Results';
 import Projects,{Bookmarks} from "./components/Projects/Projects.jsx";
+import Auth from './components/Auth/Auth'
 
 
 function Home(props){
     // projects.map((p)=>console.log(p.id))
-    if (props.showSideNav){
+    if (props.showSideNav ){
         var pt = visualViewport.width>991 ? "80px" : "0px"
     return (
         <div className="row" align="center" style={{width: '100%'}}>
@@ -32,6 +33,11 @@ function Home(props){
                     }} align="left">
                     <HashRouter>
                         <Switch>
+                            <AuthRoute
+                                authenticated={props.isLoggedIn}
+                                redirectTo='/projects'
+                                path='/auth'
+                                component={Auth}/>
                             <AuthRoute
                                 authenticated={props.isLoggedIn}
                                 redirectTo='/auth'

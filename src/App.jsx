@@ -7,6 +7,7 @@ import Header from "./components/NavBars/TopNav/Header";
 import Home from './Home'
 import Chats from './Chat/Chats'
 import Profile from "./Profile/Profile"
+import Auth from './components/Auth/Auth'
 
 var isLoggedIn = true;
 var showSideNav = true;
@@ -22,8 +23,13 @@ function App(props){
         <HashRouter>
             <Header showItems={isLoggedIn} />
 
-            <Home isLoggedIn = {isLoggedIn} showSideNav = {showSideNav}/>
+            <Home isLoggedIn = {isLoggedIn} showSideNav = {showSideNav&&isLoggedIn}/>
             <Switch>
+                <AuthRoute
+                    authenticated={!isLoggedIn}
+                    redirectTo='/porjects'
+                    path='/auth'
+                    component={Auth}/>
                 <AuthRoute
                     authenticated={isLoggedIn}
                     redirectTo='/auth'
@@ -42,3 +48,6 @@ function App(props){
 } 
 
 export default App;
+export {
+    isLoggedIn
+}
