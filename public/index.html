@@ -24,12 +24,9 @@
     -->
   </body>
   <script>
-    import * as App from '../src/App.jsx'
-    var page = App.isLoggedIn ? '#projects' : '#auth'
-    console.log(page)
     var firstarival = true
     if (performance.navigation.type == performance.navigation.TYPE_RELOAD || firstarival) 
-    { window.location.replace(page);
+    { window.location.replace(document.getElementById('root').className);
     firstarival = false
   }   
   </script>

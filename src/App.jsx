@@ -13,6 +13,7 @@ var isLoggedIn = true;
 var showSideNav = true;
 
 function App(props){
+    document.getElementById('root').classList.add( isLoggedIn ? '#projects' : '#auth')
     console.log(props.showSideNav)
     if (props.showSideNav == undefined){
         showSideNav = true
