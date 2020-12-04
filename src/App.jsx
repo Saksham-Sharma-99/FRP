@@ -7,37 +7,47 @@ import Header from "./components/NavBars/TopNav/Header";
 import Home from './Home'
 import Chats from './Chat/Chats'
 import Profile from "./Profile/Profile"
-import Auth from './components/Auth/Auth'
+import Auth,{isLoggedIn} from './components/Auth/Auth'
 
-var isLoggedIn = true ; 
 var showSideNav = true;
+var LoggedIn = (isLoggedIn || sessionStorage.getItem('isLoggedIn')==='yes'); 
 
 function App(props){
-    document.getElementById('root').classList.add( isLoggedIn ? '#projects' : '#auth')
-    console.log(props.showSideNav)
+
+    setTimeout(() => {
+        console.log('logging out after 1 hour')
+        sessionStorage.setItem('isLoggedIn','no')
+        window.location.reload()
+    }, 60000*60);
+
+    document.getElementById('root').classList.add( (LoggedIn) ? '#projects' : '#auth')
+    
+    console.log('show sidenav',props.showSideNav&&LoggedIn)
     if (props.showSideNav == undefined){
         showSideNav = true
     }else{
-        showSideNav = props.showSideNav
+        showSideNav = props.showSideNav&&LoggedIn
     }
+
+
     return(
         <HashRouter>
-            <Header showItems={isLoggedIn} />
+            <Header showItems={LoggedIn} />
 
-            <Home isLoggedIn = {isLoggedIn} showSideNav = {showSideNav&&isLoggedIn}/>
+            <Home isLoggedIn = {LoggedIn} showSideNav = {showSideNav&&LoggedIn}/>
             <Switch>
                 <AuthRoute
-                    authenticated={!isLoggedIn}
-                    redirectTo='/porjects'
+                    authenticated={!LoggedIn}
+                    redirectTo='/projects'
                     path='/auth'
                     component={Auth}/>
                 <AuthRoute
-                    authenticated={isLoggedIn}
+                    authenticated={LoggedIn}
                     redirectTo='/auth'
                     path='/chats'
                     component={Chats}/>
                 <AuthRoute
-                    authenticated={isLoggedIn}
+                    authenticated={LoggedIn}
                     redirectTo='/auth'
                     path='/profile'
                     component={Profile}/>
@@ -46,9 +56,7 @@ function App(props){
         </HashRouter>
                     
     );
+    
 } 
 
 export default App;
-export {
-    isLoggedIn
-}

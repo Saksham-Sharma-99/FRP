@@ -1,59 +1,113 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import ReactDOM from 'react-dom'
 import {logo} from '../NavBars/TopNav/assets/index'
+import App from '../../App'
+import {Carousel,Button} from 'react-bootstrap'
 import Axios from 'axios'
 import './Auth.css'
 
-const clientId = `KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI`
-const clientSecret = `KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm`
-const baseURL = `https://internet.channeli.in`
-const REDIRECT_URI = `https://saksham-sharma-99.github.io/FRP/#/projects`
+var isLoggedIn = false
+
+const carouselData = [
+    {img:"https://images.fineartamerica.com/images-medium-large-5/iit-roorkee-atinder-paul-singh.jpg",
+    title:"Title of the first Slide",
+    content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
+    {img:"https://postmarkfromfoster.files.wordpress.com/2014/10/september-2014-postmark-14.jpg",
+    title:"Title of the  second Slide",
+    content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
+    {img:"https://c.ndtvimg.com/2019-02/kh0snovg_mahatma-gandhi-central-library-iit-roorkee_625x300_04_February_19.jpg",
+    title:"Title of the third Slide",
+    content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
+    {img:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201910/EGBR5vDUYAA-JVP-647x363.jpeg?dzkBrr25av3UV2M_SwYFPvUohOZSgFoh",
+    title:"Title of the fourth Slide",
+    content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."}
+    ]
+
+function simulateNetworkRequest() {
+    return new Promise((resolve) => {
+        console.log('clicked sign in')
+        isLoggedIn = true;
+        document.getElementById('root').classList.remove('#auth')
+        sessionStorage.setItem('isLoggedIn','yes')
+        window.location.reload()
+        setTimeout(resolve, 2000)});
+  } 
+  function LoadingButton() {
+    const [isLoading, setLoading] = useState(false);
+  
+    useEffect(() => {
+      if (isLoading) {
+        simulateNetworkRequest().then(() => {
+          setLoading(false);
+        });
+      }
+    }, [isLoading]);
+
+    const handleClick = () => setLoading(true);
+  
+    return (
+      <Button
+        variant="primary"
+        disabled={isLoading}
+        onClick={!isLoading ? handleClick : null}
+        size='lg'
+        block>
+        {isLoading ? 'Loading…' : 'Sign in'}
+      </Button>
+    );
+  }
+
+
+
+function CarouselElement(props){
+    var carouselContent = props.content
+    return(
+        <Carousel>
+            {carouselContent.map((cdata)=>{
+                return(
+                    <Carousel.Item interval={3000}>
+                        <img
+                        className="d-block w-100"
+                        src={cdata.img}
+                        alt="First slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>{cdata.title}</h3>
+                            <p className='content'>{cdata.content}</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                );
+            })}
+        </Carousel>
+    )
+}
+
+
+
 function Auth (){
-    var user = '19118071';
-    var pass = 'pass';
-    function signIn(){
-        Axios.get(`https://internet.channeli.in/oauth/authorise/?client_id=${clientId}&redirect_uri=${REDIRECT_URI}&state=transporting`
-        ).then((response)=>{
-            console.log(response)
-        }).catch(function (error) {
-            console.log(error);
-        })
-    }
-
-
-
     return (
         <div className='container-fluid' style ={{alignItems:"center"}}>
             <div className ="row">
-                <div className='col-lg-8'>
 
+                <div className='col-lg-9'>
+                <CarouselElement content={carouselData}/>
                 </div>
-                <div className="col-lg-4">
-                    <form className="form-signin" >
-                        {/* <img className="mb-4" src={logo} alt="" width="102" height="102" 
-                            style={{position:'relative',left:'90px',marginTop:'50px'}}/> */}
 
-                        <h3 className="h3 mb-3 font-weight-normal" style={{textAlign:'center' ,marginTop:'40px'}}>
-                            Please sign in with your Channel-I credentials
-                        </h3>
 
-                        <input type="text" id="inputEmail" className="form-control" 
-                            placeholder="Enrollment Number" required autofocus style={{textAlign:'center'}} />
+                <div className="col-lg-3" style={{alignItems:'center'}}>
 
-                        <input type="password" id="inputPassword" className="form-control" 
-                            placeholder="Password" required style={{textAlign:'center'}} />
-
-                        <button className="btn btn-lg btn-primary btn-block" type="submit" onClick = {signIn}
-                         style={{
-                            borderRadius:"20px"
-                        }}>Sign in</button>
-
-                        <p className="mt-5 mb-3 text-muted" style={{textAlign:'center'}}>&copy; IR Cell</p>
-                    </form>
+                    <h3 className="h3 mb-3 font-weight-normal" style={{textAlign:'center' ,marginTop:'40px'}}>
+                        To continue, sign in with your Channel-I account 
+                    </h3>
+                    
+                    <LoadingButton />
+                    <p className="mt-5 mb-3 text-muted" style={{textAlign:'center'}}>&copy; IR Cell</p>
                 </div>
+
             </div>
         </div>
     )
 }
 
 export default Auth;
+export {LoadingButton,isLoggedIn}

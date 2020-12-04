@@ -16,6 +16,7 @@ import {GiIdCard} from "react-icons/gi"
 import {IoIosDocument} from "react-icons/io"
 import {GiTeamIdea} from "react-icons/gi"
 import {BiLogOut} from "react-icons/bi"
+import {isLoggedIn} from "../../Auth/Auth"
 
 function HideNav(){
   ReactDOM.render(
@@ -25,9 +26,15 @@ function HideNav(){
 }
 function ShowNav(){
   ReactDOM.render(
-    <App showSideNav ={true}/>,
+    <App showSideNav ={true} />,
   document.getElementById('root')
 );
+}
+
+function Logout(){
+  sessionStorage.setItem('isLoggedIn','no')
+  window.location.reload()
+  HideNav()
 }
 
 function NotificationTab(){
@@ -142,7 +149,7 @@ function ProfileTab(){
         </NavDropdown.Item>
 
         <NavDropdown.Item>
-        <Link className="menuLink" to="/logout" onClick={HideNav}>
+        <Link className="menuLink" to="/auth" onClick={Logout}>
         <div className="row" style={{alignSelf:"center"}}>
           <BiLogOut style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Logout</h6>

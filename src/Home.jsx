@@ -35,11 +35,6 @@ function Home(props){
                         <Switch>
                             <AuthRoute
                                 authenticated={props.isLoggedIn}
-                                redirectTo='/projects'
-                                path='/auth'
-                                component={Auth}/>
-                            <AuthRoute
-                                authenticated={props.isLoggedIn}
                                 redirectTo='/auth'
                                 path='/projects'
                                 component={Projects}/>
