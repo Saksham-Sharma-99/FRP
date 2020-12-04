@@ -5,7 +5,7 @@ import {HashRouter, Switch} from 'react-router-dom';
 import { logo } from "./components/NavBars/TopNav/assets";
 import Header from "./components/NavBars/TopNav/Header";
 import Home from './Home'
-import Chats from './Chat/Chats'
+import Chats from './Chat/Chats.jsx'
 import Profile from "./Profile/Profile"
 import Auth,{isLoggedIn} from './components/Auth/Auth'
 

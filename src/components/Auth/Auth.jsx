@@ -102,6 +102,7 @@ function Auth (){
                     
                     <LoadingButton />
                     <p className="mt-5 mb-3 text-muted" style={{textAlign:'center'}}>&copy; IR Cell</p>
+                    <p>ps: this auth screen's layout will be changed</p>
                 </div>
 
             </div>

@@ -1,0 +1,22 @@
+.chats-box{
+    border-bottom:  0px inset silver ;
+    padding:  0px ;
+    margin:  0px ;
+    box-shadow:  2px 2px 7px 0px silver;
+    padding-left: 15px;
+    padding-right: 20px;
+}
+
+.msgLink{
+    text-decoration: none !important;
+    color: black;
+}
+.msgLink:hover{
+    text-emphasis: none;
+    color: black;
+}
+
+.chat-box:hover{
+    background-color: lightblue;
+}
+
