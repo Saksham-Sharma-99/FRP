@@ -16,12 +16,16 @@ function Buttons(){
 
             <div className = "col projectBTNLink1 btn" style={{margin:"0"}}>
                 <RiUserShared2Line style={{height:"25px",width:"30px",marginRight:"20px"}}/>
-                <b style={{display:"inline-block",fontWeight:"bold"}}>Refer</b>
+                <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:'black'}}>
+                    Refer
+                </Link>
             </div>
 
             <div className = "col projectBTNLink2 btn">
                 <ImCompass style={{height:"25px",width:"30px",marginRight:"20px"}}/>
-                <b style={{display:"inline-block"}}>Apply</b>
+                <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:'black'}}>
+                    Apply
+                </Link>
             </div>
 
 
