@@ -140,7 +140,7 @@ function ProfileTab(){
         </NavDropdown.Item>
         
         <NavDropdown.Item >
-        <Link className="menuLink" to="https://ir.iitr.ac.in/IR_Cell_ContactUs/" >
+        <Link className="menuLink" onClick={()=>window.location.replace("https://ir.iitr.ac.in/IR_Cell_ContactUs/")} >
         <div className="row" style={{alignSelf:"center"}}>
           <GiTeamIdea style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Contact Us</h6>
