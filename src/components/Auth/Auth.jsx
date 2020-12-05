@@ -29,8 +29,13 @@ function simulateNetworkRequest() {
         isLoggedIn = true;
         document.getElementById('root').classList.remove('#auth')
         sessionStorage.setItem('isLoggedIn','yes')
-        window.location.reload()
-        setTimeout(resolve, 2000)});
+        Axios.get('http://localhost:5000/userDetails'
+        ,{params:{userId:2}}).then((res)=>{
+            sessionStorage.setItem('userProfile',JSON.stringify(res.data[0]))
+            window.location.reload()
+            setTimeout(resolve, 2000)
+        })
+        });
   } 
   function LoadingButton() {
     const [isLoading, setLoading] = useState(false);
