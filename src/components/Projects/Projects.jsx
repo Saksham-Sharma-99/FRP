@@ -100,14 +100,15 @@ function Details(props){
 
 function Projects (){
     var projectsData = JSON.parse(sessionStorage.getItem(Constants.PROJECTS))
-    var studentId = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).personalData.userId
+    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).applications
     return (
     <div className = "container-fluid cards" >
         {projectsData.map(project => 
             <Details image = {project.data.image} collegeName = {project.data.name}
                 cg = {project.data.cg} branch = {project.data.branch} 
                 deadline = {project.data.deadline} content = {project.data.content}
-                bmk = {project.bookmarked.includes(studentId)} id= {project.postId} applied={project.applicants.includes(studentId)}
+                bmk = {studentApplications.bookmarked.includes(project.postId)} 
+                id= {project.postId} applied={studentApplications.applied.includes(project.postId)}
             />)}    
     </div>
      )
@@ -115,14 +116,15 @@ function Projects (){
 
 function Bookmarks (){
     var projectsData = JSON.parse(sessionStorage.getItem(Constants.PROJECTS))
-    var studentId = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).personalData.userId
+    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).applications
     return (
     <div className = "container-fluid cards" >
-        {projectsData.filter(project=>project.bookmarked.includes(studentId)).map(project => 
+        {projectsData.filter(project=>studentApplications.bookmarked.includes(project.postId)).map(project => 
             <Details image = {project.data.image} collegeName = {project.data.name}
                 cg = {project.data.cg} branch = {project.data.branch} 
                 deadline = {project.data.deadline} content = {project.data.content}
-                bmk = {project.bookmarked.includes(studentId)} id= {project.postId} applied={project.applicants.includes(studentId)}
+                bmk = {studentApplications.bookmarked.includes(project.postId)} 
+                id= {project.postId} applied={studentApplications.applied.includes(project.postId)}
             />)}    
     </div>
      )
