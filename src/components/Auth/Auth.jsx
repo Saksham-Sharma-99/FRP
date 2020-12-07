@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import {logo} from '../NavBars/TopNav/assets/index'
 import App from '../../App'
 import {Carousel,Button} from 'react-bootstrap'
-import Axios from 'axios'
+import {GetRequest,LogIn} from '../../Model/RequestHandler'
+import {Routes,Constants} from '../../Model/Constants'
 import './Auth.css'
 
 var isLoggedIn = false
@@ -26,15 +27,27 @@ const carouselData = [
 function simulateNetworkRequest() {
     return new Promise((resolve) => {
         console.log('clicked sign in')
-        isLoggedIn = true;
-        document.getElementById('root').classList.remove('#auth')
-        sessionStorage.setItem('isLoggedIn','yes')
-        Axios.get('http://localhost:5000/userDetails'
-        ,{params:{userId:2}}).then((res)=>{
-            sessionStorage.setItem('userProfile',JSON.stringify(res.data[0]))
-            window.location.reload()
-            setTimeout(resolve, 2000)
-        })
+        
+        GetRequest(Routes.USER_DETAILS,(res)=>{
+            if (res.status==200){
+                GetRequest(Routes.PROJECTS , (resp)=>{
+                    if (resp.status == 200){
+                        isLoggedIn = true;
+                        sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
+                        LogIn(res)
+                        setTimeout(resolve, 2000)
+                    }
+                    else{
+                        window.alert("Can't Login. Unknown Error Occured")
+                        setTimeout(resolve, 200)
+                    }
+                })
+            }
+            else{
+                window.alert("Can't Login. Unknown Error Occured")
+                setTimeout(resolve, 200)
+            }
+        },{userId:"2"})
         });
   } 
   function LoadingButton() {

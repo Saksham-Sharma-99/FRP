@@ -9,22 +9,25 @@ import {AuthRoute} from 'react-router-auth';
 import {BsFillBookmarkFill} from "react-icons/bs"
 import {RiUserShared2Line} from "react-icons/ri"
 import {ImCompass} from "react-icons/im"
+import { Constants } from "../../Model/Constants"
 
-function Buttons(){
+function Buttons(props){
     return(
         <div className="row" style={{textAlign:"center"}}>
 
             <div className = "col projectBTNLink1 btn" style={{margin:"0"}}>
-                <RiUserShared2Line style={{height:"25px",width:"30px",marginRight:"20px"}}/>
+                
                 <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:'black'}}>
+                <RiUserShared2Line style={{height:"25px",width:"30px",marginRight:"20px"}}/>
                     Refer
                 </Link>
             </div>
 
-            <div className = "col projectBTNLink2 btn">
-                <ImCompass style={{height:"25px",width:"30px",marginRight:"20px"}}/>
+            <div className = {props.applied ?"col projectBTNLink3 btn disabled" :"col projectBTNLink2 btn"}>
+                
                 <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:'black'}}>
-                    Apply
+                <ImCompass style={{height:"25px",width:"30px",marginRight:"20px"}}/>
+                    {props.applied ? "Applied":"Apply"}
                 </Link>
             </div>
 
@@ -89,36 +92,40 @@ function Details(props){
 
         <hr className="hr2" style={{marginTop:"5px",width:"65%",position:"relative",top:"26px"}}/>
 
-        <Buttons />
+        <Buttons applied={props.applied}/>
      </div>
    );
 }
 
 
 function Projects (){
+    var projectsData = JSON.parse(sessionStorage.getItem(Constants.PROJECTS))
+    var studentId = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).personalData.userId
     return (
     <div className = "container-fluid cards" >
-        {projects.map(project => 
-            <Details image = {logo} collegeName = {project.name}
-                cg = {project.cg} branch = {project.branch} 
-                deadline = {project.deadline} content = {project.content}
-                bmk = {project.bmk} id= {project.id}
+        {projectsData.map(project => 
+            <Details image = {project.data.image} collegeName = {project.data.name}
+                cg = {project.data.cg} branch = {project.data.branch} 
+                deadline = {project.data.deadline} content = {project.data.content}
+                bmk = {project.bookmarked.includes(studentId)} id= {project.postId} applied={project.applicants.includes(studentId)}
             />)}    
     </div>
      )
 }
 
 function Bookmarks (){
+    var projectsData = JSON.parse(sessionStorage.getItem(Constants.PROJECTS))
+    var studentId = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).personalData.userId
     return (
-        <div className = "container-fluid cards" >
-           {projects.filter(project => project.bmk).map(project =>
-            <Details image = {logo} collegeName = {project.name}
-                cg = {project.cg} branch = {project.branch} 
-                deadline = {project.deadline} content = {project.content}
-                bmk = {project.bmk} id={project.id}
-            />)} 
-        </div>
-         )
+    <div className = "container-fluid cards" >
+        {projectsData.filter(project=>project.bookmarked.includes(studentId)).map(project => 
+            <Details image = {project.data.image} collegeName = {project.data.name}
+                cg = {project.data.cg} branch = {project.data.branch} 
+                deadline = {project.data.deadline} content = {project.data.content}
+                bmk = {project.bookmarked.includes(studentId)} id= {project.postId} applied={project.applicants.includes(studentId)}
+            />)}    
+    </div>
+     )
 }
 
 
