@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom'
 import {logo} from '../NavBars/TopNav/assets/index'
 import App from '../../App'
 import {Carousel,Button} from 'react-bootstrap'
-import {GetRequest,LogIn} from '../../Model/RequestHandler'
-import {Routes,Constants} from '../../Model/Constants'
+import {GetRequest,LogIn,PostRequest} from '../../Model/RequestHandler'
+import {Routes,Constants, CLIENT_ID, SECRET, ORIGIN,CHANNELI_URL} from '../../Model/Constants'
 import './Auth.css'
+import Axios from 'axios';
 
 var isLoggedIn = false
 
@@ -27,27 +28,29 @@ const carouselData = [
 function simulateNetworkRequest() {
     return new Promise((resolve) => {
         console.log('clicked sign in')
-        
-        GetRequest(Routes.USER_DETAILS,(res)=>{
-            if (res.status==200){
-                GetRequest(Routes.PROJECTS , (resp)=>{
-                    if (resp.status == 200){
-                        isLoggedIn = true;
-                        sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
-                        LogIn(res)
-                        setTimeout(resolve, 2000)
-                    }
-                    else{
-                        window.alert("Can't Login. Unknown Error Occured")
-                        setTimeout(resolve, 200)
-                    }
-                })
-            }
-            else{
-                window.alert("Can't Login. Unknown Error Occured")
-                setTimeout(resolve, 200)
-            }
-        },{userId:"2"})
+        window.location.replace("https://internet.channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=http://localhost:3000/&state=/")
+        let url = new URL(window.location.href)
+        console.log(url.searchParams)
+        // GetRequest(Routes.USER_DETAILS,(res)=>{
+        //     if (res.status==200){
+        //         GetRequest(Routes.PROJECTS , (resp)=>{
+        //             if (resp.status == 200){
+        //                 isLoggedIn = true;
+        //                 sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
+        //                 LogIn(res)
+        //                 setTimeout(resolve, 2000)
+        //             }
+        //             else{
+        //                 window.alert("Can't Login. Unknown Error Occured")
+        //                 setTimeout(resolve, 200)
+        //             }
+        //         })
+        //     }
+        //     else{
+        //         window.alert("Can't Login. Unknown Error Occured")
+        //         setTimeout(resolve, 200)
+        //     }
+        // },{userId:"2"})
         });
   } 
   function LoadingButton() {
@@ -103,6 +106,9 @@ function CarouselElement(props){
 
 
 function Auth (){
+    let url = new URL(window.location.href)
+    console.log("hello")
+    if (url.searchParams.get('code') == null){
     return (
         <div className='container-fluid' style ={{alignItems:"center"}}>
             <div className ="row">
@@ -126,6 +132,18 @@ function Auth (){
             </div>
         </div>
     )
+    }else{
+        var params = new URLSearchParams();
+        params.append('client_id', CLIENT_ID);
+        params.append('client_secret', SECRET);
+        params.append('grant_type',url.searchParams.get('code'))
+        params.append('redirect_uri',ORIGIN)
+        params.append('code',url.searchParams.get('code'))
+        Axios.post(CHANNELI_URL+Routes.OPEN_AUTH_TOKEN,params).then((res)=>{
+            console.log(res)
+        })
+        return(<h1>Redirecting..Hold on for a second</h1>)
+    }
 }
 
 export default Auth;

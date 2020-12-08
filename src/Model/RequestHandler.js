@@ -15,6 +15,12 @@ function GetRequest( route , callback,parameters=null){
     }
 }
 
+function PostRequest(route , callback ,param,baseURL = BaseURL){
+    Axios.post(baseURL + route ,{params : param}).then((res)=>{
+        callback(res)
+    })
+}
+
 
 function LogIn(res){
     document.getElementById('root').classList.remove('#auth')
@@ -31,4 +37,4 @@ function LogOut(){
 
 
 
-export {GetRequest,LogIn,LogOut}
+export {GetRequest,LogIn,LogOut,PostRequest}
