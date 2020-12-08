@@ -71,7 +71,7 @@ function Details(props){
                         </div>
                         <Link to = "#"onClick = {()=>setLightMode(!bookmarked)} >
                             <div className="col bookmark" >
-                                <BsFillBookmarkFill className="bookmarkIcon"color={bookmarked ? "#f05454":"lightgray"}
+                                <BsFillBookmarkFill className="bookmarkIcon"color={bookmarked ? "#fca652":"lightgray"}
                                 />  
                             </div>
                         </Link>

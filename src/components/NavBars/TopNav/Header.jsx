@@ -98,7 +98,7 @@ function ProfileTab(){
               <div className = "container-fluid">
               <div className ="col-1">
               <img  className = "navItem" src ={profileImage} 
-              style={{height:"55px",width:"55px",borderRadius:"50%",
+              style={{height:"55px",width:"55px",borderRadius:"50%",padding:"3px",
               backgroundColor:"lightgray" , position:"relative" , right:"40px"}}/>
               </div>
               <div className="col-8">
@@ -125,7 +125,7 @@ function ProfileTab(){
         </NavDropdown.Item>
 
         <NavDropdown.Item>
-        <Link className="menuLink" to="">
+        <Link className="menuLink" to="/profile/resume" onClick={HideNav}>
           <div className="row" style={{alignSelf:"center"}}>
           <GiIdCard style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Edit Resume</h6>

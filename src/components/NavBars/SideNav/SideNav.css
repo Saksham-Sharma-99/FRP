@@ -2,16 +2,15 @@
     position: sticky;
     left: 0;
     z-index: 0;
+    padding: 0;
 }
 .sideNavLink{
     border-bottom: 0px inset silver;
     padding:0px;
-     
     font-family: 'Roboto' ;
     font-style: normal;
     font-weight: lighter;
     font-size: 18px;
-    line-height: 22px;
     text-decoration: none;
     /* identical to box height */
     color: #000000;
@@ -38,10 +37,10 @@
     
     .sideNavLink{
         width:100%;
-        margin:4px;
+        margin:4px 0px 4px;
         height:100%;
-        padding:13px;
         text-decoration: none !important;
+        line-height: 4rem;
         background-color:white;
         color:black;
     }
