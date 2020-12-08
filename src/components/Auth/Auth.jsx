@@ -26,10 +26,12 @@ const carouselData = [
 function simulateNetworkRequest() {
     return new Promise((resolve) => {
         console.log('clicked sign in')
+        sessionStorage.setItem('isLoggedIn','yes')
+        Axios.get("https://internet.channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=http://localhost:3000/&state=/").then((res=>{
+            console.log(res)
+        }))
         isLoggedIn = true;
         document.getElementById('root').classList.remove('#auth')
-        sessionStorage.setItem('isLoggedIn','yes')
-        window.location.reload()
         setTimeout(resolve, 2000)});
   } 
   function LoadingButton() {
