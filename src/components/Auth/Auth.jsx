@@ -27,9 +27,7 @@ function simulateNetworkRequest() {
     return new Promise((resolve) => {
         console.log('clicked sign in')
         sessionStorage.setItem('isLoggedIn','yes')
-        Axios.get("https://internet.channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=https://saksham-sharma-99.github.io/FRP/&state=/").then((res=>{
-            console.log(res)
-        }))
+        window.location.replace("https://internet.channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=http://localhost:3000/&state=/")
         isLoggedIn = true;
         document.getElementById('root').classList.remove('#auth')
         setTimeout(resolve, 2000)});
