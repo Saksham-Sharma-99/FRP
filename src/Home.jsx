@@ -9,6 +9,7 @@ import SideNav from "./components/NavBars/SideNav/SideNav";
 import Results from './components/Results/Results';
 import Projects,{Bookmarks} from "./components/Projects/Projects.jsx";
 import Auth from './components/Auth/Auth'
+import Axios from 'axios'
 
 
 function Home(props){

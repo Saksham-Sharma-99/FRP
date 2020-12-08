@@ -8,6 +8,7 @@ import SideNav from "./components/SideNav/SideNav"
 import {Bookmarks} from "../components/Projects/Projects.jsx";
 import Resume from "./components/Resume/Resume"
 import Documents from "./components/Documents/Documents"
+import { Constants } from "../Model/Constants";
 
 function PersonalDetails(props){
     return(
@@ -43,16 +44,19 @@ function AcademicDetails(props){
 }
 
 function Profile(){
+    var profileData = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE))
+    var personalData = profileData.personalData.personalDetails
+    var acadData = profileData.personalData.acadDetails
     return (
         <div className = "container-fluid" style={{paddingLeft:"80px" , paddingRight :"80px" , paddingTop:"40px"}}>
 
             <div className = "row">
 
-                <PersonalDetails name="Student Name" en="17117061" email="abcdef_abcedghi@br.iitr.ac.in"/>
+                <PersonalDetails name={acadData.name} en={acadData.enrollmentNr} email={personalData.email}/>
 
                 <div className="col-sm"></div>
 
-                <AcademicDetails cg="9" br="abcdefghijklmnopq" sem="2nd"/>
+                <AcademicDetails cg={acadData.cg} br={acadData.branch} sem={acadData.sem}/>
 
             </div>
 

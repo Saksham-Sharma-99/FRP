@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import {Link} from "react-router-dom";
 import {logo} from "./assets";
 import {profileImage} from "../../../Profile/assets"
-import {Navbar,Dropdown,Nav,NavDropdown} from "react-bootstrap"
+import {Navbar,Nav,NavDropdown} from "react-bootstrap"
 import App from "../../../App"
 import "./Header.css"
 import Notifications from './Notifications.js'
@@ -16,7 +16,8 @@ import {GiIdCard} from "react-icons/gi"
 import {IoIosDocument} from "react-icons/io"
 import {GiTeamIdea} from "react-icons/gi"
 import {BiLogOut} from "react-icons/bi"
-import {isLoggedIn} from "../../Auth/Auth"
+import {LogOut} from "../../../Model/RequestHandler"
+import { Constants } from "../../../Model/Constants";
 
 function HideNav(){
   ReactDOM.render(
@@ -32,32 +33,33 @@ function ShowNav(){
 }
 
 function Logout(){
-  sessionStorage.setItem('isLoggedIn','no')
-  window.location.reload()
+  LogOut()
   HideNav()
 }
 
 function NotificationTab(){
+  var NotifData = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).notifs
+
   return(
     <NavDropdown title={<div className="pull-left" >
       <FaBell className="chatIcon"   />
       {visualViewport.width<991 ? <b className="iconTitle">Notifications</b>:null}
       </div>} id="collasible-nav-dropdown" >
-        {Notifications.slice(0,5).map(notifData => 
+        {NotifData.slice(0,5).map(notifData => 
               <NavDropdown.Item >
               <Link to={notifData.action} className="menuLink">
                 <div className="container-fluid">
                     <div className="row">
                       <div className="col-1">
-                        <b>{notifData.title}</b>
+                        <b>{notifData.data.title}</b>
                       </div>
                       <div className="col-1">
-                        <p style={{fontSize:"12px",position:"relative",left:"200px",top:"2px"}}>{notifData.date}</p>
+                        <p style={{fontSize:"12px",position:"relative",left:"200px",top:"2px"}}>{notifData.createdAt}</p>
                       </div>
                     </div>
                     <div className="row">
                       <div className="col content" style={{textAlign:"left",position:"relative",bottom:"8px"}}>
-                       {notifData.notif.substr(0,40)}...
+                       {notifData.data.content.substr(0,20)}...
                       </div>
                     </div>
                 </div>
@@ -84,6 +86,7 @@ function ChatsTab() {
 }
 
 function ProfileTab(){
+  var profileData = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE))
   return(
     <NavDropdown title={<div className="pull-left">
         <RiUserFill className="chatIcon" />
@@ -95,12 +98,12 @@ function ProfileTab(){
               <div className = "container-fluid">
               <div className ="col-1">
               <img  className = "navItem" src ={profileImage} 
-              style={{height:"55px",width:"55px",borderRadius:"50%",
+              style={{height:"55px",width:"55px",borderRadius:"50%",padding:"3px",
               backgroundColor:"lightgray" , position:"relative" , right:"40px"}}/>
               </div>
               <div className="col-8">
               <div className="row">
-              <h5 style={{marginTop:"10px"}}>Student Name</h5>
+              <h5 style={{marginTop:"10px"}}>{profileData.personalData.acadDetails.name}</h5>
               </div>
               <div className="row">
               <h6 style={{marginTop:"10px"}}>Student</h6>
@@ -122,7 +125,7 @@ function ProfileTab(){
         </NavDropdown.Item>
 
         <NavDropdown.Item>
-        <Link className="menuLink" to="">
+        <Link className="menuLink" to="/profile/resume" onClick={HideNav}>
           <div className="row" style={{alignSelf:"center"}}>
           <GiIdCard style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Edit Resume</h6>

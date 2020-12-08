@@ -49,7 +49,7 @@
       content: none;
   }
   .dropdown-menu :hover{
-      background-color:lightblue;
+      background-color:#f1f6f9;
   }
 
   .chatIcon:hover{
@@ -75,7 +75,7 @@
 }
 .menuLink:hover{
     text-decoration: none;
-    color: whitesmoke;
+    color: black;
 }
 .iconTitle{
     color: whitesmoke;

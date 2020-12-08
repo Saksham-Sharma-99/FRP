@@ -3,6 +3,7 @@ import './Chats.css'
 import {chatsBox} from "./chats"
 import {Link} from 'react-router-dom'
 import {profileImage} from "../Profile/assets/index"
+import { LeftMessage, RightMessage } from './components/Messages/Message'
 
 
 function ChatsBox(){
@@ -13,7 +14,7 @@ function ChatsBox(){
             {chatsBox.map((data)=>{
                 return(
                 <Link className="msgLink" >
-                 <div className="row chat-box" style={{marginBottom:'15px'}}>
+                 <div className="row chat-box" style={{marginBottom:'15px',height:"140px"}}>
                      <div className = 'row'>
                         <div className='col-lg-2'><img src={profileImage} style={{height:'10x',width:'40px'}}/></div>
                         <div className="col-lg-7" style={{marginLeft:'11px'}}><h4>{data.sender}</h4></div>
@@ -30,7 +31,7 @@ function ChatsBox(){
                      <div className='row'>
                         <div className='col-lg-2'></div>
                          <div className='col-lg-10' >
-                             {data.lastmsg}
+                             {data.lastmsg.substr(0,120)+ (data.lastmsg.length >120 ? "...":"")}
                          </div>
                      </div>
                  </div>
@@ -57,16 +58,22 @@ function ChatsBox(){
     }
 }
 
+
+
+
 function Chats(){
     
     return (
-        <div className = 'container-fluid' style={{paddingLeft:"20px",paddingRight:"20px"}}>
+        <div className = 'container-fluid' style={{paddingLeft:"20px"}}>
             <div className = 'row'>
                 
                 <ChatsBox />
 
-                <div className = 'col-lg-9' style={{padding:'10px'}}>
-                    ps:work in progress ; layout may change in future
+                <div className = 'col-lg-9' style={{padding:'10px 40px 0px'}}>
+                    <RightMessage content=""/>
+                    <LeftMessage content="shfkbviuerhfgouier"/>
+                    <RightMessage content="shfkbviuerhfgouier"/>
+                    <LeftMessage content="shfkbviuerhfgouier"/>
                 </div>
 
             </div>

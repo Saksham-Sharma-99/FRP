@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Constants } from '../../Model/Constants'
 import "./Results.css"
 import {results,resultCategories} from "./resultsData"
 
@@ -66,6 +67,8 @@ function CategoryData(props){
 
 
 function Results(){
+    var resultData = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).results
+
     return (
         <div className = "container-fluid">
             <div className = "container">
@@ -77,9 +80,9 @@ function Results(){
                     c6={resultCategories.map((d)=>d.application)}
                 />
 
-                {results.map((r)=>
-                <CategoryData c1={r.college} c2={r.projectCategory} c3={r.appliedOn} 
-                c4={r.status} c5={r.numOfApplicants} c6 = {r.application}/>)}
+                {resultData.map((r)=>
+                <CategoryData c1={r.college} c2={r.type} c3={r.createdAt} 
+                c4={r.status} c5={r.numOfApp.length} c6 = "Link"/>)}
             </div>
         </div>
     )

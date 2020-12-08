@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState} from "react"
 import {Link} from "react-router-dom";
 import blueBox from "../../../components/NavBars/SideNav/assets/blueBox.png";
 import {GoBookmark} from "react-icons/go"
@@ -10,18 +10,31 @@ import "./SideNav.css"
 
 
 function SideNavStuff(){
+    var [category,setCategory] = useState("resume")
     return (
         <div className="container-fluid sidnav"   align="left"><br/>
         
-            <div className="row sideNavLink2">
-                <Link to="/profile/resume" id="resume"  align="left" style={{paddingLeft:'10%'}} className="col-sm-12"><span><GiIdCard size="20px"/> </span> &nbsp; <b style={{fontSize:"18px"}}>Resume</b></Link>
+            <div className="row sideNavLink2" onClick={()=>setCategory("resume")} 
+            style={category=="resume"?{backgroundColor:"#0B83DA"}:null}>
+                <Link to="/profile/resume" id="resume"  align="left" style={{paddingLeft:'10%'}} className="col-sm-12" 
+                style={category=="resume"?{color:"white"}:null}>
+                    <span><GiIdCard size="20px"/> </span> &nbsp; <b style={{fontSize:"18px"}}>Resume</b>
+                </Link>
             </div>
-            <div className="row sideNavLink2" align="center">
-                <Link to="/profile/documents" align="left" style={{paddingLeft:'10%'}} id="documents" className="col-sm-12"><span><IoIosDocument size="20px"/></span> &nbsp; <b style={{fontSize:"18px"}}>Documents</b></Link>
+            <div className="row sideNavLink2" align="center" onClick={()=>setCategory("docs")} 
+            style={category=="docs"?{backgroundColor:"#0B83DA"}:null}>
+                <Link to="/profile/documents" align="left" style={{paddingLeft:'10%'}} id="documents" className="col-sm-12"
+                style={category=="docs"?{color:"white"}:null}>
+                    <span><IoIosDocument size="20px"/></span> &nbsp; <b style={{fontSize:"18px"}}>Documents</b>
+                </Link>
             </div>
             <hr/>
-            <div className="row sideNavLink2" align="center">
-            <Link to="/profile/bookmarks" align="left" style={{paddingLeft:'10%' , color:"black"}} id="bookmarks" className="col-sm-12">Bookmarks</Link>
+            <div className="row sideNavLink2" align="center" onClick={()=>setCategory("bookmarks")}
+            style={category=="bookmarks"?{backgroundColor:"#0B83DA"}:null}>
+                <Link to="/profile/bookmarks" align="left" style={{paddingLeft:'10%' , color:"black"}} id="bookmarks" className="col-sm-12" 
+                style={category=="bookmarks"?{color:"white",paddingLeft:'10%'}:{paddingLeft:'10%' , color:"black"}}>
+                    Bookmarks
+                </Link>
             </div>
             <hr />
 
