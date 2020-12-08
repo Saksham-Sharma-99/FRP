@@ -26,7 +26,7 @@ const carouselData = [
     ]
 
 function simulateNetworkRequest() {
-    return new Promise((resolve) => {
+    // return new Promise((resolve) => {
         console.log('clicked sign in')
         window.location.replace("https://internet.channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=http://localhost:3000/&state=/")
         let url = new URL(window.location.href)
@@ -51,7 +51,7 @@ function simulateNetworkRequest() {
         //         setTimeout(resolve, 200)
         //     }
         // },{userId:"2"})
-        });
+        // });
   } 
   function LoadingButton() {
     const [isLoading, setLoading] = useState(false);
