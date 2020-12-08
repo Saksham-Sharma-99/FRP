@@ -28,7 +28,7 @@ const carouselData = [
 function simulateNetworkRequest() {
     // return new Promise((resolve) => {
         console.log('clicked sign in')
-        window.location.replace("https://internet.channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=http://localhost:3000/&state=/")
+        window.location.replace("https://internet.channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=https://foreignresearchportal.herokuapp.com/#/&state=/")
         let url = new URL(window.location.href)
         console.log(url.searchParams)
         // GetRequest(Routes.USER_DETAILS,(res)=>{
