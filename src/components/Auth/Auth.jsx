@@ -28,7 +28,7 @@ const carouselData = [
 function simulateNetworkRequest() {
     return new Promise((resolve) => {
         console.log('clicked sign in')
-        window.location.replace("https://internet.channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=https://saksham-sharma-99.github.io/FRP/&state=/")
+        window.location.replace("https://internet.channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=http://localhost:3000/&state=/")
         let url = new URL(window.location.href)
         console.log(url.searchParams)
         // GetRequest(Routes.USER_DETAILS,(res)=>{
@@ -133,13 +133,15 @@ function Auth (){
         </div>
     )
     }else{
-        var params = new URLSearchParams();
-        params.append('client_id', CLIENT_ID);
-        params.append('client_secret', SECRET);
-        params.append('grant_type',url.searchParams.get('code'))
-        params.append('redirect_uri',ORIGIN)
-        params.append('code',url.searchParams.get('code'))
-        Axios.post(CHANNELI_URL+Routes.OPEN_AUTH_TOKEN,params).then((res)=>{
+        // var params = new URLSearchParams();
+        // params.append('client_id', CLIENT_ID);
+        // params.append('client_secret', SECRET);
+        // params.append('grant_type',url.searchParams.get('code'))
+        // params.append('redirect_uri',ORIGIN)
+        // params.append('code',url.searchParams.get('code'))
+        // console.log(params)
+        Axios.post(CHANNELI_URL+Routes.OPEN_AUTH_TOKEN,{params:{client_id:CLIENT_ID,
+        client_secret:SECRET,grant_type:url.searchParams.get('code'),redirect_uri:ORIGIN,code:url.searchParams.get('code')}}).then((res)=>{
             console.log(res)
         })
         return(<h1>Redirecting..Hold on for a second</h1>)
