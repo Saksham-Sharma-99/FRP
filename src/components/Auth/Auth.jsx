@@ -135,33 +135,24 @@ function Auth (){
     }else{
         sessionStorage.setItem(Constants.AUTH_TOKEN,url.searchParams.get('token'))
         console.log(url.searchParams.get('token'))
-        Axios.get(CHANNELI_URL+Routes.GET_USER_DATA , 
-            {headers : {"Authorisation" : `Bearer ${sessionStorage.getItem(Constants.AUTH_TOKEN)}`}}).then((response)=>{
-            if(response.status==200){
-                console.log(response.data)
-                sessionStorage.setItem(Constants.CHANNELI_DATA,response.data)
-                GetRequest(Routes.USER_DETAILS,(res)=>{
-                    if (res.status==200){
-                        GetRequest(Routes.PROJECTS , (resp)=>{
-                            if (resp.status == 200){
-                                isLoggedIn = true;
-                                sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
-                                LogIn(res)
-                            }
-                            else{
-                                window.alert("Can't Login. Unknown Error Occured")
-                            }
-                        })
+        
+        GetRequest(Routes.USER_DETAILS,(res)=>{
+            if (res.status==200){
+                GetRequest(Routes.PROJECTS , (resp)=>{
+                    if (resp.status == 200){
+                        isLoggedIn = true;
+                        sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
+                        LogIn(res)
                     }
                     else{
                         window.alert("Can't Login. Unknown Error Occured")
                     }
-                },{userId:"2"})
-            }else{
+                })
+            }
+            else{
                 window.alert("Can't Login. Unknown Error Occured")
             }
-        })
-        
+        },{userId:"2"})
     
         return(<h4>Redirecting . Please wait for a second</h4>)
     }
