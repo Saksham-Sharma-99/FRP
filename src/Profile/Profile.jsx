@@ -52,7 +52,7 @@ function Profile(){
             <div className = "row">
 
                 <PersonalDetails name={profileData.person.fullName} 
-                                 en={profileData.student.enrollmentNumber} 
+                                 en={profileData.student.enrolmentNumber} 
                                  email={profileData.contactInformation.instituteWebmailAddress}
                                  image = {profileData.person.displayPicture}
                                  />
