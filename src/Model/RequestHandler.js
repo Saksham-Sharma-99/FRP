@@ -25,7 +25,8 @@ function PostRequest(route , callback ,param,baseURL = BaseURL){
 function LogIn(res){
     document.getElementById('root').classList.remove('#auth')
     sessionStorage.setItem(Constants.IS_LOGGED_IN,Constants.YES)
-    sessionStorage.setItem(Constants.USER_PROFILE,JSON.stringify(res.data[0]))
+    sessionStorage.setItem(Constants.USER_PROFILE,JSON.stringify(res.data[0][0]))
+    sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data[0][1]))
     window.location.reload()
 }
 
