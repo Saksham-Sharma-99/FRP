@@ -86,7 +86,7 @@ function ChatsTab() {
 }
 
 function ProfileTab(){
-  var profileData = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE))
+  var profileData = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA))
   return(
     <NavDropdown title={<div className="pull-left">
         <RiUserFill className="chatIcon" />
@@ -97,16 +97,16 @@ function ProfileTab(){
           <Link className="menuLink" to="/profile/resume" onClick={HideNav}>
               <div className = "container-fluid">
               <div className ="col-1">
-              <img  className = "navItem" src ={profileImage} 
+              <img  className = "navItem" src ={profileData.person.displayPicture==null ? profileImage:profileData.person.displayPicture} 
               style={{height:"55px",width:"55px",borderRadius:"50%",padding:"3px",
               backgroundColor:"lightgray" , position:"relative" , right:"40px"}}/>
               </div>
               <div className="col-8">
               <div className="row">
-              <h5 style={{marginTop:"10px"}}>{profileData.personalData.acadDetails.name}</h5>
+              <h5 style={{marginTop:"10px"}}>{profileData.person.fullName}</h5>
               </div>
               <div className="row">
-              <h6 style={{marginTop:"10px"}}>Student</h6>
+              <h6 style={{marginTop:"10px"}}>{profileData.person.roles[0].role}</h6>
               </div>
               </div>
               </div>
