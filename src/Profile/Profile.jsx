@@ -16,7 +16,7 @@ function PersonalDetails(props){
 
             <div className="row"> 
                 <div className = "col-lg-6" >
-                    <img src = {profileImage} className="profile-image"/>
+                    <img src = {props.image== null ? profileImage : props.image} className="profile-image"/>
                 </div>
                 <div className="col-lg-6" style={{marginTop:"10px"}}>
                     <h4 className="student-details" style={{marginTop : "20px"}}>{props.name}</h4>
@@ -35,7 +35,6 @@ function AcademicDetails(props){
             <div className="row"> 
                 <div className = "col-lg">
                     <p className="others" style={{marginTop:"20px"}}>Branch : {props.br}</p>
-                    <p className="others" >Current CGPA : {props.cg}</p>
                     <p className="others">Semester : {props.sem}</p>
                 </div>
             </div>
@@ -44,19 +43,24 @@ function AcademicDetails(props){
 }
 
 function Profile(){
-    var profileData = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE))
-    var personalData = profileData.personalData.personalDetails
-    var acadData = profileData.personalData.acadDetails
+    var profileData = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA))
+    // var personalData = profileData.personalData.personalDetails
+    // var acadData = profileData.personalData.acadDetails
     return (
         <div className = "container-fluid" style={{paddingLeft:"80px" , paddingRight :"80px" , paddingTop:"40px"}}>
 
             <div className = "row">
 
-                <PersonalDetails name={acadData.name} en={acadData.enrollmentNr} email={personalData.email}/>
+                <PersonalDetails name={profileData.person.fullName} 
+                                 en={profileData.student.enrollmentNumber} 
+                                 email={profileData.contactInformation.instituteWebmailAddress}
+                                 image = {profileData.person.displayPicture}
+                                 />
 
                 <div className="col-sm"></div>
 
-                <AcademicDetails cg={acadData.cg} br={acadData.branch} sem={acadData.sem}/>
+                <AcademicDetails  br={profileData.student['branch degree name']} 
+                                 sem={profileData.student.currentSemester}/>
 
             </div>
 

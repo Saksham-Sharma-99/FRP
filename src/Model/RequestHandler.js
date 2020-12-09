@@ -1,5 +1,5 @@
 import Axios from "axios"
-import {Constants,BaseURL,JSON_Constants} from "./Constants"
+import {Constants,BaseURL,JSON_Constants, ORIGIN} from "./Constants"
 
 
 function GetRequest( route , callback,parameters=null,baseURL = BaseURL){
@@ -26,14 +26,14 @@ function LogIn(res){
     document.getElementById('root').classList.remove('#auth')
     sessionStorage.setItem(Constants.IS_LOGGED_IN,Constants.YES)
     sessionStorage.setItem(Constants.USER_PROFILE,JSON.stringify(res.data[0][0]))
-    sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data[0][1]))
+    sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data[1]))
     window.location.reload()
 }
 
 function LogOut(){
     document.getElementById('root').classList.remove('#projects')
     sessionStorage.setItem(Constants.IS_LOGGED_IN,Constants.NO)
-    window.location.reload()
+    window.location.replace(ORIGIN)
 }
 
 
