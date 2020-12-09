@@ -19,7 +19,8 @@ const ORIGIN = "https://foreignresearchportal.herokuapp.com/#/"
 const Routes = {
     USER_DETAILS : "/userDetails",
     PROJECTS : "/projects",
-    OPEN_AUTH_TOKEN : "/open_auth/token/"
+    OPEN_AUTH_TOKEN : "/open_auth/token/",
+    GET_USER_DATA: "/open_auth/get_user_data/"
 }
 
 const JSON_Constants = {

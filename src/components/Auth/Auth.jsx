@@ -135,8 +135,8 @@ function Auth (){
     }else{
         sessionStorage.setItem(Constants.AUTH_TOKEN,url.searchParams.get('token'))
         console.log(url.searchParams.get('token'))
-        Axios.get(baseURL+route , 
-            {Headers : {"Authorisation" : `Bearer ${sessionStorage.getItem(Constants.AUTH_TOKEN)}`}}).then((response)=>{
+        Axios.get(CHANNELI_URL+Routes.GET_USER_DATA , 
+            {headers : {"Authorisation" : `Bearer ${sessionStorage.getItem(Constants.AUTH_TOKEN)}`}}).then((response)=>{
             if(response.status==200){
                 console.log(response.data)
                 sessionStorage.setItem(Constants.CHANNELI_DATA,response.data)
