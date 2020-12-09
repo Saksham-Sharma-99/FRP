@@ -108,7 +108,7 @@ function CarouselElement(props){
 function Auth (){
     let url = new URL(window.location.href)
     console.log("hello")
-    if (url.searchParams.get('code') == null){
+    if (url.searchParams.get('token') == null){
     return (
         <div className='container-fluid' style ={{alignItems:"center"}}>
             <div className ="row">
@@ -147,6 +147,7 @@ function Auth (){
         // client_secret:SECRET,grant_type:url.searchParams.get('code'),redirect_uri:ORIGIN,code:url.searchParams.get('code')}}).then((res)=>{
         //     console.log(res)
         // })
+        console.log(url.searchParams.get('token'))
         return(null)
     }
 }
