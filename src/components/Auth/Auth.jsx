@@ -133,21 +133,30 @@ function Auth (){
         </div>
     )
     }else{
-        // var params = new URLSearchParams();
-        // params.append('client_id', CLIENT_ID);
-        // params.append('client_secret', SECRET);
-        // params.append('grant_type',url.searchParams.get('code'))
-        // params.append('redirect_uri',ORIGIN)
-        // params.append('code',url.searchParams.get('code'))
-        // console.log(params)
-        // var config= {
-        //     headers
-        // }
-        // Axios.post(CHANNELI_URL+Routes.OPEN_AUTH_TOKEN,{params:{client_id:CLIENT_ID,
-        // client_secret:SECRET,grant_type:url.searchParams.get('code'),redirect_uri:ORIGIN,code:url.searchParams.get('code')}}).then((res)=>{
-        //     console.log(res)
-        // })
+        sessionStorage.setItem(Constants.AUTH_TOKEN,url.searchParams.get('token'))
         console.log(url.searchParams.get('token'))
+        
+        GetRequest(Routes.USER_DETAILS,(res)=>{
+            if (res.status==200){
+                GetRequest(Routes.PROJECTS , (resp)=>{
+                    if (resp.status == 200){
+                        isLoggedIn = true;
+                        sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
+                        LogIn(res)
+                        setTimeout(resolve, 2000)
+                    }
+                    else{
+                        window.alert("Can't Login. Unknown Error Occured")
+                        setTimeout(resolve, 200)
+                    }
+                })
+            }
+            else{
+                window.alert("Can't Login. Unknown Error Occured")
+                setTimeout(resolve, 200)
+            }
+        },{userId:"2"})
+    
         return(null)
     }
 }

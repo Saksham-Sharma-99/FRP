@@ -3,6 +3,7 @@ const Constants = {
     YES : "yes",
     NO : "NO",
     USER_PROFILE : "userProfile",
+    AUTH_TOKEN : "authToken",
     PROJECTS : "projects"
 }
 
