@@ -152,7 +152,7 @@ function Auth (){
             else{
                 window.alert("Can't Login. Unknown Error Occured")
             }
-        },{userId:"2"})
+        },{token:sessionStorage.getItem(Constants.AUTH_TOKEN)})
     
         return(<h4>Redirecting . Please wait for a second</h4>)
     }
