@@ -135,7 +135,7 @@ function Auth (){
     }else{
         sessionStorage.setItem(Constants.AUTH_TOKEN,url.searchParams.get('token'))
         console.log(url.searchParams.get('token'))
-        
+
         GetRequest(Routes.USER_DETAILS,(res)=>{
             if (res.status==200){
                 GetRequest(Routes.PROJECTS , (resp)=>{
@@ -143,17 +143,14 @@ function Auth (){
                         isLoggedIn = true;
                         sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
                         LogIn(res)
-                        setTimeout(resolve, 2000)
                     }
                     else{
                         window.alert("Can't Login. Unknown Error Occured")
-                        setTimeout(resolve, 200)
                     }
                 })
             }
             else{
                 window.alert("Can't Login. Unknown Error Occured")
-                setTimeout(resolve, 200)
             }
         },{userId:"2"})
     
