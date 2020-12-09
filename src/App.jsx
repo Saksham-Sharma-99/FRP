@@ -17,6 +17,7 @@ var LoggedIn = (isLoggedIn || sessionStorage.getItem('isLoggedIn')==='yes');
 function App(props){
 
     console.log(JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)))
+    console.log(JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)))
     
     setTimeout(() => {
         console.log('logging out after 1 hour')
