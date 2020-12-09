@@ -4,6 +4,7 @@ const Constants = {
     NO : "NO",
     USER_PROFILE : "userProfile",
     AUTH_TOKEN : "authToken",
+    CHANNELI_DATA: "channeliData",
     PROJECTS : "projects"
 }
 

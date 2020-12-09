@@ -2,14 +2,14 @@ import Axios from "axios"
 import {Constants,BaseURL,JSON_Constants} from "./Constants"
 
 
-function GetRequest( route , callback,parameters=null){
+function GetRequest( route , callback,parameters=null,baseURL = BaseURL){
     if (parameters!=null){
-        Axios.get(BaseURL+route , {params : parameters}).then((res)=>{
+        Axios.get(baseURL+route , {params : parameters}).then((res)=>{
             callback(res)
         })
     }
     else{
-        Axios.get(BaseURL+route).then((res)=>{
+        Axios.get(baseURL+route).then((res)=>{
             callback(res)
         })
     }
