@@ -16,7 +16,7 @@ function PersonalDetails(props){
 
             <div className="row"> 
                 <div className = "col-lg-6" >
-                    <img src = {props.image== null ? profileImage : props.image} className="profile-image"/>
+                    <img src = {props.image== null ? profileImage : (CHANNELI_URL +props.image)} className="profile-image"/>
                 </div>
                 <div className="col-lg-6" style={{marginTop:"10px"}}>
                     <h4 className="student-details" style={{marginTop : "20px"}}>{props.name}</h4>
@@ -54,7 +54,7 @@ function Profile(){
                 <PersonalDetails name={profileData.person.fullName} 
                                  en={profileData.student.enrolmentNumber} 
                                  email={profileData.contactInformation.instituteWebmailAddress}
-                                 image = {CHANNELI_URL + profileData.person.displayPicture}
+                                 image = {profileData.person.displayPicture}
                                  />
 
                 <div className="col-sm"></div>
