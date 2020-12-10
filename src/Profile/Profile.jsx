@@ -8,7 +8,7 @@ import SideNav from "./components/SideNav/SideNav"
 import {Bookmarks} from "../components/Projects/Projects.jsx";
 import Resume from "./components/Resume/Resume"
 import Documents from "./components/Documents/Documents"
-import { Constants } from "../Model/Constants";
+import { CHANNELI_URL, Constants } from "../Model/Constants";
 
 function PersonalDetails(props){
     return(
@@ -54,7 +54,7 @@ function Profile(){
                 <PersonalDetails name={profileData.person.fullName} 
                                  en={profileData.student.enrolmentNumber} 
                                  email={profileData.contactInformation.instituteWebmailAddress}
-                                 image = {profileData.person.displayPicture}
+                                 image = {CHANNELI_URL + profileData.person.displayPicture}
                                  />
 
                 <div className="col-sm"></div>

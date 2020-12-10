@@ -97,7 +97,7 @@ function ProfileTab(){
           <Link className="menuLink" to="/profile/resume" onClick={HideNav}>
               <div className = "container-fluid">
               <div className ="col-1">
-              <img  className = "navItem" src ={profileData.person.displayPicture==null ? profileImage:profileData.person.displayPicture} 
+              <img  className = "navItem" src ={profileData.person.displayPicture==null ? profileImage:(CHANNELI_URL+profileData.person.displayPicture)} 
               style={{height:"55px",width:"55px",borderRadius:"50%",padding:"3px",
               backgroundColor:"lightgray" , position:"relative" , right:"40px"}}/>
               </div>
