@@ -17,7 +17,7 @@ import {IoIosDocument} from "react-icons/io"
 import {GiTeamIdea} from "react-icons/gi"
 import {BiLogOut} from "react-icons/bi"
 import {LogOut} from "../../../Model/RequestHandler"
-import { Constants } from "../../../Model/Constants";
+import { CHANNELI_URL, Constants } from "../../../Model/Constants";
 
 function HideNav(){
   ReactDOM.render(
