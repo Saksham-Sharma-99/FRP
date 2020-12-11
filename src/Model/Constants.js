@@ -13,7 +13,7 @@ const LoginURL = "https://internet.channeli.in/oauth/authorise?client_id=KhvKozO
 const CLIENT_ID = "KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI"
 const SECRET = "KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm"
 const CHANNELI_URL = "https://internet.channeli.in"
-const ORIGIN = (window.location.hostname=='localhost'|| window.location.hostname=='127.0.0.1') ? 'http:localhost:3000/#/':"https://foreignresearchportal.herokuapp.com/#/"
+const ORIGIN = (window.location.hostname.includes['localhost','127.0.0.1']) ? 'http:localhost:3000/#/':"https://foreignresearchportal.herokuapp.com/#/"
 
 
 const Routes = {
