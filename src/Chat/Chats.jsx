@@ -1,19 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Chats.css'
 import {chatsBox} from "./chats"
-import {Link} from 'react-router-dom'
+import {HashRouter, Link, Route, Router} from 'react-router-dom'
 import {profileImage} from "../Profile/assets/index"
 import { LeftMessage, RightMessage } from './components/Messages/Message'
+import Switch from 'react-bootstrap/esm/Switch'
+import InputBar from './components/InputBar/InputBar'
+import { animateScroll } from "react-scroll";
 
+function scrollToBottom() {
+    animateScroll.scrollToBottom({
+      containerId: "options-holder"
+    });
+}
+
+function Chats(){
+    var [chatId,setChatId] = useState(1)
 
 function ChatsBox(){
+
     if(visualViewport.width>991){
         return (
             <div className = 'col-lg-3 chats-box' 
-            style={{position: 'relative',height: '88vh',overflowY:'scroll',overflowX:'hidden'}}>
+            style={{position: 'sticky',height: '88vh',overflowY:'scroll',overflowX:'hidden'}}>
             {chatsBox.map((data)=>{
                 return(
-                <Link className="msgLink" >
+                <Link className="msgLink" onClick={()=>setChatId(data.chatId)}>
                  <div className="row chat-box" style={{marginBottom:'15px',height:"140px"}}>
                      <div className = 'row'>
                         <div className='col-lg-2'><img src={profileImage} style={{height:'10x',width:'40px'}}/></div>
@@ -45,7 +57,7 @@ function ChatsBox(){
             <div className = 'row' style={{height:'20vw',overflowX:'scroll',overflowY:'hidden',flexWrap:'nowrap'}}>
             {chatsBox.map((data)=>{
                 return(
-                    <Link className='msgLink'>
+                    <Link className='msgLink' onClick={()=>setChatId(data.chatId)}>
                     <div className='col-2'>
                      <img src={profileImage} style={{width:"14.5vw",height:'14.5vw'}}/>
                      <h6 style={{textAlign:'center',position:'relative',left:'20px'}}>{data.sender}</h6>
@@ -58,10 +70,20 @@ function ChatsBox(){
     }
 }
 
+function Messages(props){
+    console.log(props.chatId)
+    
+    return (
+        chatsBox.filter((data)=>data.chatId == props.chatId).map((data)=>{
+            return(
+            data.messages.map((msgData)=>{
+                return msgData.sender=="recieverId"?<RightMessage content ={msgData.msg} />:<LeftMessage content ={msgData.msg}/>
+            }))
+        })
+    )
+}
 
 
-
-function Chats(){
     
     return (
         <div className = 'container-fluid' style={{paddingLeft:"20px"}}>
@@ -69,12 +91,17 @@ function Chats(){
                 
                 <ChatsBox />
 
-                <div className = 'col-lg-9' style={{padding:'10px 40px 0px'}}>
-                    <RightMessage content=""/>
-                    <LeftMessage content="shfkbviuerhfgouier"/>
-                    <RightMessage content="shfkbviuerhfgouier"/>
-                    <LeftMessage content="shfkbviuerhfgouier"/>
+                <div className = 'col-lg-9' style={{padding:'0px 20px 0px',height:"86vh"}}>
+                <div className="container-fluid" style = {{height: '80vh',overflowY:'scroll',overflowX:'hidden',zIndex:"-1"}}>
+                <Messages chatId = {chatId}/>
                 </div>
+                <div className = "container-fluid">
+                <InputBar />
+                </div>
+                </div>
+                
+
+                
 
             </div>
         </div>
