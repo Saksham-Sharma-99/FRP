@@ -8,14 +8,20 @@ import Switch from 'react-bootstrap/esm/Switch'
 import InputBar from './components/InputBar/InputBar'
 import { animateScroll } from "react-scroll";
 
-function scrollToBottom() {
-    animateScroll.scrollToBottom({
-      containerId: "options-holder"
-    });
-}
+
 
 function Chats(){
     var [chatId,setChatId] = useState(1)
+
+
+function scrollToBottom(chatID) {
+    setChatId(chatID)
+    setTimeout(() => {
+    animateScroll.scrollToBottom({
+        containerId: "options-holder"
+    });},1)
+    
+}
 
 function ChatsBox(){
 
@@ -25,7 +31,7 @@ function ChatsBox(){
             style={{position: 'sticky',height: '88vh',overflowY:'scroll',overflowX:'hidden'}}>
             {chatsBox.map((data)=>{
                 return(
-                <Link className="msgLink" onClick={()=>setChatId(data.chatId)}>
+                <Link className="msgLink" onClick={()=>scrollToBottom(data.chatId)}>
                  <div className="row chat-box" style={{marginBottom:'15px',height:"140px"}}>
                      <div className = 'row'>
                         <div className='col-lg-2'><img src={profileImage} style={{height:'10x',width:'40px'}}/></div>
@@ -92,7 +98,7 @@ function Messages(props){
                 <ChatsBox />
 
                 <div className = 'col-lg-9' style={{padding:'0px 20px 0px',height:"86vh"}}>
-                <div className="container-fluid" style = {{height: '80vh',overflowY:'scroll',overflowX:'hidden',zIndex:"-1"}}>
+                <div className="container-fluid" id = "options-holder" style = {{height: '80vh',overflowY:'scroll',overflowX:'hidden',zIndex:"-1"}}>
                 <Messages chatId = {chatId}/>
                 </div>
                 <div className = "container-fluid">
