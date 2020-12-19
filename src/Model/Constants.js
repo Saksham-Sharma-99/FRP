@@ -13,7 +13,7 @@ const LoginURL = "https://internet.channeli.in/oauth/authorise?client_id=KhvKozO
 const CLIENT_ID = "KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI"
 const SECRET = "KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm"
 const CHANNELI_URL = "https://internet.channeli.in"
-const ORIGIN = (['localhost','127.0.0.1'].includes(window.location.hostname)) ? 'http:localhost:3000/#/':"http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/frp"
+const ORIGIN = (['localhost','127.0.0.1'].includes(window.location.hostname)) ? 'http://localhost:3000/#/':"http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/frp"
 
 
 const Routes = {
