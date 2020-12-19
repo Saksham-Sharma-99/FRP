@@ -9,7 +9,8 @@ import {AuthRoute} from 'react-router-auth';
 import {BsFillBookmarkFill} from "react-icons/bs"
 import {RiUserShared2Line} from "react-icons/ri"
 import {ImCompass} from "react-icons/im"
-import { Constants } from "../../Model/Constants"
+import { Constants, Routes } from "../../Model/Constants"
+import { PostRequest } from "../../Model/RequestHandler"
 
 function Buttons(props){
     return(
@@ -41,6 +42,19 @@ function Details(props){
     const [bookmarked, setLightMode ] = React.useState(props.bmk)
     const [content , setContent] = React.useState(props.content.substr(0,500))
     const [seeml , setView] = React.useState(props.content.length>500? "... See more":"")
+
+    function toggleBookmark(bookmark,postID){
+        setLightMode(bookmark)
+        var route = bookmark ? Routes.BOOKMARK : Routes.REM_BOOKMARK
+        var student = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA))
+        console.log(student.userId , props.id)
+        PostRequest(route,((res)=>{
+            console.log(res.data)
+            sessionStorage.setItem(Constants.PROJECTS,JSON.stringify(res.data.projects.projects))
+            sessionStorage.setItem(Constants.CHANNELI_DATA , JSON.stringify(res.data.user))
+        }),{userId:student.userId,postId:postID})
+    }
+
    return(  
     <div className = "container-fluid project-card" style = {{backgroundColor : "#f1f6f9" }}> 
         <div className="container">
@@ -69,7 +83,7 @@ function Details(props){
                             <p className="requirements">Branch      : {props.branch}</p>
                             <p className="requirements">Deadline    : {props.deadline}</p>
                         </div>
-                        <Link to = "#"onClick = {()=>setLightMode(!bookmarked)} >
+                        <Link to = "#"onClick = {()=>toggleBookmark(!bookmarked,props.id)} >
                             <div className="col bookmark" >
                                 <BsFillBookmarkFill className="bookmarkIcon"color={bookmarked ? "#fca652":"lightgray"}
                                 />  
@@ -100,7 +114,8 @@ function Details(props){
 
 function Projects (){
     var projectsData = JSON.parse(sessionStorage.getItem(Constants.PROJECTS))
-    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).applications
+    console.log(JSON.parse(sessionStorage.getItem(Constants.PROJECTS)))
+    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).applications
     return (
     <div className = "container-fluid cards" >
         {projectsData.map(project => 
@@ -116,7 +131,7 @@ function Projects (){
 
 function Bookmarks (){
     var projectsData = JSON.parse(sessionStorage.getItem(Constants.PROJECTS))
-    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).applications
+    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).applications
     return (
     <div className = "container-fluid cards" >
         {projectsData.filter(project=>studentApplications.bookmarked.includes(project.postId)).map(project => 

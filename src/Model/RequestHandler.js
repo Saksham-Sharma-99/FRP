@@ -16,7 +16,12 @@ function GetRequest( route , callback,parameters=null,baseURL = BaseURL){
 }
 
 function PostRequest(route , callback ,param,baseURL = BaseURL){
-    Axios.post(baseURL + route ,{params : param}).then((res)=>{
+    Axios({
+        method: 'post',
+        url: baseURL+route,
+        params: param,
+        config: { headers: {'Content-Type': 'multipart/form-data' }}
+    }).then((res)=>{
         callback(res)
     })
 }

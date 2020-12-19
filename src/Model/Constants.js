@@ -20,7 +20,9 @@ const Routes = {
     USER_DETAILS : "/userDetails",
     PROJECTS : "/projects",
     OPEN_AUTH_TOKEN : "/open_auth/token/",
-    GET_USER_DATA: "/open_auth/get_user_data/"
+    GET_USER_DATA: "/open_auth/get_user_data/",
+    BOOKMARK : "/bookmark",
+    REM_BOOKMARK:"/removeBookmark"
 }
 
 const JSON_Constants = {
