@@ -21,7 +21,7 @@ function Buttons(props){
             console.log(res.data)
             sessionStorage.setItem(Constants.PROJECTS,JSON.stringify(res.data.projects.projects))
             sessionStorage.setItem(Constants.CHANNELI_DATA , JSON.stringify(res.data.user))
-        }),{userId :student.userId,postId:props.id})
+        }),{userId :student.userId,postId:props.id,name:props.name})
     }
     return(
         <div className="row" style={{textAlign:"center"}}>
@@ -117,7 +117,7 @@ function Details(props){
 
         <hr className="hr2" style={{marginTop:"5px",width:"65%",position:"relative",top:"26px"}}/>
 
-        <Buttons applied={props.applied} id={props.id}/>
+        <Buttons applied={props.applied} id={props.id} name={props.collegeName}/>
      </div>
    );
 }

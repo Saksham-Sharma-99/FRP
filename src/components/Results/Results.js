@@ -67,7 +67,7 @@ function CategoryData(props){
 
 
 function Results(){
-    var resultData = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).results
+    var resultData = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).results
 
     return (
         <div className = "container-fluid">
