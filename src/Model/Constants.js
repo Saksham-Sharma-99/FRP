@@ -22,7 +22,8 @@ const Routes = {
     OPEN_AUTH_TOKEN : "/open_auth/token/",
     GET_USER_DATA: "/open_auth/get_user_data/",
     BOOKMARK : "/bookmark",
-    REM_BOOKMARK:"/removeBookmark"
+    REM_BOOKMARK:"/removeBookmark",
+    APPLY:"/apply"
 }
 
 const JSON_Constants = {

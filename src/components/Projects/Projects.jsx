@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {logo} from "../NavBars/TopNav/assets/index"
 import "./Projects.css"
 import {projects} from "./projects"
@@ -13,6 +13,16 @@ import { Constants, Routes } from "../../Model/Constants"
 import { PostRequest } from "../../Model/RequestHandler"
 
 function Buttons(props){
+    let [applied,setApplied] = useState(props.applied)
+    function Apply(){
+        setApplied(true)
+        var student = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA))
+        PostRequest(Routes.APPLY,((res)=>{
+            console.log(res.data)
+            sessionStorage.setItem(Constants.PROJECTS,JSON.stringify(res.data.projects.projects))
+            sessionStorage.setItem(Constants.CHANNELI_DATA , JSON.stringify(res.data.user))
+        }),{userId :student.userId,postId:props.id})
+    }
     return(
         <div className="row" style={{textAlign:"center"}}>
 
@@ -24,11 +34,11 @@ function Buttons(props){
                 </Link>
             </div>
 
-            <div className = {props.applied ?"col projectBTNLink3 btn disabled" :"col projectBTNLink2 btn"}>
+            <div className = {applied ?"col projectBTNLink3 btn disabled" :"col projectBTNLink2 btn"} onClick={Apply}>
                 
                 <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:'black'}}>
                 <ImCompass style={{height:"25px",width:"30px",marginRight:"20px"}}/>
-                    {props.applied ? "Applied":"Apply"}
+                    {applied ? "Applied":"Apply"}
                 </Link>
             </div>
 
@@ -50,8 +60,9 @@ function Details(props){
         console.log(student.userId , props.id)
         PostRequest(route,((res)=>{
             console.log(res.data)
+            if(res.data.status == null){
             sessionStorage.setItem(Constants.PROJECTS,JSON.stringify(res.data.projects.projects))
-            sessionStorage.setItem(Constants.CHANNELI_DATA , JSON.stringify(res.data.user))
+            sessionStorage.setItem(Constants.CHANNELI_DATA , JSON.stringify(res.data.user))}
         }),{userId:student.userId,postId:postID})
     }
 
@@ -106,7 +117,7 @@ function Details(props){
 
         <hr className="hr2" style={{marginTop:"5px",width:"65%",position:"relative",top:"26px"}}/>
 
-        <Buttons applied={props.applied}/>
+        <Buttons applied={props.applied} id={props.id}/>
      </div>
    );
 }
