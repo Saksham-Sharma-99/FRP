@@ -4,7 +4,7 @@ import {logo} from '../NavBars/TopNav/assets/index'
 import App from '../../App'
 import {Carousel,Button} from 'react-bootstrap'
 import {GetRequest,LogIn,PostRequest} from '../../Model/RequestHandler'
-import {Routes,Constants, CLIENT_ID, SECRET, ORIGIN,CHANNELI_URL} from '../../Model/Constants'
+import {Routes,Constants, CLIENT_ID, SECRET, ORIGIN,CHANNELI_URL,BaseURL} from '../../Model/Constants'
 import './Auth.css'
 import Axios from 'axios';
 
@@ -28,7 +28,7 @@ const carouselData = [
 function simulateNetworkRequest() {
     // return new Promise((resolve) => {
         console.log('clicked sign in')
-        window.location.replace(`https://internet.channeli.in/oauth/authorise?client_id=${CLIENT_ID}&redirect_uri=https://frp-backend.herokuapp.com/&state=${ORIGIN}`)
+        window.location.replace(`https://internet.channeli.in/oauth/authorise?client_id=${CLIENT_ID}&redirect_uri=${BaseURL}/&state=${ORIGIN}`)
         let url = new URL(window.location.href)
         console.log(url.searchParams)
         // GetRequest(Routes.USER_DETAILS,(res)=>{
