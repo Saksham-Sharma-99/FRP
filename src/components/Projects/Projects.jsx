@@ -8,12 +8,70 @@ import {HashRouter, Switch} from 'react-router-dom';
 import {AuthRoute} from 'react-router-auth';
 import {BsFillBookmarkFill} from "react-icons/bs"
 import {RiUserShared2Line} from "react-icons/ri"
+import {BiMessageAltDetail} from "react-icons/bi"
+import {FiExternalLink} from "react-icons/fi"
 import {ImCompass} from "react-icons/im"
-import { Constants, Routes } from "../../Model/Constants"
+import {AiOutlineMail} from "react-icons/ai"
+import { Constants, Routes,ORIGIN } from "../../Model/Constants"
 import { PostRequest } from "../../Model/RequestHandler"
+import { Popover , OverlayTrigger } from "react-bootstrap"
+
+
+function ReferOptions(){
+
+    function sendEmail(){
+        console.log("clicked")
+        window.location.href = `mailto:user@example.com?subject=${Constants.EMAIL_SUB}&body=${Constants.EMAIL_MSG}${ORIGIN}`;
+    }
+
+    function copyLink(){
+        var copyText = Constants.EMAIL_MSG + ORIGIN;
+        const el = document.createElement('textarea');
+        el.value = copyText;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        window.alert("Coppied")
+    }
+
+    function SendMessage(){
+        console.log("clicked")
+    }
+
+    return(
+        <div className = "container-fluid" stlye={{padding:"0"}}>
+            <div className="row" stlye={{padding:"0"}}>
+                <div className = "col-4" stlye={{padding:"0"}} onClick={sendEmail}>
+                    <AiOutlineMail size="35px" style={{position:"relative",left:"5px"}} />
+                    <p style={{padding:"0" , margin:"0",fontSize:"10px",textAlign:"center"}}>Email</p>
+                </div>
+                <div className = "col-4" stlye={{padding:"0"}} onClick={copyLink}>
+                    <FiExternalLink size="35px" style={{position:"relative",left:"7px"}} />
+                    <p style={{padding:"0" , margin:"0",fontSize:"10px",textAlign:"center"}}>Link</p>
+                </div>
+                <div className = "col-4" stlye={{padding:"0"}} onClick={SendMessage}>
+                    <BiMessageAltDetail size="35px" style={{position:"relative",left:"5px"}} />
+                    <p style={{padding:"0" , margin:"0",fontSize:"10px",textAlign:"center"}}>Send Message</p>
+                </div>
+            </div>
+            
+        </div>
+    )
+}
 
 function Buttons(props){
     let [applied,setApplied] = useState(props.applied)
+    let [clicked,setClicked] = useState(false)
+    const popover = (
+        <Popover id="popover-positioned-top">
+          {/* <Popover.Title as="h3">Refer</Popover.Title> */}
+          <Popover.Content>
+            <ReferOptions />
+          </Popover.Content>
+        </Popover>
+      );
+
     function Apply(){
         setApplied(true)
         var student = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA))
@@ -23,16 +81,20 @@ function Buttons(props){
             sessionStorage.setItem(Constants.CHANNELI_DATA , JSON.stringify(res.data.user))
         }),{userId :student.userId,postId:props.id,name:props.name})
     }
+
     return(
         <div className="row" style={{textAlign:"center"}}>
 
-            <div className = "col projectBTNLink1 btn" style={{margin:"0"}}>
+            <OverlayTrigger trigger="click" placement="top" overlay={popover}>
+            <div className = {clicked ? "col btn projectBTNLink4":"col projectBTNLink1 btn"} 
+            style={{margin:"0"}} onClick={()=>setClicked(!clicked)}>
                 
                 <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:'black'}}>
                 <RiUserShared2Line style={{height:"25px",width:"30px",marginRight:"20px"}}/>
                     Refer
                 </Link>
             </div>
+            </OverlayTrigger>
 
             <div className = {applied ?"col projectBTNLink3 btn disabled" :"col projectBTNLink2 btn"} onClick={Apply}>
                 
@@ -90,9 +152,9 @@ function Details(props){
                     <div className="row"> 
                     
                         <div className = "col">
-                            <p className="requirements">Cg Required : {props.cg}</p> 
-                            <p className="requirements">Branch      : {props.branch}</p>
-                            <p className="requirements">Deadline    : {props.deadline}</p>
+                            <p className="requirements">Cg Required : <strong>{props.cg}</strong></p> 
+                            <p className="requirements">Branch      : <strong>{props.branch}</strong></p>
+                            <p className="requirements">Deadline    : <strong>{props.deadline}</strong></p>
                         </div>
                         <Link to = "#"onClick = {()=>toggleBookmark(!bookmarked,props.id)} >
                             <div className="col bookmark" >

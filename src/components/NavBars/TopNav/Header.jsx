@@ -16,8 +16,8 @@ import {GiIdCard} from "react-icons/gi"
 import {IoIosDocument} from "react-icons/io"
 import {GiTeamIdea} from "react-icons/gi"
 import {BiLogOut} from "react-icons/bi"
-import {LogOut} from "../../../Model/RequestHandler"
-import { CHANNELI_URL, Constants } from "../../../Model/Constants";
+import {LogOut,GetRequest} from "../../../Model/RequestHandler"
+import { CHANNELI_URL, Constants ,Routes} from "../../../Model/Constants";
 
 function HideNav(){
   ReactDOM.render(
@@ -26,10 +26,30 @@ function HideNav(){
 );
 }
 function ShowNav(){
+  if(sessionStorage.getItem(Constants.IS_LOGGED_IN)==="yes"){
+    GetRequest(Routes.USER_DETAILS,(res)=>{
+      if (res.status==200){
+          GetRequest(Routes.PROJECTS , (resp)=>{
+              if (resp.status == 200){
+                  sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
+                  sessionStorage.setItem(Constants.USER_PROFILE,JSON.stringify(res.data[0][0]))
+                  sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data[1]))
+              }
+              else{
+                  window.alert("Can't Reload. Unknown Error Occured")
+              }
+          })
+      }
+      else{
+          window.alert("Can't Reload. Unknown Error Occured")
+      }
+  },{token:sessionStorage.getItem(Constants.AUTH_TOKEN)})
+  }
+  
   ReactDOM.render(
     <App showSideNav ={true} />,
   document.getElementById('root')
-);
+  );
 }
 
 function Logout(){

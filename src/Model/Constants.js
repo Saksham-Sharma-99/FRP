@@ -5,7 +5,9 @@ const Constants = {
     USER_PROFILE : "userProfile",
     AUTH_TOKEN : "authToken",
     CHANNELI_DATA: "channeliData",
-    PROJECTS : "projects"
+    PROJECTS : "projects",
+    EMAIL_SUB : "Project on FRP",
+    EMAIL_MSG : "Hey there , \nI found a project on Foreign Research Portal which you may be interested in!\n "
 }
 
 const BaseURL = (['localhost','127.0.0.1'].includes(window.location.hostname)) ? "https://frp-backend.herokuapp.com" : "http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/api"
