@@ -1,13 +1,23 @@
 import React, {Component} from 'react'
 import { Constants } from '../../Model/Constants'
 import "./Results.css"
-import {results,resultCategories} from "./resultsData"
+import {results,resultCategories,resultheading} from "./resultsData"
 
 
 
 
+function Heading(props){
+    return (
+        <div className ="row result-heading" > 
+            <div className = "col text-center">
+                <h2 style={{color:'white'}}> {props.c1}</h2>
+            </div>               
+        </div>
+    )
+}
 
 function Category(props){
+ 
     return (
         <div className ="row result-category" > 
             <div className = "col-2">
@@ -32,6 +42,7 @@ function Category(props){
     )
 }
 function CategoryData(props){
+    var c4class=props.c4;
     return (
         <div className ="row result-content">
             <div className = "col">
@@ -44,7 +55,7 @@ function CategoryData(props){
                 <p> {props.c3}</p>
             </div>  
             <div className = "col">
-                <p> {props.c4}</p>
+                <p className={c4class}> {props.c4}</p>
             </div>  
             <div className = "col">
                 <p> {props.c5}</p>
@@ -72,6 +83,9 @@ function Results(){
     return (
         <div className = "container-fluid">
             <div className = "container">
+                <Heading c1={resultheading.map((d)=>d.heading)} 
+                />
+
                 <Category c1={resultCategories.map((d)=>d.college)} 
                     c2={resultCategories.map((d)=>d.projectCategory)}
                     c3={resultCategories.map((d)=>d.appliedOn)}  
