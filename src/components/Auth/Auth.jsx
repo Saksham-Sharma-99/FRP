@@ -26,32 +26,25 @@ const carouselData = [
     ]
 
 function simulateNetworkRequest() {
-    // return new Promise((resolve) => {
+    return new Promise((resolve) => {
         console.log('clicked sign in')
+        if(localStorage.getItem(Constants.TOKEN) == null){
         window.location.replace(`https://internet.channeli.in/oauth/authorise?client_id=${CLIENT_ID}&redirect_uri=${BaseURL}/&state=${ORIGIN}`)
-        let url = new URL(window.location.href)
-        console.log(url.searchParams)
-        // GetRequest(Routes.USER_DETAILS,(res)=>{
-        //     if (res.status==200){
-        //         GetRequest(Routes.PROJECTS , (resp)=>{
-        //             if (resp.status == 200){
-        //                 isLoggedIn = true;
-        //                 sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
-        //                 LogIn(res)
-        //                 setTimeout(resolve, 2000)
-        //             }
-        //             else{
-        //                 window.alert("Can't Login. Unknown Error Occured")
-        //                 setTimeout(resolve, 200)
-        //             }
-        //         })
-        //     }
-        //     else{
-        //         window.alert("Can't Login. Unknown Error Occured")
-        //         setTimeout(resolve, 200)
-        //     }
-        // },{userId:"2"})
-        // });
+        }else{
+            GetRequest(Routes.CHECK_USER,(res)=>{
+                if(res.data == Constants.DOESNT_EXISTS){
+                    window.location.replace(`https://internet.channeli.in/oauth/authorise?client_id=${CLIENT_ID}&redirect_uri=${BaseURL}/&state=${ORIGIN}`)
+                }
+                else{
+                    console.log(res.data)
+                    LogIn(res.data)
+                    sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(res.data.projects))
+                    localStorage.setItem(Constants.TOKEN , res.data.token)
+                    setTimeout(resolve, 10000)   
+                }
+            },{token: localStorage.getItem(Constants.TOKEN),state:ORIGIN})
+        }
+        });
   } 
   function LoadingButton() {
     const [isLoading, setLoading] = useState(false);
@@ -135,6 +128,7 @@ function Auth (){
     }else{
         sessionStorage.setItem(Constants.AUTH_TOKEN,url.searchParams.get('token'))
         console.log(url.searchParams.get('token'))
+        localStorage.setItem(Constants.TOKEN , url.searchParams.get('refresh_token'))
         
         GetRequest(Routes.USER_DETAILS,(res)=>{
             if (res.status==200){
@@ -152,7 +146,7 @@ function Auth (){
             else{
                 window.alert("Can't Login. Unknown Error Occured")
             }
-        },{token:sessionStorage.getItem(Constants.AUTH_TOKEN)})
+        },{token:sessionStorage.getItem(Constants.AUTH_TOKEN),refresh_token:localStorage.getItem(Constants.TOKEN)})
     
         return(<h4>Redirecting . Please wait for a second</h4>)
     }

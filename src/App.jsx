@@ -15,15 +15,15 @@ var showSideNav = true;
 var LoggedIn = (isLoggedIn || sessionStorage.getItem('isLoggedIn')==='yes'); 
 
 function App(props){
-
+    // localStorage.removeItem(Constants.TOKEN)
     console.log(JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)))
     console.log(JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)))
     
-    setTimeout(() => {
-        console.log('logging out after 1 hour')
-        window.alert("Session Expired")
-        LogOut()
-    }, 60000*60);
+    // setTimeout(() => {
+    //     console.log('logging out after 1 hour')
+    //     window.alert("Session Expired")
+    //     LogOut()
+    // }, 60000*60);
 
     document.getElementById('root').classList.add( (LoggedIn) ? '#projects' : '#auth')
     

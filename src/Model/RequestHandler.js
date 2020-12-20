@@ -38,7 +38,10 @@ function LogIn(res){
 function LogOut(){
     document.getElementById('root').classList.remove('#projects')
     sessionStorage.setItem(Constants.IS_LOGGED_IN,Constants.NO)
-    window.location.replace(ORIGIN)
+    document.getElementById('root').classList.add('#auth')
+    window.location.replace(ORIGIN).then(
+        window.location.reload()
+    )
 }
 
 
