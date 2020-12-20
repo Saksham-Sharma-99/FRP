@@ -42,18 +42,18 @@ function ReferOptions(){
     return(
         <div className = "container-fluid" stlye={{padding:"0"}}>
             <div className="row" stlye={{padding:"0"}}>
-                <div className = "col-4" stlye={{padding:"0"}} onClick={sendEmail}>
-                    <AiOutlineMail size="35px" style={{position:"relative",left:"5px"}} />
+                <div className = "col-6" stlye={{padding:"0"}} onClick={sendEmail}>
+                    <AiOutlineMail size="35px" style={{position:"relative",left:"1px"}} />
                     <p style={{padding:"0" , margin:"0",fontSize:"10px",textAlign:"center"}}>Email</p>
                 </div>
-                <div className = "col-4" stlye={{padding:"0"}} onClick={copyLink}>
-                    <FiExternalLink size="35px" style={{position:"relative",left:"7px"}} />
+                <div className = "col-6" stlye={{padding:"0"}} onClick={copyLink}>
+                    <FiExternalLink size="35px" style={{position:"relative",left:"2px"}} />
                     <p style={{padding:"0" , margin:"0",fontSize:"10px",textAlign:"center"}}>Link</p>
                 </div>
-                <div className = "col-4" stlye={{padding:"0"}} onClick={SendMessage}>
+                {/* <div className = "col-4" stlye={{padding:"0"}} onClick={SendMessage}>
                     <BiMessageAltDetail size="35px" style={{position:"relative",left:"5px"}} />
                     <p style={{padding:"0" , margin:"0",fontSize:"10px",textAlign:"center"}}>Send Message</p>
-                </div>
+                </div> */}
             </div>
             
         </div>

@@ -189,7 +189,7 @@ function NavItems(){
     <Nav>
       <NotificationTab />
 
-      <ChatsTab />
+      {/* <ChatsTab /> */}
 
       <ProfileTab />
     </Nav>
