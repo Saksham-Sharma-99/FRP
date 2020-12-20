@@ -17,7 +17,7 @@ import {IoIosDocument} from "react-icons/io"
 import {GiTeamIdea} from "react-icons/gi"
 import {BiLogOut} from "react-icons/bi"
 import {LogOut,GetRequest} from "../../../Model/RequestHandler"
-import { CHANNELI_URL, Constants ,Routes} from "../../../Model/Constants";
+import { CHANNELI_URL, Constants ,ORIGIN,Routes} from "../../../Model/Constants";
 
 function HideNav(){
   ReactDOM.render(
@@ -204,17 +204,16 @@ return (
   style={{margin:'0px', backgroundColor:'#0B83DA',border:'0px', paddingTop:'12px',paddingBottom:'12px'
   ,borderRadius : "0%"}}>
 
-
+  <Link to = {props.showItems ? '/projects':'/auth'} onClick = {ShowNav}>
   <Navbar.Brand href="#">
-    <a href = '/projects'>
     <img src={logo} style={{width: '60px', backgroundColor: 'transparent',marginRight:'15px',
     marginLeft:'25px' , borderRadius : "50%"}}/>
-    </a>
     
-    <Link to = {props.showItems ? '/projects':'/auth'} onClick = {ShowNav}><a class="navbar-header navbar-brand" style={{fontSize:'30px',
+    <a class="navbar-header navbar-brand" style={{fontSize:'30px',
     fontWeight:"bolder", fontFamily:'Tw !important' , color:"white"}} href = "/"> Foreign Research Portal</a>
-    </Link>
+    
   </Navbar.Brand>
+  </Link>
 
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
