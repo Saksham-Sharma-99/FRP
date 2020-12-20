@@ -1,14 +1,43 @@
-.result-category{
-    background-color: #9ba4b4;
+.result-heading{
+    background-color:rgb(5, 120, 205);
     margin-top: 20px;
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 10px;
+    padding:25px;
+    padding-bottom: 25px;
+    border-radius: 2px;
+}
+
+
+.result-category{
+    padding:15px;
+    padding-top: 25px;
+    font-size: 20px;
+    border: 1px solid #ddd;
+    
 }
 
 .result-content{
-    margin-top: 5px;
-    padding-top: 15px;
-    padding-left: 15px;
+    padding:20px;
+    border: 1px solid #ddd;
 }
+
+.applied{
+    color:gray;
+}
+
+.rejected{
+    color:  rgb(231, 16, 16);
+}
+
+.selected{
+    color: rgb(5, 177, 5);
+}
+
+.in-review{
+    color: goldenrod;
+}
+
+
+
+
+
+

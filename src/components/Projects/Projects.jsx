@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {logo} from "../NavBars/TopNav/assets/index"
 import "./Projects.css"
 import {projects} from "./projects"
@@ -9,9 +9,20 @@ import {AuthRoute} from 'react-router-auth';
 import {BsFillBookmarkFill} from "react-icons/bs"
 import {RiUserShared2Line} from "react-icons/ri"
 import {ImCompass} from "react-icons/im"
-import { Constants } from "../../Model/Constants"
+import { Constants, Routes } from "../../Model/Constants"
+import { PostRequest } from "../../Model/RequestHandler"
 
 function Buttons(props){
+    let [applied,setApplied] = useState(props.applied)
+    function Apply(){
+        setApplied(true)
+        var student = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA))
+        PostRequest(Routes.APPLY,((res)=>{
+            console.log(res.data)
+            sessionStorage.setItem(Constants.PROJECTS,JSON.stringify(res.data.projects.projects))
+            sessionStorage.setItem(Constants.CHANNELI_DATA , JSON.stringify(res.data.user))
+        }),{userId :student.userId,postId:props.id,name:props.name})
+    }
     return(
         <div className="row" style={{textAlign:"center"}}>
 
@@ -23,11 +34,11 @@ function Buttons(props){
                 </Link>
             </div>
 
-            <div className = {props.applied ?"col projectBTNLink3 btn disabled" :"col projectBTNLink2 btn"}>
+            <div className = {applied ?"col projectBTNLink3 btn disabled" :"col projectBTNLink2 btn"} onClick={Apply}>
                 
                 <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:'black'}}>
                 <ImCompass style={{height:"25px",width:"30px",marginRight:"20px"}}/>
-                    {props.applied ? "Applied":"Apply"}
+                    {applied ? "Applied":"Apply"}
                 </Link>
             </div>
 
@@ -41,6 +52,20 @@ function Details(props){
     const [bookmarked, setLightMode ] = React.useState(props.bmk)
     const [content , setContent] = React.useState(props.content.substr(0,500))
     const [seeml , setView] = React.useState(props.content.length>500? "... See more":"")
+
+    function toggleBookmark(bookmark,postID){
+        setLightMode(bookmark)
+        var route = bookmark ? Routes.BOOKMARK : Routes.REM_BOOKMARK
+        var student = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA))
+        console.log(student.userId , props.id)
+        PostRequest(route,((res)=>{
+            console.log(res.data)
+            if(res.data.status == null){
+            sessionStorage.setItem(Constants.PROJECTS,JSON.stringify(res.data.projects.projects))
+            sessionStorage.setItem(Constants.CHANNELI_DATA , JSON.stringify(res.data.user))}
+        }),{userId:student.userId,postId:postID})
+    }
+
    return(  
     <div className = "container-fluid project-card" style = {{backgroundColor : "#f1f6f9" }}> 
         <div className="container">
@@ -69,7 +94,7 @@ function Details(props){
                             <p className="requirements">Branch      : {props.branch}</p>
                             <p className="requirements">Deadline    : {props.deadline}</p>
                         </div>
-                        <Link to = "#"onClick = {()=>setLightMode(!bookmarked)} >
+                        <Link to = "#"onClick = {()=>toggleBookmark(!bookmarked,props.id)} >
                             <div className="col bookmark" >
                                 <BsFillBookmarkFill className="bookmarkIcon"color={bookmarked ? "#fca652":"lightgray"}
                                 />  
@@ -92,7 +117,7 @@ function Details(props){
 
         <hr className="hr2" style={{marginTop:"5px",width:"65%",position:"relative",top:"26px"}}/>
 
-        <Buttons applied={props.applied}/>
+        <Buttons applied={props.applied} id={props.id} name={props.collegeName}/>
      </div>
    );
 }
@@ -100,7 +125,8 @@ function Details(props){
 
 function Projects (){
     var projectsData = JSON.parse(sessionStorage.getItem(Constants.PROJECTS))
-    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).applications
+    console.log(JSON.parse(sessionStorage.getItem(Constants.PROJECTS)))
+    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).applications
     return (
     <div className = "container-fluid cards" >
         {projectsData.map(project => 
@@ -116,7 +142,7 @@ function Projects (){
 
 function Bookmarks (){
     var projectsData = JSON.parse(sessionStorage.getItem(Constants.PROJECTS))
-    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).applications
+    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).applications
     return (
     <div className = "container-fluid cards" >
         {projectsData.filter(project=>studentApplications.bookmarked.includes(project.postId)).map(project => 
