@@ -65,7 +65,7 @@ function NotificationTab(){
       <FaBell className="chatIcon"   />
       {visualViewport.width<991 ? <b className="iconTitle">Notifications</b>:null}
       </div>} id="collasible-nav-dropdown" >
-        {NotifData.slice(NotifData.length - 8,NotifData.length).map(notifData => 
+        {NotifData.slice(0,8).reverse().map(notifData => 
               <NavDropdown.Item >
               <Link to={notifData.action} className="menuLink">
                 <div className="container-fluid">
