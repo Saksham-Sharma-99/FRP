@@ -58,14 +58,14 @@ function Logout(){
 }
 
 function NotificationTab(){
-  var NotifData = JSON.parse(sessionStorage.getItem(Constants.USER_PROFILE)).notifs
+  var NotifData = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).notifs
 
   return(
     <NavDropdown title={<div className="pull-left" >
       <FaBell className="chatIcon"   />
       {visualViewport.width<991 ? <b className="iconTitle">Notifications</b>:null}
       </div>} id="collasible-nav-dropdown" >
-        {NotifData.slice(0,5).map(notifData => 
+        {NotifData.slice(NotifData.length - 8,NotifData.length).map(notifData => 
               <NavDropdown.Item >
               <Link to={notifData.action} className="menuLink">
                 <div className="container-fluid">
@@ -79,7 +79,7 @@ function NotificationTab(){
                     </div>
                     <div className="row">
                       <div className="col content" style={{textAlign:"left",position:"relative",bottom:"8px"}}>
-                       {notifData.data.content.substr(0,20)}...
+                       {notifData.data.content}
                       </div>
                     </div>
                 </div>
