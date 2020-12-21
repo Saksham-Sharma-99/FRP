@@ -204,7 +204,7 @@ return (
   style={{margin:'0px', backgroundColor:'#0B83DA',border:'0px', paddingTop:'12px',paddingBottom:'12px'
   ,borderRadius : "0%"}}>
 
-  <Link to = {props.showItems ? '/projects':'/auth'} onClick = {ShowNav}>
+  <Link to = {props.showItems ? '/projects':'/auth'} onClick = {()=>window.location.reload()}>
   <Navbar.Brand href="#">
     <img src={logo} style={{width: '60px', backgroundColor: 'transparent',marginRight:'15px',
     marginLeft:'25px' , borderRadius : "50%"}}/>
