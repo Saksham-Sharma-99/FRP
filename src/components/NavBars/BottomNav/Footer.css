@@ -1,0 +1,39 @@
+.footer{
+    background-color: #0B83DA;
+    color: floralwhite;
+    bottom: 0;
+    z-index: 1;
+    padding: 0;
+    font-family: 'Roboto' ;
+    font-style: normal;
+    font-weight: lighter;
+}
+
+.bottomLink{
+    color: rgba(245, 245, 245, 0.685);
+}
+
+.bottomLink:hover{
+    color: rgb(245, 245, 245);
+    
+}
+
+.hr1{
+    height:2px;
+    border-width:0;
+    color:floralwhite;
+    background-color:floralwhite;
+    width: 30%;
+    margin-left: 0;
+    
+}
+
+.hr2{
+    height:2px;
+    border-width:0;
+    color:floralwhite;
+    background-color:floralwhite;
+    width: 60%;
+    margin-left: 0;
+    margin-top: -12px;
+}

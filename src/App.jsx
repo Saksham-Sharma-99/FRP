@@ -10,6 +10,7 @@ import Profile from "./Profile/Profile"
 import Auth,{isLoggedIn} from './components/Auth/Auth'
 import { LogOut } from "./Model/RequestHandler";
 import { Constants } from "./Model/Constants";
+import Footer from "./components/NavBars/BottomNav/Footer";
 
 var showSideNav = true;
 var LoggedIn = (isLoggedIn || sessionStorage.getItem('isLoggedIn')==='yes'); 
@@ -58,6 +59,7 @@ function App(props){
                     component={Profile}/>
             </Switch>
 
+            <Footer />
         </HashRouter>
                     
     );
