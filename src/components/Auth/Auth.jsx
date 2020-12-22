@@ -7,6 +7,8 @@ import {GetRequest,LogIn,PostRequest} from '../../Model/RequestHandler'
 import {Routes,Constants, CLIENT_ID, SECRET, ORIGIN,CHANNELI_URL,BaseURL} from '../../Model/Constants'
 import './Auth.css'
 import Axios from 'axios';
+import { ImFontSize } from 'react-icons/im';
+import { AiOutlineLineHeight } from 'react-icons/ai';
 
 var isLoggedIn = false
 
@@ -81,9 +83,10 @@ function CarouselElement(props){
                 return(
                     <Carousel.Item interval={3000}>
                         <img
-                        className="d-block w-100"
+                        className="d-block"
                         src={cdata.img}
                         alt="First slide"
+                        
                         />
                         <Carousel.Caption>
                             <h3>{cdata.title}</h3>
@@ -104,25 +107,65 @@ function Auth (){
     if (url.searchParams.get('token') == null){
     return (
         <div className='container-fluid' style ={{alignItems:"center"}}>
+           
             <div className ="row">
-
-                <div className='col-lg-9'>
-                <CarouselElement content={carouselData}/>
+                <div class="col-xs-5 col-sm-5 col-lg-5" style={{alignItems:'center'}}>
+                    <h1 id="heading">Add more value to<br></br> your Research Career</h1>
+                    <div class="para">Now more efficient, smarter and easier way—helping you find a perfect foreign intern.</div>
                 </div>
 
-
-                <div className="col-lg-3" style={{alignItems:'center'}}>
-
+                <div className="col-xs-7 col-sm-7 col-lg-7" style={{alignItems:'center'}}>
+                    <img src="https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff" />
+                </div>
+            </div>
+            
+            <div className ="row" style={{marginTop:'3%'}}>
+                <div class="col-sm"></div>
+                <div class="col-sm">
                     <h3 className="h3 mb-3 font-weight-normal" style={{textAlign:'center' ,marginTop:'40px'}}>
                         To continue, sign in with your Channel-I account 
                     </h3>
-                    
+
                     <LoadingButton />
                     <p className="mt-5 mb-3 text-muted" style={{textAlign:'center'}}>&copy; IR Cell</p>
-                    <p>ps: this auth screen's layout will be changed</p>
+                    <p>ps: this signin button will be at right side of top nav....remove it from here</p>
+                </div>
+                <div class="col-sm"></div>
+            </div>
+
+
+            <div className ="row" style={{marginTop:'3%'}}>
+                <div className="col-xs-6 col-sm-6 col-lg-6" style={{alignItems:'center'}}>
+                    <img src="https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff" />
                 </div>
 
+                <div class="col-xs-6 col-sm-6 col-lg-6" style={{alignItems:'center'}}>
+                    <h1 id="heading">Here we can describe<br></br> some features of our app</h1>
+                    <div class="para">Now more efficient, smarter and easier way—helping you find a perfect foreign intern.</div>
+                </div>
             </div>
+
+            <h1  style={{marginTop:'5%', textAlign:'center'}}>See how it works</h1>
+
+            <div class="para2">
+                Here comes a tag line of frp and some <br></br> snapshots from the portal.
+            </div>
+            
+            <div className ="row" style={{marginTop:'5%'}}>
+                <CarouselElement content={carouselData}/>
+            </div>
+
+            {/* <div className="col-lg-3" style={{alignItems:'center'}}>
+
+                <h3 className="h3 mb-3 font-weight-normal" style={{textAlign:'center' ,marginTop:'40px'}}>
+                    To continue, sign in with your Channel-I account 
+                </h3>
+
+                <LoadingButton />
+                <p className="mt-5 mb-3 text-muted" style={{textAlign:'center'}}>&copy; IR Cell</p>
+                <p>ps: this auth screen's layout will be changed</p>
+            </div> */}
+
         </div>
     )
     }else{
