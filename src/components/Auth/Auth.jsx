@@ -79,7 +79,7 @@ function CarouselElement(props){
         <Carousel >
             {carouselContent.map((cdata)=>{
                 return(
-                    <Carousel.Item interval={3000} style={{height:"510px"}}>
+                    <Carousel.Item interval={3000} style={{height:"580px"}}>
                         <img
                         className="d-block w-100"
                         src={cdata.img}
