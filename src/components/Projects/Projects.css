@@ -103,7 +103,7 @@
     margin: 0;
 }
 
-.hr1{
+.hr3{
     border-style: solid;
     border-width: 0.2rem;
     width: 100%;
@@ -112,7 +112,7 @@
     border-left: 0;
     color: ghostwhite;
 }
-.hr2{
+.hr4{
     border-style: solid;
     border-width: 0.1rem;
     border-bottom: 0;

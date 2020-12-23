@@ -170,14 +170,14 @@ function Details(props){
                 
         </div> 
 
-        <hr className="hr1"/>
+        <hr className="hr3"/>
 
         <b className = "content"> {content}</b>
         <Link  onClick={()=>{
             if (seeml == "... See more"){setView("\n See less");setContent(props.content)}
             else if(seeml == "\n See less"){setView("... See more");setContent(props.content.substr(0,500))}}}>{seeml}</Link>
 
-        <hr className="hr2" style={{marginTop:"5px",width:"65%",position:"relative",top:"26px"}}/>
+        <hr className="hr4" style={{marginTop:"5px",width:"65%",position:"relative",top:"26px"}}/>
 
         <Buttons applied={props.applied} id={props.id} name={props.collegeName}/>
      </div>

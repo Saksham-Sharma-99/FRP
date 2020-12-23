@@ -1,12 +1,26 @@
 .footer{
     background-color: #0B83DA;
     color: floralwhite;
-    bottom: 0;
+    margin-top: 12px;
     z-index: 1;
     padding: 0;
     font-family: 'Roboto' ;
     font-style: normal;
     font-weight: lighter;
+    position: relative;
+    visibility:visible;
+    bottom: 0;
+}
+.footer-fixed{
+    background-color: #0B83DA;
+    color: floralwhite;
+    z-index: 1;
+    padding: 0;
+    font-family: 'Roboto' ;
+    font-style: normal;
+    font-weight: lighter;
+    position: fixed;
+    bottom: 0;
 }
 
 .bottomLink{

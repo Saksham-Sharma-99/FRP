@@ -15,7 +15,8 @@ import Axios from 'axios'
 function Home(props){
     // projects.map((p)=>console.log(p.id))
     if (props.showSideNav ){
-        var pt = visualViewport.width>991 ? "80px" : "0px"
+        var left = visualViewport.width>991 ? "17%" : "0"
+        var pt = visualViewport.width>991 ? "0%" : "0%"
     return (
         <div className="row" align="center" style={{width: '100%'}}>
                
@@ -23,13 +24,13 @@ function Home(props){
 
             <div className="col-lg-10" 
             style={{margin: '0px',
-                    paddingBottom: "50px",
+                    paddingTop: pt,
                     position: "relative" ,
                     // top:"8vh",
-                    // left : "0%", 
-                    // zIndex: "1",
+                    left : left, 
+                    zIndex: "0",
                     msOverflowStyle : "none",
-                    height:"90.5vh",
+                    minHeight : "63.3vh",
                     overflowY : "scroll"
                     }} align="left">
                     <HashRouter>

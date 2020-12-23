@@ -76,10 +76,10 @@ function simulateNetworkRequest() {
 function CarouselElement(props){
     var carouselContent = props.content
     return(
-        <Carousel>
+        <Carousel >
             {carouselContent.map((cdata)=>{
                 return(
-                    <Carousel.Item interval={3000}>
+                    <Carousel.Item interval={3000} style={{height:"510px"}}>
                         <img
                         className="d-block w-100"
                         src={cdata.img}

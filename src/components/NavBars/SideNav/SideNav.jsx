@@ -57,35 +57,35 @@ function SideNavStuff(){
 function BottomNavStuff(){
     var [category,setCategory] = useState("projects")
     return (
-        <div className="row"   align="center">
+        <div className="row"   align="center" style={{padding:"1px",margin:"0"}}>
         
             <div className="col-2" onClick={()=>setCategory("projects")} 
             style={category=="projects"?{backgroundColor:"#0B83DA"}:null}>
                 <Link to="/projects" id="projects"  align="center" style={{paddingLeft:'4%'}} 
                 style={category=="projects"?{color:"white"}:null}>
-                <AiFillBook  size="30px"/> <br/> <p>Projects</p>
+                <AiFillBook  size="60px"/> <br/> <p>Projects</p>
                 </Link>
             </div>
             <div className="col-2" align="center" onClick={()=>setCategory("bookmarks")}
             style={category=="bookmarks"?{backgroundColor:"#0B83DA"}:null}>
                 <Link to="/bookmarks" align="center" style={{paddingLeft:'4%'}} id="bookmarks" 
                 style={category=="bookmarks"?{color:"white"}:null}>
-                <GoBookmark size="30px"/>  <br/><p>Bookmarks</p>
+                <GoBookmark size="60px"/>  <br/><p>Bookmarks</p>
                 </Link>
             </div>
             <div className="col-2" align="center" onClick={()=>setCategory("results")}
             style={category=="results"?{backgroundColor:"#0B83DA"}:null}>
                 <Link to="/results" align="center" style={{paddingLeft:'3%'}} id="results" 
                 style={category=="results"?{color:"white"}:null}>
-                <ImStatsDots size="30px"/>  <br/><p>Results</p>
+                <ImStatsDots size="60px"/>  <br/><p>Results</p>
                 </Link>
             </div>
             <hr/>
             <div className="col-2" align="center">
-                <a href="https://medium.com/@ircell/" target="iriitr" id="experience" className="sideNavLink1"><RiArticleFill size="30px"/></a>
+                <a href="https://medium.com/@ircell/" target="iriitr" id="experience" className="sideNavLink1"><RiArticleFill size="60px"/></a>
             </div>
             <div className="col-2" align="center">
-                <a href="https://ir.iitr.ac.in/IR_Cell_ContactUs/" target="ircteam" id="team" className="sideNavLink1"><GiTeamIdea size="30px"/></a>
+                <a href="https://ir.iitr.ac.in/IR_Cell_ContactUs/" target="ircteam" id="team" className="sideNavLink1"><GiTeamIdea size="60px"/></a>
             </div>
 
         </div>
@@ -103,7 +103,7 @@ function SideNav(props){
         margin: '0px',
         height: '90.5vh',
         boxShadow: '2px 2px 7px 0px silver',
-        // position : "fixed",
+        position : "fixed",
         zIndex: "0"}}>
           <SideNavStuff/>
     </div>)}else{
@@ -113,15 +113,16 @@ function SideNav(props){
                 backgroundColor:"white",
                 padding: '0px',
                 margin: '0px',
-                height: '60px',
-                bottom:"0px",
-                right:"0px",
-                boxShadow: '2px 5px 5px 7px silver',
+                // height: '110px',
+                // bottom:"10px",
+                right:"-15px",
+                width : "100vw",
+                boxShadow: '-12px 0px 7px 2px silver',
                 // borderTop:"solid",
                 // border:"0.1px solid",
-                position : "fixed",
+                position : "relative",
                 // marginBottom:"10px",
-                zIndex: "1"}}>
+                zIndex: "0"}}>
                 <div className="container-fluid" style={{paddingLeft:"30px",paddingRight:"30px",paddingTop:"10px"}}>
                     <BottomNavStuff />
                 </div>
