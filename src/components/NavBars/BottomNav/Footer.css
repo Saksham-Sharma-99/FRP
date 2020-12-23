@@ -9,7 +9,7 @@
     font-weight: lighter;
     position: relative;
     visibility:visible;
-    bottom: 0;
+    top: 5px;
 }
 .footer-fixed{
     background-color: #0B83DA;

@@ -201,7 +201,7 @@ function Header(props){
 // const [show , hidNav] = useState(true)
 return (
 <Navbar collapseOnSelect expand="lg" bg="custom" variant="dark" 
-  style={{margin:'0px', backgroundColor:'#0B83DA',border:'0px', paddingTop:'12px',paddingBottom:'12px'
+  style={{margin:'0px', backgroundColor:'#0B83DA',border:'0px', paddingTop:'0px',paddingBottom:'0px'
   ,borderRadius : "0%"}}>
 
   <Link to = {props.showItems ? '/projects':'/auth'} onClick = {()=>window.location.reload()}>

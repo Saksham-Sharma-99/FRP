@@ -30,7 +30,7 @@ function Home(props){
                     left : left, 
                     zIndex: "0",
                     msOverflowStyle : "none",
-                    minHeight : "80.25vh",
+                    minHeight : "85.25vh",
                     overflowY : "scroll"
                     }} align="left">
                     <HashRouter>

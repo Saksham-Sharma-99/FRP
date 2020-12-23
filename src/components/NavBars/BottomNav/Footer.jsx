@@ -11,14 +11,14 @@ function Footer() {
                 <div className="col-6" style={{paddingLeft:"10px"}}>
                     <p>© International Relations Cell</p>
                 </div>
-                <div className="col-4"></div>
-                <div className="col-2" style={{paddingLeft:"100px"}}>
-                    <div className="row"><a href="https://www.facebook.com/ircell.iitr" className="bottomLink"><AiFillFacebook style={{marginLeft:"0px",height:"25px",width:"25px"}}/></a>
+                <div className="col-2"></div>
+                <div className="col-4" style={{paddingLeft:"100px"}}>
+                    <div className="row" style={{float:"right"}}>
+                        <a href="https://www.facebook.com/ircell.iitr" className="bottomLink"><AiFillFacebook style={{marginLeft:"0px",height:"25px",width:"25px"}}/></a>
                         <a href="https://www.linkedin.com/company/international-relations-cell-iit-roorkee/" className="bottomLink"><AiFillLinkedin style={{marginLeft:"10px",height:"25px",width:"25px"}}/></a>
                         <a href="https://twitter.com/IRcell_IITR" className="bottomLink"><AiFillTwitterSquare style={{marginLeft:"10px",height:"25px",width:"25px"}}/></a>
-                        <a href="mailto: abc@example.com" className="bottomLink"><AiFillMail style={{marginLeft:"10px",height:"25px",width:"25px"}}/></a>
+                        <a href="mailto: abc@example.com" className="bottomLink"><AiFillMail style={{marginLeft:"10px",marginRight:"10px",height:"25px",width:"25px"}}/></a>
                     </div>
-                
                 </div>
             </div>
         </div>
