@@ -13,16 +13,16 @@ import { AiOutlineLineHeight } from 'react-icons/ai';
 var isLoggedIn = false
 
 const carouselData = [
-    {img:"https://images.fineartamerica.com/images-medium-large-5/iit-roorkee-atinder-paul-singh.jpg",
+    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
     title:"Title of the first Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
-    {img:"https://postmarkfromfoster.files.wordpress.com/2014/10/september-2014-postmark-14.jpg",
+    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
     title:"Title of the  second Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
-    {img:"https://c.ndtvimg.com/2019-02/kh0snovg_mahatma-gandhi-central-library-iit-roorkee_625x300_04_February_19.jpg",
+    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
     title:"Title of the third Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
-    {img:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201910/EGBR5vDUYAA-JVP-647x363.jpeg?dzkBrr25av3UV2M_SwYFPvUohOZSgFoh",
+    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
     title:"Title of the fourth Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."}
     ]
@@ -86,7 +86,6 @@ function CarouselElement(props){
                         className="d-block"
                         src={cdata.img}
                         alt="First slide"
-                        
                         />
                         <Carousel.Caption>
                             <h3>{cdata.title}</h3>
@@ -151,20 +150,11 @@ function Auth (){
                 Here comes a tag line of frp and some <br></br> snapshots from the portal.
             </div>
             
-            <div className ="row" style={{marginTop:'5%'}}>
+            <div className ="col-sm-12" style={{marginTop:'5%'}}>
                 <CarouselElement content={carouselData}/>
             </div>
 
-            {/* <div className="col-lg-3" style={{alignItems:'center'}}>
-
-                <h3 className="h3 mb-3 font-weight-normal" style={{textAlign:'center' ,marginTop:'40px'}}>
-                    To continue, sign in with your Channel-I account 
-                </h3>
-
-                <LoadingButton />
-                <p className="mt-5 mb-3 text-muted" style={{textAlign:'center'}}>&copy; IR Cell</p>
-                <p>ps: this auth screen's layout will be changed</p>
-            </div> */}
+            
 
         </div>
     )
