@@ -114,7 +114,7 @@ function ProfileTab(){
       </div>} id="collasible-nav-dropdown" >
 
         <NavDropdown.Item>
-          <Link className="menuLink" to="/profile" onClick={HideNav}>
+          <Link className="menuLink" to="/profile/resume" onClick={HideNav}>
               <div className = "container-fluid">
               <div className ="col-1">
               <img  className = "navItem" src ={profileData.person.displayPicture==null ? profileImage:(CHANNELI_URL+profileData.person.displayPicture)} 
