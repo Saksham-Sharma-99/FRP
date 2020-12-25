@@ -11,6 +11,8 @@ function Buttons(){
         statusChangeTo(newStatus)
         PostRequest(Routes.PASS_STATUS,((res)=>{
             console.log(res)
+            sessionStorage.setItem(Constants.USER_PROFILE,JSON.stringify(res.data[0][0]))
+            sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data[1]))
         }),{userId:JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).userId , passStatus:newStatus})
     }
  return(
