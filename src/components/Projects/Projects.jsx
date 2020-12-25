@@ -42,11 +42,11 @@ function ReferOptions(){
     return(
         <div className = "container-fluid" stlye={{padding:"0"}}>
             <div className="row" stlye={{padding:"0"}}>
-                <div className = "col-6" stlye={{padding:"0"}} onClick={sendEmail}>
+                <div className = "col-6 btn" stlye={{padding:"0"}} onClick={sendEmail}>
                     <AiOutlineMail size="35px" style={{position:"relative",left:"1px"}} />
                     <p style={{padding:"0" , margin:"0",fontSize:"10px",textAlign:"center"}}>Email</p>
                 </div>
-                <div className = "col-6" stlye={{padding:"0"}} onClick={copyLink}>
+                <div className = "col-6 btn" stlye={{padding:"0"}} onClick={copyLink}>
                     <FiExternalLink size="35px" style={{position:"relative",left:"2px"}} />
                     <p style={{padding:"0" , margin:"0",fontSize:"10px",textAlign:"center"}}>Link</p>
                 </div>
@@ -89,8 +89,8 @@ function Buttons(props){
             <div className = {clicked ? "col btn projectBTNLink4":"col projectBTNLink1 btn"} 
             style={{margin:"0"}} onClick={()=>setClicked(!clicked)}>
                 
-                <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:'black'}}>
-                <RiUserShared2Line style={{height:"25px",width:"30px",marginRight:"20px"}}/>
+                <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:"#1b262c"}}>
+                <RiUserShared2Line style={{height:"25px",width:"30px",marginRight:"20px",color:"#1b262c"}}/>
                     Refer
                 </Link>
             </div>
@@ -98,8 +98,8 @@ function Buttons(props){
 
             <div className = {applied ?"col projectBTNLink3 btn disabled" :"col projectBTNLink2 btn"} onClick={Apply}>
                 
-                <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:'black'}}>
-                <ImCompass style={{height:"25px",width:"30px",marginRight:"20px"}}/>
+                <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:"#1b262c"}}>
+                <ImCompass style={{height:"25px",width:"30px",marginRight:"20px",color:"#1b262c"}}/>
                     {applied ? "Applied":"Apply"}
                 </Link>
             </div>
@@ -129,7 +129,7 @@ function Details(props){
     }
 
    return(  
-    <div className = "container-fluid project-card" style = {{backgroundColor : "#f1f6f9" }}> 
+    <div className = "container-fluid project-card" style = {{backgroundColor : "#ebf2f7" }}> 
         <div className="container">
 
             <div className="row">
@@ -152,13 +152,13 @@ function Details(props){
                     <div className="row"> 
                     
                         <div className = "col">
-                            <p className="requirements">Cg Required : <strong>{props.cg}</strong></p> 
-                            <p className="requirements">Branch      : <strong>{props.branch}</strong></p>
-                            <p className="requirements">Deadline    : <strong>{props.deadline}</strong></p>
+                            <p className="requirements"><strong>Cg Required </strong>: {props.cg}</p> 
+                            <p className="requirements"><strong>Branch </strong>     : {props.branch}</p>
+                            <p className="requirements"><strong>Deadline </strong>   : {props.deadline}</p>
                         </div>
                         <Link to = "#"onClick = {()=>toggleBookmark(!bookmarked,props.id)} >
                             <div className="col bookmark" >
-                                <BsFillBookmarkFill className="bookmarkIcon"color={bookmarked ? "#fca652":"lightgray"}
+                                <BsFillBookmarkFill className="bookmarkIcon"color={bookmarked ? "#ed6663":"#9ba4b4"}
                                 />  
                             </div>
                         </Link>

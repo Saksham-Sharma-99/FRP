@@ -1,29 +1,32 @@
-.sidenav{
+.sidnav{
     position: sticky;
     left: 0;
     z-index: 0;
-    padding: 0;
+    padding-right: 0.2px;
+    /* padding-left: 30px; */
+    background-color: #3282b8;
 }
 .sideNavLink{
-    border-bottom: 0px inset silver;
     padding:0px;
     font-family: 'Roboto' ;
     font-style: normal;
     font-weight: lighter;
     font-size: 18px;
     text-decoration: none;
+    background-color: #bbe1fa;
+    color: white;
     /* identical to box height */
-    color: #000000;
+    /* color: white; */
     }
     
-    .sideNavLink1{
+    .sideNavLinkSeparate{
         width:100%;
         margin:0px;
         height:100%;
         padding:13px;
         text-decoration: none !important;
-        background-color:white;
-        color:black;
+        background-color:#3282b8;
+        color:white;
         }
     
     /*.box{
@@ -41,13 +44,20 @@
         height:100%;
         text-decoration: none !important;
         line-height: 4rem;
-        background-color:white;
-        color:black;
+        background-color:#3282b8;
+        color:white;
     }
     
     .sideNavLink :hover{
-        background-color:  rgba(11, 131, 218, 0.1);
+        background-color: #bbe1fa60;
+        color:#3282b8 ;
         text-decoration: none;
+        font-size: 1.2rem;
         cursor: pointer;
     }
-    
+    a {
+        color: #3282b8 ;
+      }
+      a:hover {
+        text-decoration: none;
+      }

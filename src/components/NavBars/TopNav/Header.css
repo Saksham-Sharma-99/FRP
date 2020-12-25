@@ -83,3 +83,9 @@
     font-size: 20px;
     
 }
+.header {
+    background-image: linear-gradient(75deg, #0f4c75 0%, #3282b8 70%);
+}
+.footer {
+    background-image: linear-gradient(75deg, #3282b8 0%, #0f4c75 70%);
+}

@@ -1,8 +1,28 @@
 .profile-image{
-    height: 150px;
-    width: 150px;
-    
+    height: 110px;
+    width: 110px;
+    background-color:white;
     border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.card-body{
+    position: relative;
+    bottom: 80px;
+}
+.card{
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    position: relative;
+    bottom: 10px;
+}
+.card-top{
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .student-details{
@@ -14,4 +34,40 @@
     color: gray;
     font-size: 18px;
     margin: 5px;
+}
+
+.profile-section{
+    padding: 40px 60px 20px;
+    /* background-image: url("./assets/bg-pattern.png"); */
+}
+
+.profile-card{
+    background-color: white;
+    margin: 0;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 76vh;
+    margin-right: 0;
+}
+
+.id-section{
+    padding: 20px 10px;
+}
+
+.documents{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.edit-profile{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+}
+
+.edit-profile{
+    text-decoration: none;
+    color: black;
+    cursor:pointer;
 }

@@ -1,5 +1,5 @@
 .footer{
-    background-color: #0B83DA;
+    background-color: #0f4c75;
     color: floralwhite;
     margin-top: 12px;
     z-index: 1;
@@ -12,7 +12,7 @@
     top: 5px;
 }
 .footer-fixed{
-    background-color: #0B83DA;
+    background-color: #0f4c75;
     color: floralwhite;
     z-index: 1;
     padding: 0;
@@ -37,7 +37,7 @@
     border-width:0;
     color:floralwhite;
     background-color:floralwhite;
-    width: 30%;
+    width: 46%;
     margin-left: 0;
     
 }
@@ -47,7 +47,7 @@
     border-width:0;
     color:floralwhite;
     background-color:floralwhite;
-    width: 60%;
+    width: 88%;
     margin-left: 0;
     margin-top: -12px;
 }

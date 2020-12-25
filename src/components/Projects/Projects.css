@@ -16,7 +16,7 @@
 }
 
 .collegeName{
-    color: black;
+    color:#1b262c;
     display: inline;
     font-size: 32px;
     font-weight: bold;
@@ -27,7 +27,7 @@
     margin-left: 20px;
     margin-top : 10px;
     font-size: 18px;
-    color: gray;
+    color: #1b262c;
     line-height: 1.3rem;
 }
 .content{
@@ -87,10 +87,10 @@
     margin: 0;
 }
 .projectBTNLink1:hover{
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: white;
 }
 .projectBTNLink2:hover{
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: white;
 }
 
 .projectBTNLink4{
@@ -110,7 +110,7 @@
     border-bottom: 0;
     border-right: 0;
     border-left: 0;
-    color: ghostwhite;
+    background-color: #bbe1fa31;
 }
 .hr4{
     border-style: solid;
@@ -118,5 +118,5 @@
     border-bottom: 0;
     border-right: 0;
     border-left: 0;
-    color: ghostwhite;
+    background-color: #bbe1fa31;
 }

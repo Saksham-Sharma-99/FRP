@@ -1,0 +1,43 @@
+.profile-nav{
+    height:42%;
+    background-color: white;
+}
+
+.passport-buttons{
+    background-color: #0f4c75;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.pass-btn{
+    color: white;
+}
+
+.pass-btn:hover{
+    color: white;
+}
+
+.doc-cat{
+    color: black;
+}
+
+.doc-cat-sel{
+    color: black;
+    border-bottom: 1px solid;
+}
+.categoryLink{
+    color: gray;
+    text-align: center;
+}
+.categoryLink:hover{
+    color: black;
+    text-align: center;
+}
+.categoryLinkSel{
+    color: black;
+    text-align: center;
+}
+.categoryLinkSel:hover{
+    color: black;
+    text-align: center;
+}

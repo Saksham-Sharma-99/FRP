@@ -36,7 +36,7 @@ function App(props){
     }
 
 
-    return(
+    return visualViewport.width>991 ?(
         <HashRouter>
             <Header showItems={LoggedIn} />
 
@@ -62,6 +62,8 @@ function App(props){
             <Footer />
         </HashRouter>
                     
+    ):(
+        <h6> This webpage doesn't support mobile view , please open on desktop</h6>
     );
     
 } 

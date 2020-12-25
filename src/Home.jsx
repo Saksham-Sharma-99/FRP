@@ -24,8 +24,10 @@ function Home(props){
 
             <div className="col-lg-10" 
             style={{margin: '0px',
+                    backgroundColor :"transparent",
                     paddingTop: pt,
                     position: "relative" ,
+                    marginRight:"0",
                     // top:"8vh",
                     left : left, 
                     zIndex: "0",

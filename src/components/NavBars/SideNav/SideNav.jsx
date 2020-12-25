@@ -19,34 +19,36 @@ function SideNavStuff(){
         <div className="container-fluid sidnav"   align="left"><br/>
         
             <div className="row sideNavLink" onClick={()=>setCategory("projects")} 
-            style={category=="projects"?{backgroundColor:"#0B83DA"}:null}>
-                <Link to="/projects" id="projects"  align="left" style={{paddingLeft:'0%'}} className="col-sm-12" 
-                style={category=="projects"?{color:"white"}:null}>
+            style={category=="projects"?{backgroundColor:"white" , fontSize:"1.2rem"}:null}>
+                <Link to="/projects" id="projects"  align="left"  className="col-sm-12" 
+                style={category=="projects"?null:{color:"white"}}>
                     <span><AiFillBook  size="30px" style={{position:"relative",left:"-5px"}}/></span> &nbsp; Projects
                 </Link>
             </div>
             <div className="row sideNavLink" align="center" onClick={()=>setCategory("bookmarks")}
-            style={category=="bookmarks"?{backgroundColor:"#0B83DA"}:null}>
-                <Link to="/bookmarks" align="left" style={{paddingLeft:'0%'}} id="bookmarks" className="col-sm-12"
-                style={category=="bookmarks"?{color:"white"}:null}>
+            style={category=="bookmarks"?{backgroundColor:"white", fontSize:"1.2rem"}:null}>
+                <Link to="/bookmarks" align="left"  id="bookmarks" className="col-sm-12"
+                style={category=="bookmarks"?null:{color:"white"}}>
                     <span><GoBookmark size="30px" style={{position:"relative",left:"-6px"}}/></span> &nbsp; Bookmarks
                 </Link>
             </div>
             <div className="row sideNavLink" align="center" onClick={()=>setCategory("results")}
-            style={category=="results"?{backgroundColor:"#0B83DA"}:null}>
-                <Link to="/results" align="left" style={{paddingLeft:'0%'}} id="results" className="col-sm-12"
-                style={category=="results"?{color:"white"}:null}>
+            style={category=="results"?{backgroundColor:"white", fontSize:"1.2rem"}:null}>
+                <Link to="/results" align="left"  id="results" className="col-sm-12"
+                style={category=="results"?null:{color:"white"}}>
                     <span><ImStatsDots size="24px" style={{position:"relative",left:"-1px"}}/></span> &nbsp; Results
                 </Link>
             </div>
-            <hr/>
+            <hr className="hr1"/>
+            <hr className="hr2"/>
             <div className="row sideNavLink" align="center">
-                <a href="https://medium.com/@ircell/" target="iriitr" id="experience" className="col-sm-12 sideNavLink1">Experience</a>
+                <a href="https://medium.com/@ircell/" target="iriitr" id="experience" className="col-sm-12 sideNavLinkSeparate">Experience</a>
             </div>
-            <hr/>
+            <hr className="hr1"/>
+            <hr className="hr2"/>
             <div className="row sideNavLink" align="center">
                 
-                <a href="https://ir.iitr.ac.in/IR_Cell_ContactUs/" target="ircteam" id="team" className="col-sm-12 sideNavLink1">Team</a>
+                <a href="https://ir.iitr.ac.in/IR_Cell_ContactUs/" target="ircteam" id="team" className="col-sm-12 sideNavLinkSeparate">Team</a>
             </div>
 
         </div>
@@ -101,9 +103,10 @@ function SideNav(props){
         borderbottom: '0px inset silver',
         padding: '0px',
         margin: '0px',
-        height: '90.5vh',
-        boxShadow: '2px 2px 7px 0px silver',
+        height: '91.5vh',
+        boxShadow: '2px 1px 8px 0px silver',
         position : "fixed",
+        backgroundColor :"#3282b8",
         zIndex: "0"}}>
           <SideNavStuff/>
     </div>)}else{

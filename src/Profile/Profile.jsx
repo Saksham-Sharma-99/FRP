@@ -1,108 +1,100 @@
 import React from "react"
-import {profileImage} from "./assets"
 import {AuthRoute} from 'react-router-auth';
-import {HashRouter, Switch} from 'react-router-dom';
+import {HashRouter, Link, Switch} from 'react-router-dom';
 import "./Profile.css"
-import SideNav from "./components/SideNav/SideNav"
-
-import {Bookmarks} from "../components/Projects/Projects.jsx";
-import Resume from "./components/Resume/Resume"
-import Documents from "./components/Documents/Documents"
+import "../components/NavBars/SideNav/SideNav.css"
+import {profileImage} from "./assets/index"
 import { CHANNELI_URL, Constants } from "../Model/Constants";
+import {Card,ListGroup,ListGroupItem} from "react-bootstrap"
+import Nav from "./components/Nav/Nav";
+import { Resume, Transcript } from "./components/PdfView/PdfView";
 
-function PersonalDetails(props){
+var MILLISECONDS_IN_A_YEAR = 1000*60*60*24*365;
+function getAge(time){
+    var date_array = time.split('-')
+    var years_elapsed = (new Date() - new Date(date_array[0],date_array[1],date_array[2]))/(MILLISECONDS_IN_A_YEAR);
+    return parseInt(years_elapsed); }
+
+function StudentDetails(props){
+    var img = (props.img==null) ? profileImage : (CHANNELI_URL+props.img)
     return(
-        <div className = "col-lg">
-
-            <div className="row"> 
-                <div className = "col-lg-6" >
-                    <img src = {props.image== null ? profileImage : (CHANNELI_URL +props.image)} className="profile-image"/>
-                </div>
-                <div className="col-lg-6" style={{marginTop:"10px"}}>
-                    <h4 className="student-details" style={{marginTop : "20px"}}>{props.name}</h4>
-                    <p className="student-details" style={{color :"gray"}}>{props.en}</p>
-                    <p className="student-details" style={{color :"gray"}}>{props.email}</p>
-                </div>
-            </div>
-
-        </div>
+        <Card style={{ width: '18rem',float:"left"}} className = "flip-card-front">
+            <div class="card-top" style={{backgroundColor:"#1b262c",height:"170px"}} > </div>
+            <Card.Body >
+                <img src={img} className="profile-image"></img>
+                <Card.Title style={{textAlign:"center",marginTop:"10px"}}>
+                    <strong><p>{props.name}, {getAge(props.dob)}</p></strong>
+                    <p style={{fontSize:"13px",float:"left" , display:"inline-block"}}>{props.role}</p>
+                    <p style={{fontSize:"13px",float:"Right", display:"inline-block"}}>{props.en}</p>
+                </Card.Title>
+                <br />
+                <br />
+                {/* <Card.Body></Card.Body> */}
+                <Card.Text style={{textAlign:"center"}}>{props.branch}</Card.Text>
+                <Card.Text><strong>Semester</strong> : {props.sem}</Card.Text>
+                <Card.Text><strong>Email</strong> : {props.email}</Card.Text>
+                <Card.Text><strong>Number</strong> : {props.num}</Card.Text>
+                
+            </Card.Body>
+                <a className="edit-profile" href="https://internet.channeli.in/settings/edit_profile">Edit Profile</a>
+            {/* <Card.Body>
+                <Card.Link href="#">Card Link</Card.Link>
+                <Card.Link href="#">Another Link</Card.Link>
+            </Card.Body> */}
+        </Card>
+        
     )
 }
 
-function AcademicDetails(props){
-    return(
-        <div className="col-lg">
-            <div className="row"> 
-                <div className = "col-lg">
-                    <p className="others" style={{marginTop:"20px"}}>Branch : {props.br}</p>
-                    <p className="others">Semester : {props.sem}</p>
-                </div>
-            </div>
-        </div>
-    )
-}
+
 
 function Profile(){
     var profileData = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA))
     // var personalData = profileData.personalData.personalDetails
     // var acadData = profileData.personalData.acadDetails
     return (
-        <div className = "container-fluid" style={{paddingLeft:"80px" , paddingRight :"80px" , paddingTop:"40px"}}>
+        <HashRouter >
+        <div className = "container-fluid profile-section">
+            <div className="row profile-card">
 
-            <div className = "row">
+                 <div className ="col-4 id-section flip-card">
+                    <StudentDetails  name={profileData.person.fullName} role={profileData.person.roles[0].role}
+                                     en={profileData.username} branch={profileData.student["branch department name"]} 
+                                     sem={profileData.student.currentSemester} 
+                                     email ={profileData.contactInformation.instituteWebmailAddress}
+                                     dob={profileData.biologicalInformation.dateOfBirth}
+                                     img={profileData.person.displayPicture}
+                                     num = {profileData.contactInformation.primaryPhoneNumber}
+                    />
+                </div>
 
-                <PersonalDetails name={profileData.person.fullName} 
-                                 en={profileData.student.enrolmentNumber} 
-                                 email={profileData.contactInformation.instituteWebmailAddress}
-                                 image = {profileData.person.displayPicture}
-                                 />
-
-                <div className="col-sm"></div>
-
-                <AcademicDetails  br={profileData.student['branch degree name']} 
-                                 sem={profileData.student.currentSemester}/>
-
-            </div>
-
-            <hr style ={{width : "99%" ,zIndex:"-1"}}/>
-
-            <div className = "row">
-                <SideNav show={true}/>  
-
-                <div className="col-sm-10" 
-                    style={{margin: '0px',
-                    padding: '0px',
-                    // position: "relative" ,
-                    // left : "0%", 
-                    // zIndex: "1",
-                    msOverflowStyle : "none",
-                    height:"63.5vh",
-                    overflowY : "scroll"
-                    }} align="left">
-                    <HashRouter>
-                        <Switch>
-                            <AuthRoute
-                                authenticated={true}
-                                redirectTo='/auth'
-                                path='/profile/resume'
-                                component={Resume}/>
-                            <AuthRoute
-                                authenticated={true}
-                                redirectTo='/auth'
-                                path='/profile/documents'
-                                component={Documents}/>
-                            <AuthRoute
-                                authenticated={true}
-                                redirectTo='/auth'
-                                path='/profile/bookmarks'
-                                component={Bookmarks}/>
-                        </Switch>
-                    </HashRouter>  
-                 </div>
+                <div className="col-8" >
+                    <div className="container-fluid documents" style={{height:"77vh",minWidth:"40vw",padding:"20px"}}>
+                        <h2>Documents Information</h2>
+                        <hr className="hr4"></hr>
+                        <Nav />
+                        
+                            <Switch>
+                                <AuthRoute 
+                                    authenticated={sessionStorage.getItem(Constants.IS_LOGGED_IN)==="yes"}
+                                    redirectTo="/auth"
+                                    path="/profile/resume"
+                                    component={Resume}
+                                />
+                                <AuthRoute 
+                                    authenticated={sessionStorage.getItem(Constants.IS_LOGGED_IN)==="yes"}
+                                    redirectTo="/auth"
+                                    path="/profile/transcript"
+                                    component={Transcript}
+                                />
+                            </Switch>
+                    </div>
+                </div>
 
             </div>
 
         </div>
+        </HashRouter>
     )
 }
 
