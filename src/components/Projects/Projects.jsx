@@ -15,6 +15,8 @@ import {AiOutlineMail} from "react-icons/ai"
 import { Constants, Routes,ORIGIN } from "../../Model/Constants"
 import { PostRequest } from "../../Model/RequestHandler"
 import { Popover , OverlayTrigger } from "react-bootstrap"
+import Popup from "reactjs-popup"
+import { DocAlertModal, VerifyModal } from "../Modals/Modals"
 
 
 function ReferOptions(){
@@ -71,10 +73,10 @@ function Buttons(props){
           </Popover.Content>
         </Popover>
       );
-
+    var student = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA))
     function Apply(){
         setApplied(true)
-        var student = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA))
+        
         PostRequest(Routes.APPLY,((res)=>{
             console.log(res.data)
             sessionStorage.setItem(Constants.PROJECTS,JSON.stringify(res.data.projects.projects))
@@ -96,14 +98,20 @@ function Buttons(props){
             </div>
             </OverlayTrigger>
 
-            <div className = {applied ?"col projectBTNLink3 btn disabled" :"col projectBTNLink2 btn"} onClick={Apply}>
-                
+            <Popup trigger={
+            <div className = {applied ?"col projectBTNLink3 btn disabled" :"col projectBTNLink2 btn"} /*onClick={Apply}*/>    
                 <Link style={{display:"inline-block",fontWeight:"bold",textDecoration:'none',color:"#1b262c"}}>
                 <ImCompass style={{height:"25px",width:"30px",marginRight:"20px",color:"#1b262c"}}/>
                     {applied ? "Applied":"Apply"}
                 </Link>
-            </div>
-
+            </div>}
+            modal
+            nested
+            >
+            {(student.documents.resmue==="" || student.documents.transcript==="")?
+             <DocAlertModal />:<VerifyModal  id={props.id} name={props.name}/> 
+            }
+            </Popup>
 
         </div>
     )
