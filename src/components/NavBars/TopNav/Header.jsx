@@ -29,18 +29,27 @@ function ShowNav(){
   if(sessionStorage.getItem(Constants.IS_LOGGED_IN)==="yes"){
     GetRequest(Routes.USER_DETAILS,(res)=>{
       if (res.status==200){
-        sessionStorage.setItem(Constants.USER_PROFILE,JSON.stringify(res.data[0][0]))
-        sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data[1]))
-        ReactDOM.render(
-          <App showSideNav ={true} />,
-        document.getElementById('root')
-        );
+          GetRequest(Routes.PROJECTS , (resp)=>{
+              if (resp.status == 200){
+                  sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
+                  sessionStorage.setItem(Constants.USER_PROFILE,JSON.stringify(res.data[0][0]))
+                  sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data[1]))
+              }
+              else{
+                  window.alert("Can't Reload. Unknown Error Occured")
+              }
+          })
       }
       else{
-        window.alert("Can't Reload. Unknown Error Occured")
+          window.alert("Can't Reload. Unknown Error Occured")
       }
   },{token:sessionStorage.getItem(Constants.AUTH_TOKEN)})
   }
+  
+  ReactDOM.render(
+    <App showSideNav ={true} />,
+  document.getElementById('root')
+  );
 }
 
 function Logout(){
@@ -105,7 +114,7 @@ function ProfileTab(){
       </div>} id="collasible-nav-dropdown" >
 
         <NavDropdown.Item>
-          <Link className="menuLink" to="/profile/resume" onClick={HideNav}>
+          <Link className="menuLink" to="/profile" onClick={HideNav}>
               <div className = "container-fluid">
               <div className ="col-1">
               <img  className = "navItem" src ={profileData.person.displayPicture==null ? profileImage:(CHANNELI_URL+profileData.person.displayPicture)} 
@@ -195,7 +204,7 @@ return (
   style={{margin:'0px', backgroundColor:'#0f4c75',border:'0px', paddingTop:'0px',paddingBottom:'0px'
   ,borderRadius : "0%"}} className = "header">
 
-  <Link to = {props.showItems ? '/projects':'/auth'} onClick = {()=>window.location.reload()}>
+  <Link to = {props.showItems ? '/projects':'/auth'} onClick = {props.showItems?()=>{ShowNav();window.location.reload()}:()=>window.location.reload()}>
   <Navbar.Brand href="#">
     <img src={logo} style={{width: '60px', backgroundColor: 'transparent',marginRight:'15px',
     marginLeft:'25px' , borderRadius : "50%"}}/>
