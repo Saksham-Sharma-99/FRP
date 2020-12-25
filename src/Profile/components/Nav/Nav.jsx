@@ -1,13 +1,17 @@
 import React,{useState} from "react"
 import { Link } from "react-router-dom"
-import {Constants} from "../../../Model/Constants"
+import {Constants, Routes} from "../../../Model/Constants"
+import { PostRequest } from "../../../Model/RequestHandler"
 import "./Nav.css"
 
 
-function Buttons(props){
-    var [status , statusChangeTo] = useState((true) ? "no" : "yes")
+function Buttons(){
+    var [status , statusChangeTo] = useState(JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).passStatus)
     function setStatus(newStatus){
         statusChangeTo(newStatus)
+        PostRequest(Routes.PASS_STATUS,((res)=>{
+            console.log(res)
+        }),{userId:JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).userId , passStatus:newStatus})
     }
  return(
     <div className="row passport-buttons">

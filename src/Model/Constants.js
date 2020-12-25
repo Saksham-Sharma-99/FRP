@@ -28,7 +28,8 @@ const Routes = {
     BOOKMARK : "/bookmark",
     REM_BOOKMARK:"/removeBookmark",
     APPLY:"/apply",
-    CHECK_USER:"/checkUser"
+    CHECK_USER:"/checkUser",
+    PASS_STATUS :"/pathStatus"
 }
 
 const JSON_Constants = {
