@@ -144,17 +144,17 @@ function ProfileTab(){
           </Link>
         </NavDropdown.Item>
 
-        <NavDropdown.Item>
+        {/* <NavDropdown.Item>
         <Link className="menuLink" to="/profile/resume" onClick={HideNav}>
           <div className="row" style={{alignSelf:"center"}}>
           <GiIdCard style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Edit Resume</h6>
           </div>
           </Link>
-        </NavDropdown.Item>
+        </NavDropdown.Item> */}
 
         <NavDropdown.Item>
-        <Link className="menuLink" to="/profile/documents" onClick={HideNav}>
+        <Link className="menuLink" to="/profile/resume" onClick={HideNav}>
         <div className="row" style={{alignSelf:"center"}}>
           <IoIosDocument style={{marginLeft:"50px",height:"22px",width:"22px"}}/>
           <h6 style={{textAlign:"center",marginLeft:"20px",marginTop:"3px",alignSelf:"center"}}>Manage Documents</h6>
