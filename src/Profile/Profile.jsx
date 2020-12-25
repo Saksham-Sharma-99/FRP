@@ -69,7 +69,7 @@ function Profile(){
                 </div>
 
                 <div className="col-8" >
-                    <div className="container-fluid documents" style={{height:"77vh",minWidth:"40vw",padding:"20px"}}>
+                    <div className="container-fluid documents" style={{minHeight:"87vh",minWidth:"40vw",padding:"20px"}}>
                         <h2>Documents Information</h2>
                         <hr className="hr4"></hr>
                         <Nav />

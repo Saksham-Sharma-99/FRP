@@ -29,7 +29,8 @@ const Routes = {
     REM_BOOKMARK:"/removeBookmark",
     APPLY:"/apply",
     CHECK_USER:"/checkUser",
-    PASS_STATUS :"/pathStatus"
+    PASS_STATUS :"/pathStatus",
+    FILE_UPLOAD :"/uploadFile",
 }
 
 const JSON_Constants = {

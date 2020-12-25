@@ -1,0 +1,32 @@
+.doc-input{
+    margin-bottom: 20px; 
+}
+
+.doc-input-div{
+    padding:5px 10px;
+    background:#0f4c75;
+    border:1px solid #0f4c75;
+    border-radius: 20px;
+    position:relative;
+    color:#fff;
+    border-radius:2px;
+    text-align:center;
+    float:left;
+    cursor:pointer;
+    margin-bottom: 20px;
+  }
+  .doc-input{
+      position: absolute;
+      z-index: 1000;
+      opacity: 0;
+      cursor: pointer;
+      right: 0;
+      top: 0;
+      height: 100%;
+      font-size: 24px;
+      border-radius: 20px;
+  }
+
+  .embed{
+      background-color: transparent;
+  }
