@@ -29,27 +29,18 @@ function ShowNav(){
   if(sessionStorage.getItem(Constants.IS_LOGGED_IN)==="yes"){
     GetRequest(Routes.USER_DETAILS,(res)=>{
       if (res.status==200){
-          GetRequest(Routes.PROJECTS , (resp)=>{
-              if (resp.status == 200){
-                  sessionStorage.setItem(Constants.PROJECTS , JSON.stringify(resp.data))
-                  sessionStorage.setItem(Constants.USER_PROFILE,JSON.stringify(res.data[0][0]))
-                  sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data[1]))
-              }
-              else{
-                  window.alert("Can't Reload. Unknown Error Occured")
-              }
-          })
+        sessionStorage.setItem(Constants.USER_PROFILE,JSON.stringify(res.data[0][0]))
+        sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data[1]))
+        ReactDOM.render(
+          <App showSideNav ={true} />,
+        document.getElementById('root')
+        );
       }
       else{
-          window.alert("Can't Reload. Unknown Error Occured")
+        window.alert("Can't Reload. Unknown Error Occured")
       }
   },{token:sessionStorage.getItem(Constants.AUTH_TOKEN)})
   }
-  
-  ReactDOM.render(
-    <App showSideNav ={true} />,
-  document.getElementById('root')
-  );
 }
 
 function Logout(){
