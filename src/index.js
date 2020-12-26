@@ -4,7 +4,7 @@ import App from './App';
 import {isLoggedIn} from './components/Auth/Auth'
 
 ReactDOM.render(
-    <App showSideNav ={true}/>,
+    <App showSideNav ={true} showBottomNav={true}/>,
   document.getElementById('root')
 );
 

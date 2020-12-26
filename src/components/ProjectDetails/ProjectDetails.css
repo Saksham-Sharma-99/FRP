@@ -1,0 +1,227 @@
+.university_img{
+    width: 100%;
+    z-index: -1;
+    position: fixed;
+    filter:saturate(95%);
+}
+
+.college-img-row{
+  padding: 0 0;
+}
+
+.cont-fl{
+    min-height: 80.2vh;
+    
+}
+
+.college-name {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 3px 3px rgb(136, 133, 133);
+    font-size:8vw;   
+    font-weight: bold; 
+}
+  
+.college-details{
+    top: 86.95vh;
+    position: relative;
+    background-color:#1b262c;
+    z-index: 0;
+    text-align: center;
+    padding-top: 8vh;
+    color: white;
+    padding-bottom: 5px;
+}
+
+
+.nearby-img-cont{
+  justify-content: center;
+  top: 86.95vh;
+  position: relative;
+  background-color: #1b262c;
+  z-index: 0;
+  padding-top: 1vh;
+ 
+  
+}
+
+.nearby-img-small{
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 20px;
+  height: 400px;
+  width: 100%;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 8px 0 rgba(0, 0, 0, 0.19);
+  filter: sepia(90%) hue-rotate(190deg) saturate(100%);
+  border-radius: 10px;
+}
+
+.nearby-img-small:hover{
+filter: grayscale(0%);
+position: relative;
+bottom: 10px;
+}
+
+.bg-right-img:hover{
+  position: relative;
+  top: -160px;
+}
+
+.nearby-img-lg{
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 20px;
+  width: 100%;
+  height: 550px;
+  box-shadow: 0 8px 8px 0 rgba(59, 59, 59, 0.2), 0 10px 8px 0 rgba(0, 0, 0, 0.19);
+  filter: sepia(100%) hue-rotate(190deg) saturate(100%);
+  border-radius: 10px;
+}
+.nearby-img-lg:hover{
+  filter: grayscale(0%);
+  position: relative;
+  bottom: 10px;
+}
+
+.img-txt1{
+  position: relative; 
+  bottom: 40px; 
+  left: 100px; 
+  /* color:  rgb(229, 226, 226); */
+  color:rgb(43, 39, 39);
+  font-weight: bold;
+  margin-top: 2px;
+  margin-bottom: 4px;
+
+}
+
+.img-txt:hover{
+  color:black;
+  text-decoration: none;
+}
+.img-txt2{
+  position: relative; 
+  bottom: 40px; 
+  left: 100px; 
+  color:rgb(43, 39, 39);
+  font-weight: bold;
+}
+
+.img-txt3{
+  position: relative; 
+  bottom: 190px; 
+  left: 100px; 
+  color:rgb(43, 39, 39);
+  font-weight: bold;
+}
+
+
+
+.college-details-2{
+  top: 86.95vh;
+  position: relative;
+  background-color:white;
+  z-index: 0;
+  text-align: center;
+  padding-top: 8vh;
+  color: #1b262c;
+  padding-bottom: 5px;
+}
+
+.testimonials-cont{
+  top: 86.95vh;
+  position: relative;
+  background-color:white;
+  z-index: 0;
+  padding-top: 3vh;
+  color: white;
+  padding-bottom: 5px;
+  justify-content: center;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 500px;
+  /* perspective: 1000px; */
+  border-radius: 10px;
+ 
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 4px 4px 7px 0 rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  color: #1b262c;
+}
+
+.flip-card-front {
+  background-color:white;
+  color: black;
+  border-radius: 10px;
+}
+
+.flip-card-back {
+  background-color:#0f4c75;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}
+
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  width: 300px;
+  margin: 0.25em 0;
+  padding: 0.35em 40px;
+  line-height: 1.45;
+  position: relative;
+  color:white;
+  padding-top: 25px;
+}
+
+blockquote:before {
+  display: block;
+  padding-left: 20px;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  color: white;
+  padding-top: 20px;
+}
+
+blockquote cite {
+  color: white;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+
+blockquote cite:before {
+  content: "\2014 \2009";
+}

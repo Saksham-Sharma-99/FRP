@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import {logo} from "../NavBars/TopNav/assets/index"
 import "./Projects.css"
 import {projects} from "./projects"
@@ -17,7 +18,15 @@ import { PostRequest } from "../../Model/RequestHandler"
 import { Popover , OverlayTrigger } from "react-bootstrap"
 import Popup from "reactjs-popup"
 import { DocAlertModal, VerifyModal } from "../Modals/Modals"
+import App from '../../App';
 
+
+function HideNav(){
+    ReactDOM.render(
+      <App showSideNav ={false} showBottomNav={false}/>,
+    document.getElementById('root')
+  );
+  }
 
 function ReferOptions(){
 
@@ -148,7 +157,7 @@ function Details(props){
                     </div>
                     <div className="col-lg-8" style={{paddingTop : '30px'}}>
                         <h3 className = "collegeName"> 
-                            {props.collegeName}
+                            <Link to="projectDetails" onClick={HideNav}>{props.collegeName}</Link>
                         </h3>
                      </div>
                      </div>

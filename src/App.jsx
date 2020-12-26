@@ -11,6 +11,7 @@ import Auth,{isLoggedIn} from './components/Auth/Auth'
 import { LogOut } from "./Model/RequestHandler";
 import { Constants } from "./Model/Constants";
 import Footer from "./components/NavBars/BottomNav/Footer";
+import ProjectDetails from "./components/ProjectDetails/ProjectDetails";
 
 var showSideNav = true;
 var LoggedIn = (isLoggedIn || sessionStorage.getItem('isLoggedIn')==='yes'); 
@@ -57,9 +58,14 @@ function App(props){
                     redirectTo='/auth'
                     path='/profile'
                     component={Profile}/>
+                <AuthRoute
+                    authenticated={LoggedIn}
+                    redirectTo='/auth'
+                    path='/projectDetails'
+                    component={ProjectDetails}/>
             </Switch>
 
-            <Footer />
+            <Footer show ={props.showBottomNav}/>
         </HashRouter>
                     
     ):(

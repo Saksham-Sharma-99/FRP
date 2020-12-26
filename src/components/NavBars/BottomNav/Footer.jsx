@@ -3,9 +3,9 @@ import "./Footer.css"
 import {AiFillFacebook, AiFillLinkedin, AiFillTwitterSquare, AiFillMail} from "react-icons/ai";
 import { isLoggedIn } from "../../Auth/Auth";
 
-function Footer() {
+function Footer(props) {
     const loggedin = (isLoggedIn || sessionStorage.getItem('isLoggedIn')==='yes'); 
-    return (
+   return props.show ? (
         <div className={loggedin ? "container-fluid footer" : "container-fluid footer-fixed"} style={{marginTop : "1px"}}>
             <div className="row" style={{paddingTop:"10px",marginRight : "0",marginLeft:"0"}}>
                 <div className="col-6" style={{paddingLeft:"10px"}}>
@@ -22,7 +22,7 @@ function Footer() {
                 </div>
             </div>
         </div>
-    );
+    ):(null)
     
 }
 
