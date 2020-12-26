@@ -22,7 +22,8 @@ function VerifyModal(props){
             console.log(res.data)
             sessionStorage.setItem(Constants.PROJECTS,JSON.stringify(res.data.projects.projects))
             sessionStorage.setItem(Constants.CHANNELI_DATA , JSON.stringify(res.data.user))
-        }),{userId :student.userId,postId:props.id,name:props.name})
+            window.location.reload()
+        }),{userId :student.userId,postId:props.id,name:props.name,sop:document.getElementById("sop").value})
     }
     return (
         <div className="container-fluid verify-modal"> 
@@ -31,27 +32,32 @@ function VerifyModal(props){
             <div className="row">
                 <div className="col-12"><h5 style={{textAlign:"center",marginBottom:"20px"}}>Review your Documents</h5></div>
                 <div className = "col-6">
-                    <a className="doc-status" style={{float:"right"}}onClick={()=>window.open(BaseURL+"/files/"+student.documents.resume,"_blank")}>
+                    <a className="doc-status" style={{float:"right"}} 
+                    onClick={()=>window.open(BaseURL+"/files/"+student.documents.resume,"_blank")}>
                      <b>Resume</b> <BsCheckCircle />
-                     </a>
+                    </a>
                 </div>
                 <div className = "col-6">
-                    <a className="doc-status" onClick={()=>window.open(BaseURL+"/files/"+student.documents.transcript,"_blank")}> 
+                    <a className="doc-status" 
+                    onClick={()=>window.open(BaseURL+"/files/"+student.documents.transcript,"_blank")}> 
                     <b>Transcript</b> <BsCheckCircle />
                     </a>
                 </div>
             </div>
+            <h6 style={{textAlign:"center",marginTop:"20px",color:"gray"}}>
+            {Constants.DECLARATION}
+            </h6>
             <div className="row" style={{padding:"0 20px 2px"}}>
                 <div className="col-12">
-                    <h5 style={{textAlign:"center",marginTop:"100px"}}> SOP :</h5>
+                    <h5 style={{textAlign:"center",marginTop:"40px"}}> Statement Of Purpose :</h5>
+                    <p style={{color:"gray",textAlign:"center"}}>{Constants.SOP_STATEMENT}</p>
                 </div>
-                <div className="col-12" style={{minHeight:"300px",border:"1px solid",padding:"5px 3px 0",borderRadius:"10px"}}>
-                <input type="text" className="form-control" name="title" style={{border:"0"}} />
+                <div className="col-12" style={{minHeight:"200px",border:"1px solid",padding:"3px 3px 3px",borderRadius:"10px"}}>
+                <textarea type="text" className="form-control" id="sop" style={{border:"0",height:"195px"}} />
                 </div>
-                <div className="row">
-                    <div className="col-8"></div>
-                    <div className="col-3"></div>
-                </div>
+            </div>
+            <div className="row" style={{marginTop:"25px"}}>
+                <div className="col-3 apply-btn" onClick={Apply}> Apply</div>
             </div>
         </div>
     )

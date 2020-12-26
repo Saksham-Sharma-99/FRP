@@ -18,7 +18,7 @@ function getAge(time){
 function StudentDetails(props){
     var img = (props.img==null) ? profileImage : (CHANNELI_URL+props.img)
     return(
-        <Card style={{ width: '18rem',float:"left"}} className = "flip-card-front">
+        <Card style={{ width: '18rem',float:"left",height:"600px"}} >
             <div class="card-top" style={{backgroundColor:"#1b262c",height:"170px"}} > </div>
             <Card.Body >
                 <img src={img} className="profile-image"></img>

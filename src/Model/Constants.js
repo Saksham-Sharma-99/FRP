@@ -9,7 +9,9 @@ const Constants = {
     EMAIL_SUB : "Project on FRP",
     EMAIL_MSG : "Hey there , \nI found a project on Foreign Research Portal which you may be interested in!\n ",
     TOKEN : "token",
-    DOESNT_EXISTS : "doesnt exist"
+    DOESNT_EXISTS : "doesnt exist",
+    DECLARATION : "You hereby declare that the information given in these documents is true and correct to the best of your knowledge and belief. In case any information given in this application proves to be false or incorrect, You shall be responsible for the consequences.",
+    SOP_STATEMENT :"SOP is an important aspect of your application. Make sure to write something good and meaningfull" 
 }
 
 const BaseURL = (['localhost','127.0.0.1'].includes(window.location.hostname)) ? "https://frp-backend.herokuapp.com" : "http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/api"

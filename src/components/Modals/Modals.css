@@ -2,7 +2,7 @@
     background-color: white;
     border-radius: 10px;
     width: 50vw;
-    height: 95vh;
+    height: 85vh;
     position: relative;
     z-index: 1;
     box-shadow:
@@ -46,4 +46,23 @@
 .doc-status:hover{
     color : #0f4c75;
     cursor: pointer;
+}
+
+.form-control{
+    resize: none;
+    height:300px;
+}
+
+.apply-btn{
+    background-color:#0f4c75;
+    color: white;
+    text-align: center;
+    height: 40px;
+    width: 100px;
+    padding-top: 7px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
