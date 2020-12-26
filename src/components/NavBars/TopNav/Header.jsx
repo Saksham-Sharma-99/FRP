@@ -21,7 +21,7 @@ import { CHANNELI_URL, Constants ,ORIGIN,Routes} from "../../../Model/Constants"
 
 function HideNav(){
   ReactDOM.render(
-    <App showSideNav ={false}/>,
+    <App showSideNav ={false} showBottomNav={true}/>,
   document.getElementById('root')
 );
 }
@@ -47,7 +47,7 @@ function ShowNav(){
   }
   
   ReactDOM.render(
-    <App showSideNav ={true} />,
+    <App showSideNav ={true} showBottomNav={true}/>,
   document.getElementById('root')
   );
 }
