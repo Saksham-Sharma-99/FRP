@@ -21,6 +21,12 @@
     font-size: 32px;
     font-weight: bold;
 }
+.collegeName:hover{
+    color: black;
+    display: inline;
+    font-size: 32.5px;
+    font-weight:800;
+}
 
 .requirements{
     line-height: 12px;

@@ -156,8 +156,8 @@ function Details(props){
                         <img className= "college-image" src = {props.image} alt = "College Image"  /> 
                     </div>
                     <div className="col-lg-8" style={{paddingTop : '30px'}}>
-                        <h3 className = "collegeName"> 
-                            <Link to="projectDetails" onClick={HideNav}>{props.collegeName}</Link>
+                        <h3 > 
+                            <Link className = "collegeName" to="projectDetails" onClick={HideNav}>{props.collegeName}</Link>
                         </h3>
                      </div>
                      </div>
