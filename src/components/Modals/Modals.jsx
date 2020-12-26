@@ -2,7 +2,8 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import ReactDOM from "react-dom"
 import App from "../../App"
-import { Constants, Routes,ORIGIN } from "../../Model/Constants"
+import {BsCheckCircle} from "react-icons/bs"
+import { Constants, Routes,ORIGIN, BaseURL } from "../../Model/Constants"
 import {PostRequest} from "../../Model/RequestHandler"
 import "./Modals.css"
 
@@ -25,7 +26,33 @@ function VerifyModal(props){
     }
     return (
         <div className="container-fluid verify-modal"> 
-        
+            <h3 style={{textAlign:"center"}}>Your Application</h3>
+            <hr className="hr4" style={{textAlign:"center",marginBottom:"50px"}}/>
+            <div className="row">
+                <div className="col-12"><h5 style={{textAlign:"center",marginBottom:"20px"}}>Review your Documents</h5></div>
+                <div className = "col-6">
+                    <a className="doc-status" style={{float:"right"}}onClick={()=>window.open(BaseURL+"/files/"+student.documents.resume,"_blank")}>
+                     <b>Resume</b> <BsCheckCircle />
+                     </a>
+                </div>
+                <div className = "col-6">
+                    <a className="doc-status" onClick={()=>window.open(BaseURL+"/files/"+student.documents.transcript,"_blank")}> 
+                    <b>Transcript</b> <BsCheckCircle />
+                    </a>
+                </div>
+            </div>
+            <div className="row" style={{padding:"0 20px 2px"}}>
+                <div className="col-12">
+                    <h5 style={{textAlign:"center",marginTop:"100px"}}> SOP :</h5>
+                </div>
+                <div className="col-12" style={{minHeight:"300px",border:"1px solid",padding:"5px 3px 0",borderRadius:"10px"}}>
+                <input type="text" className="form-control" name="title" style={{border:"0"}} />
+                </div>
+                <div className="row">
+                    <div className="col-8"></div>
+                    <div className="col-3"></div>
+                </div>
+            </div>
         </div>
     )
 }

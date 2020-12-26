@@ -1,14 +1,16 @@
 .verify-modal{
     background-color: white;
     border-radius: 10px;
-    width: 80vw;
-    height: 80vh;
+    width: 50vw;
+    height: 95vh;
     position: relative;
     z-index: 1;
     box-shadow:
     0 0 60px 3000px rgba(0, 0, 0, 0.384),  
     0 0 100px 6000px rgba(0, 0, 0, 0.384), 
-    0 0 140px 9000px rgba(0, 0, 0, 0.384)
+    0 0 140px 9000px rgba(0, 0, 0, 0.384);
+
+    padding: 20px;
 }
 
 .doc-alert-modal{
@@ -34,4 +36,14 @@
 }
 .upload-btn:hover{
     color: white;
+}
+
+.doc-status{
+    color : #0f4c75;
+    cursor: pointer;
+}
+
+.doc-status:hover{
+    color : #0f4c75;
+    cursor: pointer;
 }
