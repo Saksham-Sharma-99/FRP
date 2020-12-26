@@ -81,7 +81,7 @@ function ProjectDetails(){
             <div className="row college-detail-row">
                 <div className="col-sm-12 college-details">
                     <h1 style={{fontWeight:"bold", fontSize:"4.2rem", paddingBottom:"2rem"}}>Locations Nearby</h1>
-                    <p>jhwekfegjer fkegkrgk gnfkgj</p>
+                    <p>Beautiful places near campus to visit and have a great experience</p>
                 </div>
             </div>
 
@@ -90,8 +90,8 @@ function ProjectDetails(){
 
             <div className="row">
                 <div className="col-sm-12 college-details-2">
-                    <h1 style={{fontWeight:"bold", fontSize:"4.2rem", paddingBottom:"2rem"}}>Testimonials</h1>
-                    <p>jhwekfegjer fkegkrgk gnfkgj</p>
+                    <h1 style={{fontWeight:"bold", fontSize:"4.2rem", paddingBottom:"0rem"}}>Testimonials</h1>
+                    <p>Students who have previously been a part of foreign universities via FRP</p>
                 </div>
             </div>
                 <Testimonials array={testimonialDetails}/> 
