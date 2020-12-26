@@ -90,7 +90,7 @@ function Transcript(){
             <div className="row">
             {docAddress=="" ? null : 
             <div className ="col" >
-            <embed className="embed" src={BaseURL+'/files/'+docAddress} width="98%" height="600px" />
+            <embed className="embed" src={BaseURL+"/files/?name="+JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).documents.transcript} width="98%" height="600px" />
             </div>}
             </div>
         </div>

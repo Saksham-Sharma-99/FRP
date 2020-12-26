@@ -33,13 +33,13 @@ function VerifyModal(props){
                 <div className="col-12"><h5 style={{textAlign:"center",marginBottom:"20px"}}>Review your Documents</h5></div>
                 <div className = "col-6">
                     <a className="doc-status" style={{float:"right"}} 
-                    onClick={()=>window.open(BaseURL+"/files/"+student.documents.resume,"_blank")}>
+                    onClick={()=>window.open(BaseURL+"/files/?name="+JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).documents.resume,"_blank")}>
                      <b>Resume</b> <BsCheckCircle />
                     </a>
                 </div>
                 <div className = "col-6">
                     <a className="doc-status" 
-                    onClick={()=>window.open(BaseURL+"/files/"+student.documents.transcript,"_blank")}> 
+                    onClick={()=>window.open(BaseURL+"/files/?name="+JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).documents.transcript,"_blank")}> 
                     <b>Transcript</b> <BsCheckCircle />
                     </a>
                 </div>
