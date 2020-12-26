@@ -4,6 +4,7 @@ import {Button} from "react-bootstrap"
 import axios from "axios"
 import { BaseURL, Constants, ORIGIN, Routes } from "../../../Model/Constants"
 import { Document, Page } from 'react-pdf';
+import { GetRequest } from "../../../Model/RequestHandler"
 
 // function uploadButton()
 
@@ -31,7 +32,6 @@ function Resume(){
             window.alert("Uploaded Successfully",window.location.reload())
         })
     }
-
     return(
         <div className="container-fluid" style={{marginTop:"40px"}}>
         <div className="row">
@@ -43,7 +43,11 @@ function Resume(){
             <div className="row">
             {docAddress=="" ? null : 
             <div className ="col" >
-            <embed className="embed" src={BaseURL+'/files/'+docAddress} width="98%" height="600px"/>
+            {/* <object width="100%" height="600px" data={"data:application/pdf;base64,"+file} type="application/pdf"> */}
+            <embed className="embed" 
+            src={BaseURL+"/files/?name="+JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).documents.resume} 
+            width="98%" height="600px"></embed>
+            {/* </object> */}
             </div>}
             </div>
         </div>
