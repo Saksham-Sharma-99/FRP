@@ -28,6 +28,7 @@ function Resume(){
             sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data.data.data[1]))
             markAdd(res.data.data.data[1].documents.resume)
             markUploading("Upload Resume")
+            window.alert("Uploaded Successfully",window.location.reload())
         })
     }
 
@@ -70,6 +71,7 @@ function Transcript(){
             sessionStorage.setItem(Constants.CHANNELI_DATA,JSON.stringify(res.data.data.data[1]))
             markAdd(res.data.data.data[1].documents.transcript)
             markUploading("Upload Transcript")
+            window.alert("Uploaded Successfully",window.location.reload())
         })
     }
 

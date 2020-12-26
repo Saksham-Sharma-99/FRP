@@ -84,8 +84,8 @@
     
 }
 .header {
-    background-image: linear-gradient(75deg, #0f4c75 0%, #3282b8 70%);
+    background-image: linear-gradient(35deg, #0f4c75 30%, #3282b8 70%, #0f4c75 100%);
 }
 .footer {
-    background-image: linear-gradient(75deg, #3282b8 0%, #0f4c75 70%);
+    background-image: linear-gradient(35deg, #0f4c75 30%, #3282b8 60%, #0f4c75 90%);
 }

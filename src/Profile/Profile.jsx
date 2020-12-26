@@ -57,7 +57,7 @@ function Profile(){
         <div className = "container-fluid profile-section">
             <div className="row profile-card">
 
-                 <div className ="col-4 id-section flip-card">
+                 <div className ="col-lg-4 id-section flip-card">
                     <StudentDetails  name={profileData.person.fullName} role={profileData.person.roles[0].role}
                                      en={profileData.username} branch={profileData.student["branch department name"]} 
                                      sem={profileData.student.currentSemester} 
@@ -68,7 +68,7 @@ function Profile(){
                     />
                 </div>
 
-                <div className="col-8" >
+                <div className="col-lg-8" >
                     <div className="container-fluid documents" style={{minHeight:"87vh",minWidth:"40vw",padding:"20px"}}>
                         <h2>Documents Information</h2>
                         <hr className="hr4"></hr>

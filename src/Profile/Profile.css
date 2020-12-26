@@ -37,12 +37,11 @@
 }
 
 .profile-section{
-    padding: 40px 60px 20px;
-    /* background-image: url("./assets/bg-pattern.png"); */
+    padding: 40px 75px 20px;
 }
 
 .profile-card{
-    background-color: white;
+    /* background-color: white; */
     margin: 0;
     padding: 10px;
     border-radius: 10px;
@@ -56,6 +55,7 @@
 
 .documents{
     border: 1px solid lightgray;
+    background-color: white;
     border-radius: 10px;
 }
 
