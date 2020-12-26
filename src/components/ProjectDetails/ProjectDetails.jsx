@@ -75,8 +75,8 @@ function ProjectDetails(){
     return(
         <div className="container-fluid cont-fl">
             <div className="row college-img-row">
-                <img className="university_img" src="https://ugc.futurelearn.com/uploads/images/be/0b/hero_be0bfdde-31f9-4ff4-bf6f-4a8c2c50b3f7.jpg" />
-                <h2 className="college-name">College Name</h2>
+                <img className="university_img" src="https://c1.wallpaperflare.com/preview/812/366/509/purdue-university-west-lafayette-indiana-arch.jpg" />
+                <h2 className="college-name" >College Name</h2>
             </div>
             <div className="row college-detail-row">
                 <div className="col-sm-12 college-details">

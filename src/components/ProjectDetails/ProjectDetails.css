@@ -1,6 +1,7 @@
 .university_img{
     width: 100%;
     z-index: -1;
+    height:1000px;
     position: fixed;
     filter:saturate(95%);
 }
@@ -17,7 +18,9 @@
 .college-name {
     position: fixed;
     top: 50%;
-    left: 50%;
+    left:50%;
+    display: block;
+    margin: 0px auto;
     transform: translate(-50%, -50%);
     color: white;
     text-shadow: 3px 3px rgb(136, 133, 133);
@@ -89,7 +92,7 @@ bottom: 10px;
 .img-txt1{
   position: relative; 
   bottom: 40px; 
-  left: 100px; 
+  left: 50px; 
   /* color:  rgb(229, 226, 226); */
   color:rgb(43, 39, 39);
   font-weight: bold;
@@ -105,7 +108,7 @@ bottom: 10px;
 .img-txt2{
   position: relative; 
   bottom: 40px; 
-  left: 100px; 
+  left: 50px; 
   color:rgb(43, 39, 39);
   font-weight: bold;
 }
