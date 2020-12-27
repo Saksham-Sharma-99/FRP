@@ -186,7 +186,11 @@ function Auth (){
             }
         },{token:sessionStorage.getItem(Constants.AUTH_TOKEN),refresh_token:localStorage.getItem(Constants.TOKEN)})
     
-        return(<h4>Redirecting . Please wait for a second</h4>)
+        return(
+            <div className="container-fluid" style={{minHeight:"89.5vh"}}>
+                <h4>Redirecting . Please wait for a second</h4>
+            </div> 
+        )
     }
 }
 
