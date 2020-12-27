@@ -7,20 +7,22 @@ import {GetRequest,LogIn,PostRequest} from '../../Model/RequestHandler'
 import {Routes,Constants, CLIENT_ID, SECRET, ORIGIN,CHANNELI_URL,BaseURL} from '../../Model/Constants'
 import './Auth.css'
 import Axios from 'axios';
+import { ImFontSize } from 'react-icons/im';
+import { AiOutlineLineHeight } from 'react-icons/ai';
 
 var isLoggedIn = false
 
 const carouselData = [
-    {img:"https://images.fineartamerica.com/images-medium-large-5/iit-roorkee-atinder-paul-singh.jpg",
+    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
     title:"Title of the first Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
-    {img:"https://postmarkfromfoster.files.wordpress.com/2014/10/september-2014-postmark-14.jpg",
+    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
     title:"Title of the  second Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
-    {img:"https://c.ndtvimg.com/2019-02/kh0snovg_mahatma-gandhi-central-library-iit-roorkee_625x300_04_February_19.jpg",
+    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
     title:"Title of the third Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
-    {img:"https://akm-img-a-in.tosshub.com/indiatoday/images/story/201910/EGBR5vDUYAA-JVP-647x363.jpeg?dzkBrr25av3UV2M_SwYFPvUohOZSgFoh",
+    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
     title:"Title of the fourth Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."}
     ]
@@ -82,7 +84,8 @@ function CarouselElement(props){
                 return(
                     <Carousel.Item interval={3000} >
                         <img
-                        className="d-block w-100"
+                        className="img-fluid"
+                        id="d-block"
                         src={cdata.img}
                         alt="First slide"
                         />
@@ -104,26 +107,60 @@ function Auth (){
     console.log("hello")
     if (url.searchParams.get('token') == null){
     return (
-        <div className='container-fluid' style ={{alignItems:"center"}}>
+        <div className='container-fluid' style ={{alignItems:"center", width:"100%",height:"100%", margin:'0px',padding:'0px',overflowX:"hidden",overflowY:"hidden"}}>
+           
             <div className ="row">
+                <div class="col-xs-5 col-sm-5 col-lg-5" style={{alignItems:'center'}}>
+                    <section>
+                        <h1 id="heading">Add more value to your Research Career</h1>
+                        <div id="para">Now more efficient, smarter and easier way—helping you find a perfect foreign intern.</div>
+                    </section>
+                    </div>
 
-                <div className='col-lg-9'>
-                <CarouselElement content={carouselData}/>
+                <div className="col-xs-7 col-sm-7 col-lg-7" id="appimage" style={{alignItems:'center'}}>
+                    <img src="https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff" class="img-fluid" />
                 </div>
-
-
-                <div className="col-lg-3" style={{alignItems:'center'}}>
-
+            </div>
+            
+            <div className ="row" style={{marginTop:'3%'}}>
+                <div class="col-sm"></div>
+                <div class="col-sm">
                     <h3 className="h3 mb-3 font-weight-normal" style={{textAlign:'center' ,marginTop:'40px'}}>
                         To continue, sign in with your Channel-I account 
                     </h3>
-                    
-                    <LoadingButton />
+                    <div class="text-center">
+                        <LoadingButton />
+                    </div>
                     <p className="mt-5 mb-3 text-muted" style={{textAlign:'center'}}>&copy; IR Cell</p>
-                    <p>ps: this auth screen's layout will be changed</p>
+                    
+                </div>
+                <div class="col-sm"></div>
+            </div>
+
+
+            <div className ="row" style={{marginTop:'3%'}}>
+                <div className="col-xs-6 col-sm-6 col-lg-6" id="appimage" style={{alignItems:'center'}}>
+                    <img class="img-fluid" src="https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff" />
                 </div>
 
+                <div class="col-xs-6 col-sm-6 col-lg-6" style={{alignItems:'center'}}>
+                    <h1 id="heading">Here we can describe<br></br> some features of our app</h1>
+                    <div id="para">Now more efficient, smarter and easier way—helping you find a perfect foreign intern.</div>
+                </div>
             </div>
+
+            <h1 id="heading"  style={{marginTop:'5%', textAlign:'center'}}>See how it works</h1>
+
+            <div id="para2">
+                Here comes a tag line of frp and some <br></br> snapshots from the portal.
+            </div>
+            
+            <div className ="col-sm-12" style={{marginTop:'5%'}}>
+                <CarouselElement content={carouselData}/>
+            </div>
+
+            
+
         </div>
     )
     }else{
