@@ -105,7 +105,7 @@ function Auth (){
     console.log("hello")
     if (url.searchParams.get('token') == null){
     return (
-        <div className='container-fluid' style ={{alignItems:"center"}}>
+        <div className='container-fluid' style ={{alignItems:"center", width:"100%",height:"100%", margin:'0px',padding:'0px',overflowX:"hidden",overflowY:"hidden"}}>
            
             <div className ="row">
                 <div class="col-xs-5 col-sm-5 col-lg-5" style={{alignItems:'center'}}>
@@ -113,7 +113,7 @@ function Auth (){
                     <div class="para">Now more efficient, smarter and easier way—helping you find a perfect foreign intern.</div>
                 </div>
 
-                <div className="col-xs-7 col-sm-7 col-lg-7" style={{alignItems:'center'}}>
+                <div className="col-xs-7 col-sm-7 col-lg-7" id="appimage" style={{alignItems:'center'}}>
                     <img src="https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff" />
                 </div>
             </div>
@@ -134,7 +134,7 @@ function Auth (){
 
 
             <div className ="row" style={{marginTop:'3%'}}>
-                <div className="col-xs-6 col-sm-6 col-lg-6" style={{alignItems:'center'}}>
+                <div className="col-xs-6 col-sm-6 col-lg-6" id="appimage" style={{alignItems:'center'}}>
                     <img src="https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff" />
                 </div>
 
