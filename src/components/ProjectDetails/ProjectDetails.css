@@ -228,3 +228,28 @@ blockquote cite {
 blockquote cite:before {
   content: "\2014 \2009";
 }
+
+.college-description{
+  position: relative;
+  top: 86.95vh;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROl0NWML0g8Ar2lPkX6W_wCitKigzHqtC5qA&usqp=CAU");
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+
+}
+
+.college-logo{
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  height:200px;
+  width: 200px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+
+
+
