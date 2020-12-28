@@ -17,6 +17,24 @@ var projectDetails=[
         title:"",
 
     },
+    {
+        id:4,
+        image:"https://wallpaperaccess.com/full/256824.jpg",
+        title:"",
+
+    },
+    {
+        id:5,
+        image:"https://wallpaperaccess.com/full/256824.jpg",
+        title:"",
+
+    },
+    {
+        id:6,
+        image:"https://wallpaperaccess.com/full/256824.jpg",
+        title:"",
+
+    },
 ]
 
 var testimonialDetails=[

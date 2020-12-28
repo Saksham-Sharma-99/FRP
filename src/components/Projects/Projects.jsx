@@ -157,7 +157,10 @@ function Details(props){
                     </div>
                     <div className="col-lg-8" style={{paddingTop : '30px'}}>
                         <h3 > 
-                            <Link className = "collegeName" to="projectDetails" onClick={HideNav}>{props.collegeName}</Link>
+                            <Link className = "collegeName" to="projectDetails" onClick={()=>{
+                                sessionStorage.setItem(Constants.PROJECT_ID, props.id);
+                                HideNav()
+                                }}>{props.collegeName}</Link>
                         </h3>
                      </div>
                      </div>
@@ -209,7 +212,7 @@ function Projects (){
     return (
     <div className = "container-fluid cards" >
         {projectsData.map(project => 
-            <Details image = {project.data.image} collegeName = {project.data.name}
+            <Details image = {project.data.logo} collegeName = {project.data.name}
                 cg = {project.data.cg} branch = {project.data.branch} 
                 deadline = {project.data.deadline} content = {project.data.content}
                 bmk = {studentApplications.bookmarked.includes(project.postId)} 
@@ -225,7 +228,7 @@ function Bookmarks (){
     return (
     <div className = "container-fluid cards" >
         {projectsData.filter(project=>studentApplications.bookmarked.includes(project.postId)).map(project => 
-            <Details image = {project.data.image} collegeName = {project.data.name}
+            <Details image = {project.data.logo} collegeName = {project.data.name}
                 cg = {project.data.cg} branch = {project.data.branch} 
                 deadline = {project.data.deadline} content = {project.data.content}
                 bmk = {studentApplications.bookmarked.includes(project.postId)} 
