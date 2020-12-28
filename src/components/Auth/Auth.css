@@ -16,7 +16,7 @@
 }
 
 #d-block{
-  border-radius: 30px;
+  
   display: block;
   margin: auto; 
 }
@@ -40,7 +40,7 @@
 #para {
   margin-top: 5%;
   text-align: center;
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 1.4;
   margin-left: 3%;
   word-wrap:break-word;
