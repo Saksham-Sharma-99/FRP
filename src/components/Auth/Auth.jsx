@@ -6,6 +6,11 @@ import {Carousel,Button} from 'react-bootstrap'
 import {GetRequest,LogIn,PostRequest} from '../../Model/RequestHandler'
 import {Routes,Constants, CLIENT_ID, SECRET, ORIGIN,CHANNELI_URL,BaseURL} from '../../Model/Constants'
 import './Auth.css'
+import screenpic from "./assets/screenpic.png";
+import iitrpic from "./assets/iitrpic1.jpg";
+import projectspage from "./assets/projectspage.png";
+import profilepic from "./assets/profilepic.png";
+import resultspage from "./assets/resultspage.png";
 import Axios from 'axios';
 import { ImFontSize } from 'react-icons/im';
 import { AiOutlineLineHeight } from 'react-icons/ai';
@@ -13,18 +18,15 @@ import { AiOutlineLineHeight } from 'react-icons/ai';
 var isLoggedIn = false
 
 const carouselData = [
-    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
+    {img:projectspage,
     title:"Title of the first Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
-    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
+    {img:profilepic,
     title:"Title of the  second Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
-    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
+    {img:resultspage,
     title:"Title of the third Slide",
     content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."},
-    {img:"https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff",
-    title:"Title of the fourth Slide",
-    content: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur.Praesent commodo cursus magna, vel scelerisque nisl consectetur."}
     ]
 
 function simulateNetworkRequest() {
@@ -88,10 +90,10 @@ function CarouselElement(props){
                         src={cdata.img}
                         alt="First slide"
                         />
-                        <Carousel.Caption>
+                        {/* <Carousel.Caption>
                             <h3>{cdata.title}</h3>
                             <p className='content'>{cdata.content}</p>
-                        </Carousel.Caption>
+                        </Carousel.Caption> */}
                     </Carousel.Item>
                 );
             })}
@@ -112,12 +114,12 @@ function Auth (){
                 <div class="col-xs-5 col-sm-5 col-lg-5" style={{alignItems:'center'}}>
                     <section>
                         <h1 id="heading">Add more value to your Research Career</h1>
-                        <div id="para">Now more efficient, smarter and easier way—helping you find a perfect foreign intern.</div>
+                        <div id="para">A smarter and easier way—helping you find your dream foreign internships and projects.</div>
                     </section>
                     </div>
 
-                <div className="col-xs-7 col-sm-7 col-lg-7" id="appimage" style={{alignItems:'center'}}>
-                    <img src="https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff" class="img-fluid" />
+                <div className="col-xs-7 col-sm-7 col-lg-7" id="appimage">
+                    <img src={screenpic} class="img-fluid" />
                 </div>
             </div>
             
@@ -139,22 +141,22 @@ function Auth (){
 
             <div className ="row" style={{marginTop:'3%'}}>
                 <div className="col-xs-6 col-sm-6 col-lg-6" id="appimage" style={{alignItems:'center'}}>
-                    <img class="img-fluid" src="https://lh3.googleusercontent.com/qTrOe-KFYcyPX8b_TDQxFv4cHh-dSD1fHMe-M_yX0VHux6YR_QerL9GA2fOgrF9_EnP3S9Sgns94TdwKxzRlPhoUJDb1lxJCVHMmCg=w858-l90-sg-rj-c0xffffff" />
+                    <img src={iitrpic}  class="img-fluid"/>
                 </div>
 
                 <div class="col-xs-6 col-sm-6 col-lg-6" style={{alignItems:'center'}}>
-                    <h1 id="heading">Here we can describe<br></br> some features of our app</h1>
-                    <div id="para">Now more efficient, smarter and easier way—helping you find a perfect foreign intern.</div>
+                    <h1 id="heading">International Relations Cell, IITR</h1>
+                    <div id="para">With International Relations Office (IR Office), we foster our institute vision and mission by providing information related to student exchange programme and scholarships. </div>
                 </div>
             </div>
 
             <h1 id="heading"  style={{marginTop:'5%', textAlign:'center'}}>See how it works</h1>
 
             <div id="para2">
-                Here comes a tag line of frp and some <br></br> snapshots from the portal.
+                 Made with love by IRC, IITR.
             </div>
             
-            <div className ="col-sm-12" style={{marginTop:'5%'}}>
+            <div className ="col-sm-12" style={{marginTop:'1%'}}>
                 <CarouselElement content={carouselData}/>
             </div>
 
