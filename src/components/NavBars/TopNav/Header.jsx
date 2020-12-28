@@ -59,13 +59,14 @@ function Logout(){
 
 function NotificationTab(){
   var NotifData = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).notifs
-
+  var [seemr , setSeemr] = useState(true)
+  var [show,setshow] = useState(3)
   return(
     <NavDropdown title={<div className="pull-left" >
       <FaBell className="chatIcon"   />
       {visualViewport.width<991 ? <b className="iconTitle">Notifications</b>:null}
       </div>} id="collasible-nav-dropdown" >
-        {NotifData.slice(0,8).reverse().map(notifData => 
+        {NotifData.slice(0,show).reverse().map(notifData => 
               <NavDropdown.Item >
               <Link to={notifData.action} className="menuLink">
                 <div className="container-fluid">
@@ -86,10 +87,10 @@ function NotificationTab(){
                 </Link>
               </NavDropdown.Item>)}
         <hr style={{margin:"0"}}/>
-        <NavDropdown.Item >
-          <Link to="/notifications" className="menuLink">
-          <h6>See More</h6>
-          </Link>
+        <NavDropdown.Item onClick={()=>{setSeemr(!seemr);setshow(seemr?3:9)}}>
+          {/* <Link  className="menuLink" > */}
+          <h6 >{seemr?"See More":"See Less"}</h6>
+          {/* </Link> */}
         </NavDropdown.Item>
       </NavDropdown>
   )

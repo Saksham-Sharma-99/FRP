@@ -14,6 +14,7 @@ import resultspage from "./assets/resultspage.png";
 import Axios from 'axios';
 import { ImFontSize } from 'react-icons/im';
 import { AiOutlineLineHeight } from 'react-icons/ai';
+import Fade from "react-reveal/Fade"
 
 var isLoggedIn = false
 
@@ -113,20 +114,25 @@ function Auth (){
            
             <div className ="row">
                 <div class="col-xs-5 col-sm-5 col-lg-5" style={{alignItems:'center'}}>
+                    <Fade left>
                     <section>
                         <h1 id="heading">Add more value to your Research Career</h1>
                         <div id="para">A smarter and easier way—helping you find your dream foreign internships and projects.</div>
                     </section>
+                    </Fade>
                     </div>
 
                 <div className="col-xs-7 col-sm-7 col-lg-7" id="appimage">
+                    <Fade right>
                     <img src={screenpic} class="img-fluid" />
+                    </Fade>
                 </div>
             </div>
             
             <div className ="row" style={{marginTop:'3%'}}>
                 <div class="col-sm"></div>
                 <div class="col-sm">
+                <Fade bottom>
                     <h3 className="h3 mb-3 font-weight-normal" style={{textAlign:'center' ,marginTop:'40px'}}>
                         To continue, sign in with your Channel-I account 
                     </h3>
@@ -134,33 +140,38 @@ function Auth (){
                         <LoadingButton />
                     </div>
                     <p className="mt-5 mb-3 text-muted" style={{textAlign:'center'}}>&copy; IR Cell</p>
-                    
+                </Fade>
                 </div>
                 <div class="col-sm"></div>
             </div>
 
 
             <div className ="row" style={{marginTop:'3%'}}>
+                <Fade left>
                 <div className="col-xs-6 col-sm-6 col-lg-6" id="appimage" style={{alignItems:'center'}}>
                     <img src={iitrpic}  class="img-fluid"/>
                 </div>
+                </Fade>
 
                 <div class="col-xs-6 col-sm-6 col-lg-6" style={{alignItems:'center'}}>
+                <Fade right>
                     <h1 id="heading">International Relations Cell, IITR</h1>
                     <div id="para">With International Relations Office (IR Office), we foster our institute vision and mission by providing information related to student exchange programme and scholarships. </div>
+                    </Fade>
                 </div>
             </div>
 
+            <Fade bottom>
             <h1 id="heading"  style={{marginTop:'5%', textAlign:'center'}}>See how it works</h1>
 
             <div id="para2">
                  Made with love by IRC, IITR.
             </div>
-            
+            </Fade>
             <div className ="col-sm-12" style={{marginTop:'1%'}}>
                 <CarouselElement content={carouselData}/>
             </div>
-
+            
             
 
         </div>

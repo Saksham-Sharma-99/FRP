@@ -8,6 +8,7 @@ import { CHANNELI_URL, Constants } from "../Model/Constants";
 import {Card,ListGroup,ListGroupItem} from "react-bootstrap"
 import Nav from "./components/Nav/Nav";
 import { Resume, Transcript } from "./components/PdfView/PdfView";
+import Pulse from "react-reveal/Pulse"
 
 var MILLISECONDS_IN_A_YEAR = 1000*60*60*24*365;
 function getAge(time){
@@ -54,6 +55,7 @@ function Profile(){
     // var acadData = profileData.personalData.acadDetails
     return (
         <HashRouter >
+        <Pulse>
         <div className = "container-fluid profile-section">
             <div className="row profile-card">
 
@@ -94,6 +96,7 @@ function Profile(){
             </div>
 
         </div>
+        </Pulse>
         </HashRouter>
     )
 }

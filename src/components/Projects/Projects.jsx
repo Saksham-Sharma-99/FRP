@@ -19,6 +19,7 @@ import { Popover , OverlayTrigger } from "react-bootstrap"
 import Popup from "reactjs-popup"
 import { DocAlertModal, VerifyModal } from "../Modals/Modals"
 import App from '../../App';
+import Slide from "react-reveal/Slide"
 
 
 function HideNav(){
@@ -212,12 +213,12 @@ function Projects (){
     return (
     <div className = "container-fluid cards" >
         {projectsData.map(project => 
-            <Details image = {project.data.logo} collegeName = {project.data.name}
+           <Details image = {project.data.logo} collegeName = {project.data.name}
                 cg = {project.data.cg} branch = {project.data.branch} 
                 deadline = {project.data.deadline} content = {project.data.content}
                 bmk = {studentApplications.bookmarked.includes(project.postId)} 
                 id= {project.postId} applied={studentApplications.applied.includes(project.postId)}
-            />)}    
+            /> )}    
     </div>
      )
 }

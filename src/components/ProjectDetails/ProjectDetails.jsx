@@ -1,12 +1,15 @@
-import React from "react";
+import React,{useState,useEffect,useRef} from "react";
 import "./ProjectDetails.css"
 import {projectDetails, testimonialDetails} from "./Details";
 import { render } from "@testing-library/react";
 import { Constants, BaseURL } from "../../Model/Constants";
+import Fade from "react-reveal/Fade"
+import Zoom from 'react-reveal/Zoom';
 
 function LocationsTop(props){
     return(
         <div className="row locations" style={{margin:"0",padding:"0 15px"}}>
+        <Fade bottom>
                 {(props.array).map((el)=>{
                     return el.id== 1?
                     (
@@ -21,6 +24,7 @@ function LocationsTop(props){
                         </div>
                     )
                 })}
+                </Fade>
             </div>
     );
 }
@@ -28,6 +32,7 @@ function LocationsTop(props){
 function LocationsMid(props){
     return(
         <div className="row locations" style={{padding:"0 15px",margin:"0"}}>
+        <Fade bottom>
                 {(props.array).map((el)=>{
                     return el.id== 6?
                     (
@@ -42,6 +47,7 @@ function LocationsMid(props){
                         </div>
                     )
                 })}
+                </Fade>
             </div>
     );
 }
@@ -52,6 +58,7 @@ function Testimonials(props){
             (props.array).map((el)=>{
                 return(
                     <div className="col college-details" style={{backgroundColor:"white",paddingBottom:"50px"}}>
+                    <Fade bottom>
                     <div className="flip-card" style={el.id<=2 ? {float:"right"}:null}>
                         <div className="flip-card-inner">
                             <div className="flip-card-front" >
@@ -66,7 +73,8 @@ function Testimonials(props){
                             </div>
                         </div>
                     </div>
-                </div>  
+                    </Fade>
+                </div> 
                 );
             })
         // </div>
@@ -74,6 +82,51 @@ function Testimonials(props){
     
 }
 
+function AboutCollege(props){
+    const ref = useRef()
+    var rootMargin = "-400px"
+    const [isIntersecting, setIntersecting] = useState(false)
+
+    const observer = new IntersectionObserver(
+        ([entry]) => setIntersecting(entry.isIntersecting)
+    )
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            // Update our state when observer callback fires
+            setIntersecting(entry.isIntersecting);
+          },
+          {
+            rootMargin
+          }
+        );
+        if (ref.current) {
+          observer.observe(ref.current);
+        }
+        return () => {
+          observer.disconnect();
+        };
+      }, []);
+
+    return(
+        <div className="container-fluid college-details" style={{padding:"0",backgroundColor:"white"}}>
+        <div ref={ref} className={isIntersecting?"row college-details-2-blur":"row college-details-2"} 
+        style={{backgroundImage:`url(${props.image})`}}>
+        </div>
+        {isIntersecting? 
+            <div className="col-12 about-data" >
+            <Fade bottom>
+            <img src={props.logo} height="100px" width="100px" style={{borderRadius:"50%",marginBottom:"30px"}}/>
+            
+            <h1 >{props.collegeName}</h1>
+            <h4 >{props.about}</h4>
+            </Fade>
+            </div>
+            :null}
+        </div>
+    )
+}
 
 
 function ProjectDetails(){
@@ -83,7 +136,7 @@ function ProjectDetails(){
             <div className="row" style={{marginLeft:"0",marginRight:"0"}}>
                 <div className="col-12 university_img" style={{backgroundImage:`url(${collegeData.image1})`}}>
                 {/* <img className="university_img" src={collegeData.image1} /> */}
-                <h2 className="college-name" >{collegeData.data.name}</h2>
+               <h2 className="college-name" ><Zoom> {collegeData.data.name}</Zoom></h2>
                 </div>
             </div>
              <div className="row college-details">
@@ -97,7 +150,7 @@ function ProjectDetails(){
 
             
 
-            <div className="row" style={{margin:"0"}}>
+            <div className="row" style={{margin:"0",backgroundColor:"white"}}>
                 <div className="col-lg-12 college-details" style={{backgroundColor:"white",color:"#1b262c"}}>
                     <h1 style={{fontWeight:"bold", fontSize:"4.2rem", paddingBottom:"0rem"}}>Testimonials</h1>
                     <h4>Students who have previously been a part of foreign universities via FRP</h4>
@@ -105,9 +158,8 @@ function ProjectDetails(){
                 <Testimonials array={collegeData.testimonials}/> 
             </div>
 
-            <div className="row college-details-2" style={{backgroundImage:`url(${collegeData.image2})`}}>
-                        
-            </div>
+            <AboutCollege image= {collegeData.image2} logo={collegeData.data.logo} collegeName={collegeData.data.name} 
+            about={collegeData.data.about}/>
         </div>
     );
 }
