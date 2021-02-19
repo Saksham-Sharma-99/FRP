@@ -84,7 +84,7 @@ function Testimonials(props){
 
 function AboutCollege(props){
     const ref = useRef()
-    var rootMargin = "-400px"
+    var rootMargin = "-200px"
     const [isIntersecting, setIntersecting] = useState(false)
 
     const observer = new IntersectionObserver(
@@ -117,7 +117,7 @@ function AboutCollege(props){
         {isIntersecting? 
             <div className="col-12 about-data" >
             <Fade bottom>
-            <img src={props.logo} height="100px" width="100px" style={{borderRadius:"50%",marginBottom:"30px"}}/>
+            <img className="college-logo" src={BaseURL+"/images/?name="+props.logo}  style={{borderRadius:"50%",marginBottom:"2px"}}/>
             
             <h1 >{props.collegeName}</h1>
             <h4 >{props.about}</h4>
@@ -130,11 +130,37 @@ function AboutCollege(props){
 
 
 function ProjectDetails(){
+    const ref = useRef()
+    var rootMargin = "-200px"
+    const [isIntersecting, setIntersecting] = useState(false)
+
+    const observer = new IntersectionObserver(
+        ([entry]) => setIntersecting(entry.isIntersecting)
+    )
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            // Update our state when observer callback fires
+            setIntersecting(entry.isIntersecting);
+          },
+          {
+            rootMargin
+          }
+        );
+        if (ref.current) {
+          observer.observe(ref.current);
+        }
+        return () => {
+          observer.disconnect();
+        };
+      }, []);
+      
     var collegeData=JSON.parse(sessionStorage.getItem(Constants.PROJECTS)).filter((data)=>data.postId==sessionStorage.getItem(Constants.PROJECT_ID))[0]
     return(
         <div className="container-fluid cont-fl" style={{padding:"0",minHeight:"700px"}}>
             <div className="row" style={{marginLeft:"0",marginRight:"0"}}>
-                <div className="col-12 university_img" style={{backgroundImage:`url(${collegeData.image1})`}}>
+                <div className="col-12 university_img" style={{backgroundImage:`url(${collegeData.image2})`}}>
                 {/* <img className="university_img" src={collegeData.image1} /> */}
                <h2 className="college-name" ><Zoom> {collegeData.data.name}</Zoom></h2>
                 </div>
@@ -158,7 +184,7 @@ function ProjectDetails(){
                 <Testimonials array={collegeData.testimonials}/> 
             </div>
 
-            <AboutCollege image= {collegeData.image2} logo={collegeData.data.logo} collegeName={collegeData.data.name} 
+            <AboutCollege image= {collegeData.image1} logo={collegeData.data.logo} collegeName={collegeData.data.name} 
             about={collegeData.data.about}/>
         </div>
     );

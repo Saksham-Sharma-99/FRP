@@ -13,7 +13,7 @@ import {BiMessageAltDetail} from "react-icons/bi"
 import {FiExternalLink} from "react-icons/fi"
 import {ImCompass} from "react-icons/im"
 import {AiOutlineMail} from "react-icons/ai"
-import { Constants, Routes,ORIGIN } from "../../Model/Constants"
+import { Constants, Routes,ORIGIN,BaseURL } from "../../Model/Constants"
 import { PostRequest } from "../../Model/RequestHandler"
 import { Popover , OverlayTrigger } from "react-bootstrap"
 import Popup from "reactjs-popup"
@@ -150,13 +150,13 @@ function Details(props){
     <div className = "container-fluid project-card" style = {{backgroundColor : "#ebf2f7" }}> 
         <div className="container">
 
-            <div className="row">
-                <div className="col-sm-8">
+            <div className="row" style={{marginBottom:"25px"}}>
+                <div className="col-11">
                     <div className = "row">
-                    <div className="col-lg-3">
-                        <img className= "college-image" src = {props.image} alt = "College Image"  /> 
+                    <div className="col-3">
+                        <img className= "college-image" src = {BaseURL+"/images/?name="+props.image} alt = "College Image"  /> 
                     </div>
-                    <div className="col-lg-8" style={{paddingTop : '30px'}}>
+                    <div className="col-lg-8" style={{paddingTop : '25px'}}>
                         <h3 > 
                             <Link className = "collegeName" to="projectDetails" onClick={()=>{
                                 sessionStorage.setItem(Constants.PROJECT_ID, props.id);
@@ -169,14 +169,10 @@ function Details(props){
 
                     {/* <div className="col-sm"></div> */}
                     
-                <div className="col-sm-4">
+                <div className="col-1">
                     <div className="row"> 
                     
-                        <div className = "col">
-                            <p className="requirements"><strong>Cg Required </strong>: {props.cg}</p> 
-                            <p className="requirements"><strong>Branch </strong>     : {props.branch}</p>
-                            <p className="requirements"><strong>Deadline </strong>   : {props.deadline}</p>
-                        </div>
+                        
                         <Link to = "#"onClick = {()=>toggleBookmark(!bookmarked,props.id)} >
                             <div className="col bookmark" >
                                 <BsFillBookmarkFill className="bookmarkIcon"color={bookmarked ? "#ed6663":"#9ba4b4"}
@@ -188,7 +184,20 @@ function Details(props){
                 </div>
                     
             </div>
-                
+            
+            <div className="row">
+                <div className = "col">
+                    <p className="requirements"><strong>Cg Required </strong>: {"\n"+props.cg}</p> 
+                </div>
+                <div className = "col">
+                    <p className="requirements"><strong>Branch </strong>: {"\n"+props.branch}</p>
+                </div>
+                <div className = "col">
+                    <p className="requirements"><strong>Deadline </strong>: {"\n"+props.deadline}</p>
+                </div>
+            </div>    
+
+
         </div> 
 
         <hr className="hr3"/>

@@ -12,14 +12,18 @@
     height :110px;
     background-color : white ;
     margin-right: 10px;
-    border-radius : 50%
+    border-radius : 50%;
+    object-fit:contain;
+    background-color: transparent;
 }
 
 .collegeName{
     color:#1b262c;
-    display: inline;
     font-size: 32px;
     font-weight: bold;
+    display: block;
+    margin: auto;
+    text-align:start;
 }
 .collegeName:hover{
     color: black;
@@ -29,9 +33,12 @@
 }
 
 .requirements{
-    line-height: 12px;
-    margin-left: 20px;
-    margin-top : 10px;
+    word-wrap: break-word;
+    white-space:pre-wrap;
+    line-height: 22px;
+    /* margin-left: 20px; */
+    text-align: center;
+    margin-top : 20px;
     font-size: 18px;
     color: #1b262c;
     line-height: 1.3rem;
