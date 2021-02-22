@@ -33,7 +33,7 @@ function Buttons(){
  )
 }
 
-function Categories(){
+function Categories(props){
     var [cat,setCat] = useState("res")
     return(
         <div className="row">
@@ -41,15 +41,16 @@ function Categories(){
                 <Link to="/profile/resume" className={cat=="res"? "categoryLinkSel":"categoryLink"} 
                 onClick={()=>setCat("res")}>Resume</Link>
             </div> 
-            <div className={cat=="tcpt" ? "col-2 doc-cat-sel":"col-2 doc-cat"}>
+            
+            {!(props.isFaculty)? <div className={cat=="tcpt" ? "col-2 doc-cat-sel":"col-2 doc-cat"}>
             <Link to="/profile/transcript" className={cat=="tcpt"? "categoryLinkSel":"categoryLink"} 
             onClick={()=>setCat("tcpt")}>Transcript</Link>
-            </div>  
+            </div> :null }
         </div>
     )
 }
 
-function Nav(){
+function Nav(props){
     return(
         <div className="container-fluid profile-nav">
             <div className="row" style={{padding:"20px",minHeight:"60%"}}>
@@ -61,7 +62,7 @@ function Nav(){
                     <Buttons />
                 </div>
             </div>
-            <Categories />
+            <Categories isFaculty = {props.isFaculty}/>
          </div>
     )
 }

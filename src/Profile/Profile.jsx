@@ -32,9 +32,9 @@ function StudentDetails(props){
                 <br />
                 {/* <Card.Body></Card.Body> */}
                 <Card.Text style={{textAlign:"center"}}>{props.branch}</Card.Text>
-                <Card.Text><strong>Semester</strong> : {props.sem}</Card.Text>
+                {props.sem != null ? <Card.Text><strong>Semester</strong> : {props.sem}</Card.Text>:null}
                 <Card.Text><strong>Email</strong> : {props.email}</Card.Text>
-                <Card.Text><strong>Number</strong> : {props.num}</Card.Text>
+                <Card.Text><strong>Number</strong> : {props.num != null? props.num:"  ___"}</Card.Text>
                 
             </Card.Body>
                 <a className="edit-profile" href="https://internet.channeli.in/settings/edit_profile">Edit Profile</a>
@@ -61,7 +61,10 @@ function Profile(){
 
                  <div className ="col-lg-4 id-section flip-card">
                     <StudentDetails  name={profileData.person.fullName} role={profileData.person.roles[0].role}
-                                     en={profileData.username} branch={profileData.student["branch department name"]} 
+                                     en={profileData.username} 
+                                     branch={profileData.student["branch department name"]!=null?
+                                                    profileData.student["branch department name"]:
+                                                    profileData.facultyMember.designation +", "+profileData.facultyMember['department name']} 
                                      sem={profileData.student.currentSemester} 
                                      email ={profileData.contactInformation.instituteWebmailAddress}
                                      dob={profileData.biologicalInformation.dateOfBirth}
@@ -74,7 +77,7 @@ function Profile(){
                     <div className="container-fluid documents" style={{minHeight:"87vh",minWidth:"40vw",padding:"20px"}}>
                         <h2>Documents Information</h2>
                         <hr className="hr4"></hr>
-                        <Nav />
+                        <Nav isFaculty = {profileData.student["branch department name"]==null}/>
                         
                             <Switch>
                                 <AuthRoute 
