@@ -7,7 +7,7 @@
 
 .navItem :hover{
     width: 28px;
-    transition: 0.3s;
+    transition: 0.15s;
     cursor: pointer;
 }
 .navbar{
@@ -88,4 +88,20 @@
 }
 .footer {
     background-image: linear-gradient(35deg, #0f4c75 30%, #3282b8 60%, #0f4c75 90%);
+}
+.search{
+    background-color: white;
+    border: black;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 4px;
+    /* color: transparent; */
+}
+.search:hover{
+    background-color: white;
+    border: black;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 4px;
+    /* color: transparent; */
 }

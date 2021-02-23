@@ -10,7 +10,8 @@ import Notifications from './Notifications.js'
 
 import {MdMessage} from "react-icons/md"
 import {FaBell} from "react-icons/fa"
-import {RiUserFill,RiMessageFill} from "react-icons/ri"
+import {RiUserFill,RiSearch2Fill} from "react-icons/ri"
+import {VscSearch} from "react-icons/vsc"
 import {TiHomeOutline} from "react-icons/ti"
 import {GiIdCard} from "react-icons/gi"
 import {IoIosDocument} from "react-icons/io"
@@ -18,6 +19,8 @@ import {GiTeamIdea} from "react-icons/gi"
 import {BiLogOut} from "react-icons/bi"
 import {LogOut,GetRequest} from "../../../Model/RequestHandler"
 import { CHANNELI_URL, Constants ,ORIGIN,Routes} from "../../../Model/Constants";
+import { InputGroup ,Button,FormControl,Form} from "react-bootstrap";
+
 
 function HideNav(){
   ReactDOM.render(
@@ -185,9 +188,44 @@ function ProfileTab(){
   )
 }
 
+function SearchBar(){
+  return(
+  //   <InputGroup className="mb-3">
+  //   <FormControl
+  //     placeholder="Recipient's username"
+  //     aria-label="Recipient's username"
+  //     aria-describedby="basic-addon2"
+  //   />
+  //   <InputGroup.Append>
+  //     <Button variant="outline-secondary">Button</Button>
+  //   </InputGroup.Append>
+  // </InputGroup>
+      <Form inline >
+        <InputGroup >
+          <FormControl
+            placeholder="Search"
+            aria-label="Search"
+            // aria-describedby="basic-addon1"
+            style={{maxHeight:"40px",backgroundColor:"white",borderTopRightRadius:"0",borderBottomRightRadius:"0",width:"35vh"}}
+          />
+        </InputGroup>
+        <InputGroup.Prepend>
+            <Button className="search" style={{height:"40px",margin:"0"}} >
+              <RiSearch2Fill size={25} color="lightgrey"/>
+            </Button>
+          </InputGroup.Prepend>
+       </Form>
+    // <Form inline>
+    //   <FormControl type="text" placeholder="Search" style={{maxHeight:"50px"}} />
+    //   <Button type="submit">Submit</Button>
+    // </Form>
+  )
+}
+
 function NavItems(){
   return (
     <Nav>
+      
       <NotificationTab />
 
       {/* <ChatsTab /> */}
@@ -218,7 +256,9 @@ return (
 
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="mr-auto"></Nav>
+    <Nav className="mr-auto">
+    {/* {props.showItems?<SearchBar />:null} */}
+    </Nav>
 
     {props.showItems?<NavItems />:null}
   </Navbar.Collapse>
