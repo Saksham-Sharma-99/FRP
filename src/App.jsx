@@ -12,6 +12,7 @@ import { LogOut } from "./Model/RequestHandler";
 import { Constants } from "./Model/Constants";
 import Footer from "./components/NavBars/BottomNav/Footer";
 import ProjectDetails from "./components/ProjectDetails/ProjectDetails";
+import Search from "./components/Search/Search";
 
 var showSideNav = true;
 var LoggedIn = (isLoggedIn || sessionStorage.getItem('isLoggedIn')==='yes'); 
@@ -63,6 +64,11 @@ function App(props){
                     redirectTo='/auth'
                     path='/projectDetails'
                     component={ProjectDetails}/>
+                    <AuthRoute
+                    authenticated={LoggedIn}
+                    redirectTo='/auth'
+                    path='/search'
+                    component={Search}/>
             </Switch>
 
             <Footer show ={props.showBottomNav}/>

@@ -248,7 +248,26 @@ function Bookmarks (){
      )
 }
 
+function ProjectsFiltered(props){
+    var projectsData = JSON.parse(sessionStorage.getItem(Constants.PROJECTS))
+    var studentApplications = JSON.parse(sessionStorage.getItem(Constants.CHANNELI_DATA)).applications
+    return (
+    <div className = "container-fluid cards" >
+        {projectsData.filter(project=>{
+            return(
+            props.key.match(project.data.name)
+            )
+            }).map(project => 
+            <Details image = {project.data.logo} collegeName = {project.data.name}
+                cg = {project.data.cg} branch = {project.data.branch} 
+                deadline = {project.data.deadline} content = {project.data.content}
+                bmk = {studentApplications.bookmarked.includes(project.postId)} 
+                id= {project.postId} applied={studentApplications.applied.includes(project.postId)}
+            />)}    
+    </div>
+     )
+}
 
 
 export default Projects
-export {Bookmarks}
+export {Bookmarks , ProjectsFiltered}

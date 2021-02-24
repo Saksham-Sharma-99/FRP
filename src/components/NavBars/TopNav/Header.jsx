@@ -189,36 +189,30 @@ function ProfileTab(){
 }
 
 function SearchBar(){
+  function Search(){
+    HideNav()
+  }
   return(
-  //   <InputGroup className="mb-3">
-  //   <FormControl
-  //     placeholder="Recipient's username"
-  //     aria-label="Recipient's username"
-  //     aria-describedby="basic-addon2"
-  //   />
-  //   <InputGroup.Append>
-  //     <Button variant="outline-secondary">Button</Button>
-  //   </InputGroup.Append>
-  // </InputGroup>
       <Form inline >
         <InputGroup >
           <FormControl
             placeholder="Search"
             aria-label="Search"
             // aria-describedby="basic-addon1"
-            style={{maxHeight:"40px",backgroundColor:"white",borderTopRightRadius:"0",borderBottomRightRadius:"0",width:"35vh"}}
+            style={{height:"40px",backgroundColor:"white",borderTopRightRadius:"0",borderBottomRightRadius:"0"
+                    ,width:"35vh",border:"0",borderTopLeftRadius:"20px",borderBottomLeftRadius:"20px"}}
+            id="search"
+            onEnded={Search}
           />
         </InputGroup>
         <InputGroup.Prepend>
-            <Button className="search" style={{height:"40px",margin:"0"}} >
-              <RiSearch2Fill size={25} color="lightgrey"/>
+          <Link to="/search/people" >
+            <Button className="search" style={{height:"40px",margin:"0"}} onClick={Search}>
+              <RiSearch2Fill size={24} color="#9ba4b4"/>
             </Button>
+            </Link>
           </InputGroup.Prepend>
        </Form>
-    // <Form inline>
-    //   <FormControl type="text" placeholder="Search" style={{maxHeight:"50px"}} />
-    //   <Button type="submit">Submit</Button>
-    // </Form>
   )
 }
 
@@ -257,7 +251,7 @@ return (
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
-    {/* {props.showItems?<SearchBar />:null} */}
+    {props.showItems?<SearchBar />:null}
     </Nav>
 
     {props.showItems?<NavItems />:null}

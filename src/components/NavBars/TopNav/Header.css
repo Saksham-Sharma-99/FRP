@@ -91,17 +91,20 @@
 }
 .search{
     background-color: white;
-    border: black;
+    border:1px #9ba4b4;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    padding: 4px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 6px;
+
     /* color: transparent; */
 }
 .search:hover{
     background-color: white;
-    border: black;
+    border: #9ba4b4;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    padding: 4px;
+    padding: 6px;
     /* color: transparent; */
 }
