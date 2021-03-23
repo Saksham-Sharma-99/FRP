@@ -16,10 +16,10 @@ const Constants = {
 }
 
 const BaseURL = (['localhost','127.0.0.1'].includes(window.location.hostname)) ? "https://frp-backend.herokuapp.com" : "http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/api"
-const LoginURL = "https://internet.channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri="
+const LoginURL = "https://channeli.in/oauth/authorise?client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri="
 const CLIENT_ID = "KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI"
 const SECRET = "KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm"
-const CHANNELI_URL = "https://internet.channeli.in"
+const CHANNELI_URL = "https://channeli.in"
 const ORIGIN = (['localhost','127.0.0.1'].includes(window.location.hostname)) ? 'http://localhost:3000/#/':"http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/frp"
 
 

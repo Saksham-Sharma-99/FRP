@@ -34,11 +34,11 @@ function simulateNetworkRequest() {
     return new Promise((resolve) => {
         console.log('clicked sign in')
         if(localStorage.getItem(Constants.TOKEN) == null){
-        window.location.replace(`https://internet.channeli.in/oauth/authorise?client_id=${CLIENT_ID}&redirect_uri=${BaseURL}/&state=${ORIGIN}`)
+        window.location.replace(`https://channeli.in/oauth/authorise?client_id=${CLIENT_ID}&redirect_uri=${BaseURL}/&state=${ORIGIN}`)
         }else{
             GetRequest(Routes.CHECK_USER,(res)=>{
                 if(res.data == Constants.DOESNT_EXISTS){
-                    window.location.replace(`https://internet.channeli.in/oauth/authorise?client_id=${CLIENT_ID}&redirect_uri=${BaseURL}/&state=${ORIGIN}`)
+                    window.location.replace(`https://channeli.in/oauth/authorise?client_id=${CLIENT_ID}&redirect_uri=${BaseURL}/&state=${ORIGIN}`)
                 }
                 else{
                     console.log(res.data)
